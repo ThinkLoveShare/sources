@@ -1,2 +1,1 @@
-# sources
-sources for thinkloveshare.com
+# blog
