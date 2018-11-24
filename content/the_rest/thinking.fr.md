@@ -6,8 +6,6 @@ tags: ["placeholder", "writeup_1"]
 date: 2018-11-21
 ---
 
----
-
 Quoi ? Comment ?
 
 Est-ce possible de faire des articles encore moins souvent ?

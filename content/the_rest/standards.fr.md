@@ -6,8 +6,6 @@ tags: ["placeholder", "the_rest"]
 date: 2018-11-21
 ---
 
----
-
 Bonjour cher lecteur, chère lectrice,
 
 

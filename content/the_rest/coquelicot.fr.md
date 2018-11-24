@@ -6,8 +6,6 @@ tags: ["placeholder", "the_rest"]
 date: 2018-11-21
 ---
 
----
-
 Et si, pour varier un peu, on prenait le large ? Et si on laissait la technologie de côté un petit instant, histoire de se divertir ? Et si on lisait un peu ? ;)
 
 

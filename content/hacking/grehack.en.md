@@ -6,9 +6,6 @@ date: 2018-11-16
 description: "GreHack 2018 is an hacking event (conferences and CTF) that takes place each year at Grenoble in France. Last year was the first time I went to an event like that, this year, I bring you in !"
 ---
 
----
-
-
 ## Before I start...
 
 One year ago was my first on-site hacking event : GreHack 2017. \

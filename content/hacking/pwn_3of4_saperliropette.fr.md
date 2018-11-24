@@ -5,7 +5,6 @@ tags: ["tutorial", "buffer", "overflow", "rop", "gadget", "pwn", "binary", "expl
 date: 2018-05-09
 ---
 
----
 Route du pwn, troisième et avant dernière escale, bienvenue à bord !
 
 Hier, le simple buffer overflow et le ret2libc, aujourd'hui, le ROP, ou Return Oriented Programming, et demain... Demain la conquête du monde !!!

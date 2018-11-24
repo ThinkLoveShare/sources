@@ -5,7 +5,6 @@ tags: ["tutorial", "buffer", "overflow", "stack", "pivot", "pwn", "binary", "exp
 date: 2018-05-10
 ---
 
----
 Bienvenue pour ce 4ème et dernier article d'introduction au pwn.
 
 Je vous avais promis du lourd pour le final, chose dite, chose due !

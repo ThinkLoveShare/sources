@@ -5,8 +5,6 @@ tags: ["tutorial", "buffer", "overflow", "pwn", "binary", "exploit"]
 date: 2018-05-03
 ---
 
----
-
 printf("Mme, Mr %s, bonjour. ", lecteur);
 Aujourd'hui, je vous propose un article plus hardu, un article plus poilu, un article plus barbu, en bref, un article qui pète des culs !
 
