@@ -2,7 +2,7 @@
 <div class="sidebar">
   <div class="container sidebar-about {{ with .Site.Params.sidebarSticky }}sidebar-sticky{{ end }}">
       <span class="site__title">
-        <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        <a href="{{ .Site.BaseURL }}/{{ .Lang }}">{{ .Site.Title }}</a>
       </span>
           <a href="{{ .Site.BaseURL }}/{{ .Lang }}">
           {{ with .Site.Params.authorimage }}
@@ -14,7 +14,7 @@
           {{ end }}
           </a>
       <p class="site__description">
-        <a href="{{ .Site.BaseURL }}">
+        <a href="{{ .Site.BaseURL }}/{{ .Lang }}">
         {{ with .Site.Params.description }} {{.}} {{end}}
       </a>
       </p>
