@@ -2,7 +2,6 @@
 author: "Laluka"
 title: "Excess ess 1"
 slug: "excess_ess_1"
-tags: ["xss", "bypass", "securityfest", "2018"]
 date: 2018-11-16
 description: "A web challenge about XSS solved during the 2018 SecurityFest CTF. It's all about finding a bypass in order to execute the 'removed' function alert."
 ---

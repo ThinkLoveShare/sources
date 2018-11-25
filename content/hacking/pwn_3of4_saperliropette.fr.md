@@ -1,7 +1,6 @@
 ---
 author: "Laluka"
 title: "PWN 3/4 : SaperliROPette !"
-tags: ["tutorial", "buffer", "overflow", "rop", "gadget", "pwn", "binary", "exploit"]
 date: 2018-05-09
 ---
 

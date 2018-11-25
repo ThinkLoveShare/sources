@@ -1,7 +1,6 @@
 ---
 author: "Laluka"
 title: "PWN 1/4 : Buffer Overflow, là où tout a commencé"
-tags: ["tutorial", "buffer", "overflow", "pwn", "binary", "exploit"]
 date: 2018-05-03
 ---
 

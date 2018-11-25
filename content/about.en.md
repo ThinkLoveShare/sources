@@ -2,7 +2,7 @@
 author: "Laluka"
 title: "Hello there !"
 slug: "about"
-tags: ["about", "bio", "team", "friends"]
+
 date: 2018-11-14
 ---
 

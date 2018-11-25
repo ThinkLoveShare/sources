@@ -1,7 +1,6 @@
 ---
 author: "Laluka"
 title: "PWN 2/4 : Retour case libc, piochez un shell ! "
-tags: ["tutorial", "buffer", "overflow", "ret2libc", "pwn", "binary", "exploit"]
 date: 2018-05-08
 ---
 

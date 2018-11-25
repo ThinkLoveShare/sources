@@ -1,7 +1,6 @@
 ---
 author: "Laluka"
 title: "PWN 4/4 : Stack Pivot ToZeMoon !"
-tags: ["tutorial", "buffer", "overflow", "stack", "pivot", "pwn", "binary", "exploit"]
 date: 2018-05-10
 ---
 
