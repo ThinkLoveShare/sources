@@ -14,7 +14,7 @@ Ce que je vais vous dire ici est à mes yeux du "bon sens", mais j'ai quand mêm
 
 Ces quelques méthodes pourront vous servir dans vos études (coucou les maths et la physique qui piquent !), dans votre boulot (coucou l'administration, la comm', la recherche, ...), ou encore dans votre passion (coucou les challenges de hacking qui prennent des jourssss <3 ).
 
-<img class="img_50" src="/the_rest/thinking/head.png" alt="head">
+<img class="img_med" src="/the_rest/thinking/head.png" alt="head">
 
 ## HowTo
 

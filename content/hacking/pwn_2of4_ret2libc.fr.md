@@ -10,7 +10,7 @@ Eh bien... On dirait bien que oui ! ^.^
 
 Bienvenue pour ce 2/4 ème article consacré au pwn / à l'exploit d'exécutables linux !
 
-Au programme, le ret2libc, ou retour à la lib C. Toujours dans la famille des exploits type buffer overflow, et toujours avec les sources du collègue : https://cyrilbresch.ddns.net/
+Au programme, le ret2libc, ou retour à la lib C. Toujours dans la famille des exploits type buffer overflow, et toujours avec les sources du collègue : https://cyrilbresch.fr/
 
 Je ne repasse pas par la liste des définitions, celle-ci ayant été bien dégrossie dans le premier article...
 
@@ -18,6 +18,8 @@ Je ne repasse pas par la liste des définitions, celle-ci ayant été bien dégr
 Dans le premier article, nous avons injecté un shellcode dans la stack, et nous avons utilisé le buffer overflow pour rediriger le flot d'exécution sur notre shellcode, ceci nous permettant de spawn un shell. C'était bien, c'était un peu tricky, mais c'était... C'est... Plus réalisable de nos jours. Triste n'est-il pas ?
 
 En effet, à chaque faille de sécurité, de nouvelles protections sont élaborées et ajoutées aux systèmes. L'une des protections trouvée contre cette attaque est l'usage d'un flag NX placé sur la pile. Cela rend la stack non exécutable. Ou, pour être un plus précis, cela rend la stack inscriptible XOR exécutable. Si vous écrivez à un endroit, il ne sera pas exécutable, si vous exécutez du code à un endroit, il n'est plus possible d'y écrire... Damnit !
+
+<img class="img_med" src="/hacking/pwn_2of4_ret2libc/mince.jpg" alt="mince" >
 
 Heureusement pour nous, des barbus (ou imberbes, qui suis-je pour juger ?) ont trouvé des solutions pour pouvoir quand même s'amuser. L'une d'entre elles, le ret2libc !
 
@@ -27,6 +29,8 @@ Un programme en C ne sait pas faire grand-chose, très peu en fait. Nous faisons
 Par exemple, la fonction printf qui nous permet d'afficher du texte. La fonction getc qui nous permet de lire un caractère saisi par l'utilisateur. Ou encore... La fonction system, qui nous permet d'exécuter un programme externe au notre. Toutes ces fonctions sont accessibles dans notre programme, nous les utilisons sans jamais avoir eu la curiosité (ni même l'envie ? ) de regarder leur contenu ou de les recoder. Tant mieux, elles sont déjà faites, et placées dans la... *roulement de tambours* ...libc !
 
 Petite ref au man : http://man7.org/linux/man-pages/man7/libc.7.html
+
+<img class="img_med" src="/hacking/pwn_2of4_ret2libc/rtfm.jpg" alt="rtfm" >
 
 En bref, c'est la librairie standard C, l'endroit où sont stockées toutes les fonctions les plus habituelles / utilisées.
 
@@ -49,6 +53,8 @@ Les bases sont posées, maintenant, walkthrough !
 
 On commence par comprendre comment le programme fonctionne (ou ne fonctionne pas...), trouver le point de crash :
 
+<img class="img_full" src="/hacking/pwn_2of4_ret2libc/recon.png" alt="recon" >
+
 Remarque :
 
  - $( pouet ) : permet de faire exécuter en priorité la commande "pouet".
@@ -56,6 +62,8 @@ Remarque :
  - python -c : permet d'exécuter du python via bash. Donc afficher facilement plein de caractères.
 
 On crash. Bien ca, excellent ! Maintenant, l'offset, avec le tool pattern dans gdb :
+
+<img class="img_full" src="/hacking/pwn_2of4_ret2libc/pattern_create.png" alt="pattern_create" >
 
 Je vais expliquer un peu mieux le prochain screen, car il vous a (cf vos retours, merciii !) fait assez mal...
 
@@ -74,6 +82,8 @@ Ici on voit juste le contenu de EIP (Instruction Pointer), c'est à dire là où
 Le contenu de notre pile, avec les adresses, très utile pour débugger.
 
 [--------------]
+
+<img class="img_full" src="/hacking/pwn_2of4_ret2libc/pattern_search.png" alt="pattern_search" >
 
 Puis on cherche le pattern utilisé précédemment pour trouver l'offset. Ici, miracle, on contrôle directement EIP, ce qui est en réalité assez rare... Tant mieux pour nous !
 
@@ -99,9 +109,14 @@ Attention, on travaille ici sans l'ASLR, une fois de plus pour rendre l'exploit 
 
 La première, plus simple mais aussi pas toujours fiable, via gdb / peda (gdb désactive par défaut l'ASLR lors du débuggage) :
 
+<img class="img_full" src="/hacking/pwn_2of4_ret2libc/break_main.png" alt="break_main" >
+<img class="img_full" src="/hacking/pwn_2of4_ret2libc/print_system.png" alt="print_system" >
+
 Il est important de mettre un breakpoint (point d'arrêt logiciel, une manière de mettre le programme en pause pour voir par exemple l'état de ses registres, puis continuer son exécution ultérieurement) en début de programme et de le lancer avant de faire notre recherche, car il est nécessaire que la libc ait été résolue (attachée / linkée). Dans le cas contraire, on ne voit rien, ni system, ni "/bin/sh", ce string étant gentiment caché dans la libc.
 
 Deuxième solution, un peu moins simple mais tellement plus fiable / évolutive :
+
+<img class="img_full" src="/hacking/pwn_2of4_ret2libc/ldd.png" alt="ldd" >
 
 Je vais vous la détailler, car ces outils sont puissants mais pas forcément faciles à utiliser quand on les découvre.
 
@@ -113,9 +128,13 @@ Etape 3 : On cherche "/bin/sh" dans la libc. -b pour avoir l'offset en byte, -o 
 
 Etape 4 : Un coup de python pour avoir la somme de l'offset de la libc et de ce qui nous intéresse, et BIM, on a tout. Un peu plus long, mais pour des exploits plus compliqués, cette manière de faire est à privilégier, croyez-moi ! :')
 
+<img class="img_med" src="/hacking/pwn_2of4_ret2libc/mind_blown.gif" alt="mind_blown" >
+
 On a donc récupéré les adresses de system et de "/bin/sh" pour faire exécuter un shell. Nickel ! :D
 
 Maintenant qu'on a tout ce qu'il nous faut, on écrit notre exploit :
+
+<img class="img_full" src="/hacking/pwn_2of4_ret2libc/exploit.png" alt="exploit" >
 
 Remarque :
 
@@ -125,13 +144,19 @@ Ici, une fois le shell fermé, le programme sautera à l'adresse 0x4242424 et mo
 
 Puis on le lance :
 
+<img class="img_full" src="/hacking/pwn_2of4_ret2libc/run_exploit.png" alt="run_exploit" >
+
 Et BIM, on pop notre shell via un ret2libc bien basique !
 
-BONUS : Piste de bypass pour l'ASLR !
+<img class="img_med" src="/hacking/pwn_2of4_ret2libc/like_a_boss.jpg" alt="like_a_boss" >
+
+BONUS : Cartographie de la mémoire !
 
 A supposer que l'ASLR soit activé, cette solution est quand même exploitable sous une condition : Arriver à trouver la libc. Il existe de nombreuses techniques pour arriver à faire fuiter l'endroit où elle a été placée, mais une fois que vous l'avez (une fois le programme lancé, car rappelez-vous, elle change à chaque fois), il n'y a qu'à ajouter l'offset pour avoir votre exploit.
 
 Mais coup de chance, dans votre système, il y a un endroit magique, lisible par tous l'utilisateur qui a lancé le programme (merci Geluchat pour la réctification, site du poto ici : https://www.dailysecurity.fr/), qui vous indique où sont placés les différents objets liés à son exécution : /proc/self/maps !
+
+<img class="img_full" src="/hacking/pwn_2of4_ret2libc/maps.png" alt="maps" >
 
 Un petit tour par ici, ou par /proc/PID/maps (le PID étant l'identifiant du programme à analyser) vous permettra de voir où sont placés les différentes parties. Si vous arrivez à mettre votre programme en pause et lire cet endroit, l'ASLR n'a plus aucune utilité ! :)
 

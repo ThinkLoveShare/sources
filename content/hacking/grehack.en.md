@@ -192,7 +192,7 @@ Here is a picture of us not solving a challenge :
 
 And later that day, we went on a fly ! ;)
 
-<img class="img_75" src="/hacking/grehack/team.jpg", alt="team" >
+<img class="img_big" src="/hacking/grehack/team.jpg", alt="team" >
 
 
 I hope you had fun reading this article, and will some day attend to a GreHack

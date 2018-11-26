@@ -30,7 +30,7 @@ Un second point intéressant est qu'il est impossible de représenter tous les c
 
 Pour finir, le grand cercle bleuté est ce que l'on va considérer comme la norme. La norme est plus grande que la moyenne, ici, deux fois plus grande. En d'autres termes, nous sommes tous différents et formons un groupe, une population. Mais nous ne tolèrons pas que les individus parfaitement normaux, mais un peu plus. On est pas des bêtes quand même...
 
-<img class="img_75" src="/the_rest/standards/before.png" alt="before">
+<img class="img_big" src="/the_rest/standards/before.png" alt="before">
 
 On va prendre deux petits membres (fléchés), au pif, vous et un/e proche. Vous êtes bien, 'normaux', acceptés par la majorité mais pas partout car on est tous un peu unique / différents. Gardez vos positions en tête pour la suite.
 
@@ -42,13 +42,13 @@ Et si... On les enlevait ?\
 *SPIOUF*\
 Nous voilà désormais entre gens normaux. On est biennn ! Non ?
 
-<img class="img_25" src="/the_rest/standards/non.jpg" alt="non">
+<img class="img_small" src="/the_rest/standards/non.jpg" alt="non">
 
 Pertinent...
 
 En reprenant le même schéma et retirant les individus anormaux, la moyenne va être recalculée, et par conséquent la norme aussi (valant ici toujours de deux fois la moyenne). Ces modifications nous donnent le schéma suivant :
 
-<img class="img_75" src="/the_rest/standards/after.png" alt="after">
+<img class="img_big" src="/the_rest/standards/after.png" alt="after">
 
 Voilà que désormais, vous êtes en dehors de la norme, vous qui étiez pourtant si bien, au chaud, dans votre élément... Si c'est pas triste !
 
