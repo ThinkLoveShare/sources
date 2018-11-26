@@ -1,27 +1,20 @@
 ---
 author: "Laluka"
-title: "Placeholder "
-slug: "placeholder_the_rest"
+title: "Une histoire de coquelicot"
+slug: "une_histoire_de_coquelicot"
 date: 2018-11-21
 ---
 
-Et si, pour varier un peu, on prenait le large ? Et si on laissait la technologie de côté un petit instant, histoire de se divertir ? Et si on lisait un peu ? ;)
+Et si, pour varier un peu, on prenait le large ? \
+Et si on laissait la technologie de côté un petit instant, histoire de se divertir ? \
+Et si on lisait un peu ?
 
+Le concept est simple, je reçois un début de texte, d'histoire, quelques mots, une idée, et je brode dessus tant bien que mal, en espérant que le rendu final soit sympathique ! =]
 
-
-Le concept est simple, je reçois un début de texte, d'histoire, quelques mots, quelques idées, et je brode dessus tant bien que mal, and hopefully, it'll be pleasant ! ^.^
-
-
-
-~~~~~~~~~~ Texte proposé ~~~~~~~~~~
-
+## Texte proposé
 Une femme furieuse vêtue d'une robe rouge sort du bus. A peine son pied posé au sol, elle se précipite sur un homme d'âge mûr. Il porte un chapeau en feutre. Il s'élance pour traverser la route, hors des clous, comme à son habitude.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-~~~~~~~~~~~ Texte créée ~~~~~~~~~~~
+## Texte créé
 
 Leurs regards s'étaient finalement croisés. Un instant, un battement de cil, une palpitation, un clap. Tous ces actes courts semblaient durer une éternité face à ce furtif regard inassumé. C'est de ce premier contact, visuel, que naquit leurs sentiments. L'une brûlait d'amour, l'autre se consumait de peur. Pourquoi diable deux êtres, encore inconnus l'un de l'autre, pouvaient ils éprouver de si vives émotions ? Je n'eu point plus le temps pour m'interroger d'avantage quand à la nature de leurs relations, elle lui bondissait dessus, telle un félin attaquant sa proie. Cette vision était irréelle. De par son élan, sa robe rouge paraissait giclée de sang, émanant du corps de sa victime. C'est avec un dynamisme inattendu que celle ci fit volte face, faisant usage de son chapeau comme d'un leurre et esquissant un pas de côté. Il n'était plus aussi vif qu'avant, mais demeurait extrêmement précis, rapide et sec.
 
@@ -29,34 +22,18 @@ Notre coquelicot se vit dégringoler de toute sa tige, y laissant quelques feuil
 
 Un beau jour, elle se fit à l'idée qu'il ne reviendrait pas dans sa vie, il avait fuit. Lassée par tant de faiblesse, elle fit le choix de s'exiler, seule. Marcher, loin de la ville, loin des gens, loin de toute perturbation sensorielle. Elle voulait pousser. Seule. Libre.
 
-
-
-
-
 Elle finit par prendre racine dans un champ encore vierge de toute culture. Une place centrale s'imposa à sa vue. Elle s'y rendit, se tint debout, ferma les yeux puis irradia les lieux de son être.
 
-
+![coquelicot_field](/the_rest/coquelicot/coquelicot_field.jpg)
 
 Les choses les plus belles nécessitent des années pour se construire, se façonner, se raffiner. Il en fut de même pour elle. Toujours là, année après année. La seule nuance étant son cardinal. En effet, à chaque saison, elle voyait sa compagnie s'étoffer. De plus en plus de roses, tulipes, jonquilles, pâquerettes et autres créatures florales vinrent la rejoindre...
 
 Toutes avaient fait ce même choix, ce choix d'exil, de silence, de calme.
 
-
-
 Un beau jour, un vieillard vint se promener dans ce champ. Il marchait, lentement, paisiblement, s'émerveillait devant tant de diversité et de beauté. Il ferma les yeux, huma l'air, lentement. Une légère effluve vint réveiller ses sens. Cette senteur, douce et pourtant si prenante... Elle lui évoqua d'abord un manque, puis un regret, un mal être, une douleur cuisante.
 
 Il avait, un jour, connu l'une de ses roses.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
-
-
-J'espère que vous avez pris autant de plaisir à lire ce texte que j'en ai eu à l'écrire.
-
-
-
-Coquelicotement votre,
-
--Laluka
+> J'espère que vous avez pris autant de plaisir à lire ce texte que j'en ai eu à l'écrire.
+> Coquelicotement votre,

@@ -1,8 +1,7 @@
 ---
 auteur : "Laluka"
 titre : "Bonjour vous !"
-slug : "apropos"
-tags : ["apropos", "bio", "equipe", "amis"]
+slug : "about"
 date : 2018-11-14
 ---
 
