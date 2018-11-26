@@ -18,7 +18,7 @@ shared by interesting people). And this year again, the conferences were pretty
 neat, and the CTF was great !\
 A big thank you to the organizers, you rock ! ❤
 
-![chartreuse](/hacking/grehack/chartreuse.jpg)
+<img src="/hacking/grehack/chartreuse.jpg", alt="chartreuse" >
 
 
 ## 1st conference : Return of the Gand Crab Ransomware
@@ -188,11 +188,11 @@ some web and crypto, the infrastructure was nice !
 
 Here is a picture of us not solving a challenge :
 
-![team ctfing](/hacking/grehack/ctf.jpg)
+<img src="/hacking/grehack/ctf.jpg", alt="ctf" >
 
 And later that day, we went on a fly ! ;)
 
-![team hang-glider](/hacking/grehack/team.jpg)
+<img class="img_75" src="/hacking/grehack/team.jpg", alt="team" >
 
 
 I hope you had fun reading this article, and will some day attend to a GreHack

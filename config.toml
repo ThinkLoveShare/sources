@@ -80,6 +80,6 @@ disqusShortname = "thinkloveshare"
         url = "/fr/the_rest/"
     [[Languages.fr.menu.main]]
         name = "À propos"
-        identifier = "apropos"
+        identifier = "about"
         weight = 5
-        url = "/fr/apropos/"
+        url = "/fr/about/"

@@ -5,13 +5,16 @@ date: 2018-05-03
 ---
 
 printf("Mme, Mr %s, bonjour. ", lecteur);
+
 Aujourd'hui, je vous propose un article plus hardu, un article plus poilu, un article plus barbu, en bref, un article qui pète des culs !
+
+<img class="img_50" src="/hacking/pwn_1of4_buffer_overflow/patrick.jpg" alt="patrick" >
 
 La notion abordée aujourd'hui est assez poussée, donc je sais que parmi les lecteurs habituels, vous serez nombreux à ne pas forcément pouvoir comprendre la totalité de l'article, c'est pourquoi je vais tenter de le rendre intéressant même pour les néophytes. Donc si vous êtes un apprenti sorcier, acharnez vous, profitez en, sinon, regardez ca comme un tour de magie noir, c'est beau, c'est puissant, mais il n'est pas nécessaire de tout comprendre pour apprécier :)
 
 Cet article est donc le premier d'une petite série dédiée aux buffers overflow !
 
-Dernière chose avant de commencer... Merci à Cyril Bresch qui m'a donné le droit d'utiliser certains de ses exos pour cette introduction aux buffers overflow. Mais surtout merci à lui pour m'avoir initié à l'exploitation binaire (Bon, ok t'étais payé par l'état, but still ! :D ). Son site perso est dispo ici (quand il pense à renouveler son DNS): http://cyrilbresch.ddns.net
+Dernière chose avant de commencer... Merci à Cyril Bresch qui m'a donné le droit d'utiliser certains de ses exos pour cette introduction aux buffers overflow. Mais surtout merci à lui pour m'avoir initié à l'exploitation binaire (Bon, ok t'étais payé par l'état, but still ! :D ). Son site perso est dispo ici : https://cyrilbresch.fr/
 
 En prévision, des shellcodes, de l'assembleur, du ret2libc, du rop, et bien plus encore. Ces mots ne vous disent rien ? C'est normal, ne vous en faites pas, on va commencer tranquilou avec une mise en contexte.
 
@@ -31,6 +34,8 @@ Programme :
 Oui... Mais non. Dans l'idée c'est ca, mais la plupart des programmes fonctionnent en ligne de commande, c'est à dire qu'on les lance en tapant des commandes dans un shell. Contrairement à windows, ou le plus souvent c'est l'extension du nom du fichier (.txt, .exe, ...) qui détermine son type, sous linux, ce n'est que très rarement utilisé, et tant mieux car cette pratique est une énorme faille de sécurité. Plus d'infos sur la faille ici : https://blog.malwarebytes.com/cybercrime/2014/01/the-rtlo-method/
 
 Ce qui remplace cette pratique est l'usage de magic number. En bref, c'est une suite de bytes que l'on met en début de fichier et qui permet de connaître le type et la version du fichier. Ici, pour un programme, ELF sous linux, on voit :
+
+<img class="img_100" src="/hacking/pwn_1of4_buffer_overflow/readelf.png" alt="readelf" >
 
 Deux choses notables :
 
@@ -61,6 +66,8 @@ Exemple (linux) : sh / bash / dash / zsh / ...
 Stack :
 
 La pile est un endroit utilisé par le processeur pour stocker des données. C'est un fonctionnement LastInFirstOut. Autrement dit, le dernier élément qui arrive est le premier à sortir.
+
+<img class="img_50" src="/hacking/pwn_1of4_buffer_overflow/stack.png" alt="stack" >
 
 Heap :
 
@@ -114,11 +121,15 @@ Comprendre le fonctionnement :
 
 Ok, il prend un argument. Il en fait quoi ?
 
-A priori, rien... Prog de test, osef ! ¯\_(ツ)_/¯
+A priori, rien... Prog de test, osef ! `¯\_(ツ)_/¯`
+
+<img class="img_100" src="/hacking/pwn_1of4_buffer_overflow/recon.png" alt="recon" >
 
 Trouver le point de crash :
 
 La strat habituelle de débutant, des arguments longs.
+
+<img class="img_100" src="/hacking/pwn_1of4_buffer_overflow/crash.png" alt="crash" >
 
 Ah, ca, ca sent bon !
 
@@ -126,11 +137,15 @@ On a qu'a lui donner un argument long pour le faire crash !
 
 Recherche de l'offset :
 
+<img class="img_100" src="/hacking/pwn_1of4_buffer_overflow/pattern_create.png" alt="pattern_create" >
+
 Créer le pattern (schéma facilement reconnaissable qui va servir à comprendre quels registres sont atteignables par notre input), puis lancer le programme avec le pattern en paramètre.
 
 On voit ici que le crash survient sur l'instruction ret (section code, petite flèche à gauche).
 
 Après le crash, on cherche le pattern dans la mémoire :
+
+<img class="img_100" src="/hacking/pwn_1of4_buffer_overflow/pattern_search.png" alt="pattern_search" >
 
 L'analyse de la mémoire a retrouvé des morceaux de notre pattern à différents endroits, on voit donc que le RSP (Registre Stack Pointer) est à une distance de 40 bytes de notre début d'input.
 
@@ -146,27 +161,23 @@ Petit tour sur shellstorm ou exploit-db, choisir la bonne architecture, ...
 
 Pour ma part il est fait maison, ou plutôt refait maison, car l'idée générale reste la mêm : Placer les bons paramètres dans les registres, puis déclencher un syscall pour que le kernel exécute ce que l'on veut, ici un shell.
 
-Shellcode : "\x48\xB8\x2F\x2F\x62\x69\x6E\x2F\x73\x68\x48\xC1\xE8\x08\x50\x48\x89\xE7\x48\x31\xC0\xB0\x3B\x48\x31\xF6\x48\x31\xD2\x0F\x05"
+Shellcode : `\x48\xB8\x2F\x2F\x62\x69\x6E\x2F\x73\x68\x48\xC1\xE8\x08\x50\x48\x89\xE7\x48\x31\xC0\xB0\x3B\x48\x31\xF6\x48\x31\xD2\x0F\x05`
 
 On va quand même le désassembler pour comprendre ce qu'il fait, et ce grâce à ce site : https://onlinedisassembler.com
 
-0   :  "//bin/sh" dans rax
+<img class="img_100" src="/hacking/pwn_1of4_buffer_overflow/shellcode.png" alt="shellcode" >
 
-A   : "/bin/sh\x00" dans rax
-
-E   : mettre rax en pile
-
-F   : rdi pointe vers la pile
-
+```
+0  :  "//bin/sh" dans rax
+A  : "/bin/sh\x00" dans rax
+E  : mettre rax en pile
+F  : rdi pointe vers la pile
 12 :  0 dans rax
-
 15 : 59 dans rax (execve)
-
 17 : 0 dans rsi
-
 1a : 0 dans rdx
-
 1d :  Initier le syscall
+```
 
 Ceci va donc exécuter /bin/sh à l'aide du syscall de execve.
 
@@ -182,15 +193,25 @@ Afin de trouver où se situent les données entrées par l'utilisateur, dans gdb
 
 On désassemble le main (convention de nom pour la fonction principale du programme), défini un point d'arrêt avant la fin de l'exécution, puis le lance avec AAAA en paramètre.
 
+<img class="img_100" src="/hacking/pwn_1of4_buffer_overflow/disas_main.png" alt="disas_main" >
+
+<img class="img_100" src="/hacking/pwn_1of4_buffer_overflow/find.png" alt="find" >
+
 Une fois arrêté, notre input se trouve donc dans la stack, à l'adresse : 0x7fffffffe570
 
 Et notre shellcode se trouvera un peu après l'input, à cause du padding.
 
 Code python de l'exploit :
 
+<img class="img_100" src="/hacking/pwn_1of4_buffer_overflow/exploit.png" alt="exploit" >
+
 Pour lancer l'exploit, il n'y a plus qu'à donner le contenu du fichier exploit au programme en tant qu'argument :
 
+<img class="img_100" src="/hacking/pwn_1of4_buffer_overflow/run_exploit.png" alt="run_exploit" >
+
 Et BIM ! Spawned a shell ! \o/
+
+<img class="img_25" src="/hacking/pwn_1of4_buffer_overflow/like_a_boss.png" alt="like_a_boss" >
 
 4. Remarques et Réflexion :
 Remarque 1 :
@@ -217,28 +238,12 @@ Mais... Tu as lu jusqu'ici ? Chapal l'ami !
 
 T'es un magicien, maintenant ! Ou presque... ;)
 
+<img class="img_25" src="/hacking/pwn_1of4_buffer_overflow/blair.png" alt="blair" >
+
 Ceci étant mon premier article sur le sujet, je sais qu'il sera incomplet, et plein d'imprécisions si ce n'est d'erreurs. N'hésitez pas à m'indiquer les coquilles trouvées, détails manquants etc... ^.^
 
 Hints :
-
-1 : Utiliser des... Xor ? Add ? Sub ? Autre ?
-
+1 : Utiliser des... Xor ? Add ? Sub ? Autre ?\
 2 : Variables d'environnement ? Ordre padding / payload dans l'exploit ?
 
-PS : Il y a au final eu une série de 4 articles, les liens ici :
-
-##############################
-
-1/4 - Buffer overflow & shellcode
-
-2/4 - Le ret2libc
-
-3/4 - Le ROP
-
-4/4 - Pwn, Tools & Stack Pivot
-
-##############################
-
 En espérant que ce premier pas dans le monde du pwn vous ait plu,
-
--Laluka

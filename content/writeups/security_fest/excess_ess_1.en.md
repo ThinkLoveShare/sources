@@ -11,20 +11,20 @@ This challenge is called "Excess Ess 1", a funny name for XSS, which is an attac
 ## The goal
 Most of the time, to prove that an XSS is possible, the hacker provides a payload that pops an alert. And that's exactly what we're asked to do. So we first feed a simple word to see if it's reflected in the webpage. We do so and see that the keyword is reflected as a variable content in our page.
 
-![recon](/writeups/security_fest/recon.png)
+<img class="img_100" src="/writeups/security_fest/recon.png" alt="recon" >
 
 The next step is to force the page to execute code. I try this using the console.log function after closing the first variable affectation, and commenting what comes afterward. I try (cf the URL), and yup ! It logs 3, so we can execute javascript !
 
-![inject](/writeups/security_fest/inject.png)
+<img class="img_100" src="/writeups/security_fest/inject.png" alt="inject" >
 
 ## The protection
 Next step, we try to use the alert(1) payload to validate the challenge, but : Uh Oh !
 
-![prompt](/writeups/security_fest/prompt.png)
+<img class="img_100" src="/writeups/security_fest/prompt.png" alt="prompt" >
 
 All we have is a prompt. The reason of this behavior is that a script is loaded and executed before our payload. We can fetch its content and we understand that the alert function has been override with the prompt function...
 
-![ascii_art](/writeups/security_fest/ascii_art.png)
+<img class="img_100" src="/writeups/security_fest/ascii_art.png" alt="ascii_art" >
 
 So.. We don't have it anymore ? How to use it then ?
 
@@ -35,7 +35,7 @@ Many of the functions they wanted to use to pop / place the window under were bl
 
 ## The solution
 ```html
-/?xss=';
+/?xss='; <!-- Escape out payload -->
 ```
 ```javascript
 i = document.createElement("iframe");
@@ -50,7 +50,7 @@ So the final payload submited was :
 http://xss1.alieni.se:2999/?xss=';i=document.createElement("iframe");i.onload=function(){i.contentWindow.alert(1);};document.getElementsByClassName('container')[0].appendChild(i);//
 ```
 
-![alert](/writeups/security_fest/alert.png)
+<img class="img_100" src="/writeups/security_fest/alert.png" alt="alert" >
 
 ## Conclusion
 Using a blacklist system is never a good solution, mainly with javascipt / python / SQL / ... because there are so many ways to bypass blocked keywords, edit or recreate objects and functions easily, that this kind of sandboxing / protection is definitely not effective enough.
