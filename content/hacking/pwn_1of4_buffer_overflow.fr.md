@@ -161,7 +161,8 @@ Petit tour sur shellstorm ou exploit-db, choisir la bonne architecture, ...
 
 Pour ma part il est fait maison, ou plutôt refait maison, car l'idée générale reste la mêm : Placer les bons paramètres dans les registres, puis déclencher un syscall pour que le kernel exécute ce que l'on veut, ici un shell.
 
-Shellcode :\
+Shellcode :
+
  `\x48\xB8\x2F\x2F\x62\x69\x6E\x2F\x73\x68\x48\xC1\xE8\x08\x50\x48\x89\xE7\x48\x31\xC0\xB0\x3B\x48\x31\xF6\x48\x31\xD2\x0F\x05`
 
 On va quand même le désassembler pour comprendre ce qu'il fait, et ce grâce à ce site : <https://onlinedisassembler.com>

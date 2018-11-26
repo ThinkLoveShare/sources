@@ -12,7 +12,7 @@ disqusShortname = "thinkloveshare"
 [params]
     author = "Laluka"
     title = "ThinkLoveShare"
-    description = "Infosec, Coding, Thoughts & Feels"
+    description = "Infosec, Coding, \nThoughts & Feels"
     authorimage = "/img/laluka.png"
     dateformat = "Jan 2, 2006"
     highlightjs = true
