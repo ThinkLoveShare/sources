@@ -5,6 +5,8 @@
       work for customised local domains, e.g. example.test, example.dev
     */
     (function () {
+    if (window.location.hostname == "localhost")
+        return;
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
