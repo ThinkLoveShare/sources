@@ -14,6 +14,14 @@ git commit -a -m "I did THAT_THING on THIS_FILE"
 git push
 ```
 
+# Format to use
+Hugo syntax : https://sourceforge.net/p/hugo-generator/wiki/markdown_syntax
+Extended md : https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+```html
+<!-- Custom images size -->
+<img class="img_{full,big,med,small}" alt="image_name" src="/path/to/img.ext" >
+```
+
 # How to test locally
 ```bash
 # Install hugo : https://github.com/gohugoio/hugo
