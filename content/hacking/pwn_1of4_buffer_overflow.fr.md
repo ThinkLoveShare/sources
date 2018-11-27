@@ -2,6 +2,7 @@
 author: "Laluka"
 title: "PWN 1/4 : Buffer Overflow, là où tout a commencé"
 date: 2018-05-03
+description: "Introcution à l'exploitation binaire, aux format ELF et à l'écriture de shellcode. "
 ---
 
 printf("Mme, Mr %s, bonjour. ", lecteur);
@@ -118,6 +119,8 @@ pwntool : Peu utilisé ici, cet outil python permet de faciliter l'exploit binai
 
 3.  Elaboration de l'exploit :
     Comprendre le fonctionnement :
+
+Le binaire étudié est téléchargable [ici](/hacking/pwn_1of4_buffer_overflow/vuln) !
 
 Ok, il prend un argument. Il en fait quoi ?
 

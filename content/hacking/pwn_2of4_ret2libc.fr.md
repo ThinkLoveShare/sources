@@ -2,6 +2,7 @@
 author: "Laluka"
 title: "PWN 2/4 : Retour case libc, piochez un shell ! "
 date: 2018-05-08
+description: "Introcution au Return to LibC (ret2libc) et exemple pratique."
 ---
 
 Kewaaa ? Deux articles dans la même semaine ?
@@ -51,6 +52,8 @@ Un programme compilé en statique (gcc : option -static) n'est pas exploitable d
 3. Le ret2libc... Comment ?
 Les bases sont posées, maintenant, walkthrough !
 
+Le binaire étudié est téléchargable [ici](/hacking/pwn_2of4_ret2libc/vuln) !
+
 On commence par comprendre comment le programme fonctionne (ou ne fonctionne pas...), trouver le point de crash :
 
 <img class="img_full" src="/hacking/pwn_2of4_ret2libc/recon.png" alt="recon" >
@@ -69,19 +72,12 @@ Je vais expliquer un peu mieux le prochain screen, car il vous a (cf vos retours
 
 L'affichage est découpé en trois parties :
 
-[---registers---]
+* Registers : Ce que contiennent les différents registres au moment où le programme s'arrête, ici par un crash.
 
-Ici, ce que contiennent les différents registres au moment où le programme s'arrête, ici par un crash.
+* Code : Là où pointe EIP (Instruction Pointer), c'est à dire là où on en est dans l'exécution et les instructions à suivre.
 
-[-----code-----]
+* Stack : Le contenu de notre pile, avec les adresses, leur format, références, ...
 
-Ici on voit juste le contenu de EIP (Instruction Pointer), c'est à dire là où on en est dans l'exécution.
-
-[-----stack----]
-
-Le contenu de notre pile, avec les adresses, très utile pour débugger.
-
-[--------------]
 
 <img class="img_full" src="/hacking/pwn_2of4_ret2libc/pattern_search.png" alt="pattern_search" >
 

