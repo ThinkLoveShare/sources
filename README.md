@@ -3,6 +3,14 @@
 This github contains the sources for thinkloveshare.com
 This project is using hugo and github pages.
 
+# Helpers hugo_
+```bash
+# Serve the site so you can debug
+./hugo_serve.sh
+# Add all changes and commit on source & prod
+./hugo_publish.sh GIT_COMMIT_MESSAGE
+```
+
 # How to contribute
 ```bash
 git clone https://github.com/ThinkLoveShare/sources
