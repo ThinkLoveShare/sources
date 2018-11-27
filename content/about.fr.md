@@ -54,4 +54,4 @@ Me voici ! Louka -> Laluka !
 -   [x0rz](https://twitter.com/x0rz) \| [0day.rocks](https://0day.rocks/) | Superbe site d'infosec et OSINT
 -   [Swissky](https://twitter.com/pentest_swissky) \| [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) | Probablement le github le plus utile au monde.
 -   [Switch](https://twitter.com/swuitch) \| [0xswitch.fr](https://0xswitch.fr) | Blog d'infosec classique et complet
--   [Ethnical](https://twitter.com/EthnicalInfo) \| [YouTube](https://www.youtube.com/user/EthnicalNightamre) | Il est timbré, fou, bruillant... Mais je suis dans le hack aujourd'hui grâce à lui et je ne le remercierai jamais asser...
+-   [Ethnical](https://twitter.com/EthnicalInfo) \| [YouTube](https://www.youtube.com/user/EthnicalNightamre) | Il est timbré, fou, et aussi bruyant que brillant. Je suis dans le hack aujourd'hui grâce à lui et je ne le remercierai probablement jamais assez
