@@ -24,7 +24,9 @@ git push
 
 # Format to use
 Hugo syntax : https://sourceforge.net/p/hugo-generator/wiki/markdown_syntax
+
 Extended md : https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
 ```html
 <!-- Custom images size -->
 <img class="img_{full,big,med,small}" alt="image_name" src="/path/to/img.ext" >
