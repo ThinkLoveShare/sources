@@ -6,7 +6,7 @@ date: 2018-05-10
 description: "Les bases de l'exploitation binaires sont normalement acquises, c'est parti pour une exploitation pratique d'un stack pivot !"
 ---
 
-Bienvenue pour ce 4ème et dernier article d'introduction au pwn.
+## Route du pwn, dernier article d'introduction !
 
 Je vous avais promis du lourd pour le final, chose dite, chose due !
 
@@ -16,7 +16,7 @@ Vous qui avez tenu les 3 articles précédents, j'espère que vous êtes toujour
 
 <img class="img_med" src="/hacking/pwn_4of4_stack_pivot/lets_go.jpg" alt="lets_go" >
 
-Top départ : Reconnaissance !
+ * ## Reconnaissance :  !
 
 Le binaire étudié est téléchargable [ici](/hacking/pwn_4of4_stack_pivot/vuln) !
 
@@ -46,15 +46,25 @@ Deso / Pas deso, il faut voir plus gros ! `¯\_(ツ)_/¯`
 
 Présentation brève de l'interface :
 
-A gauche, les différentes fonctions du programme. On a de la chance, le programme n'a pas été "strip", il contient donc encore le nom des fonctions. Sinon, nous n'aurions eu que des noms génériques inutilisables.
+ * A gauche :
 
-A droite, des informations sur la ligne en cours d'inspection. Pas très utile pour le moment.
+Les différentes fonctions du programme. On a de la chance, le programme n'a pas été "strip", il contient donc encore le nom des fonctions. Sinon, nous n'aurions eu que des noms génériques inutilisables.
 
-En haut, un apercu de la structure du programme. Code, données, schémas reconnaissables pour de la crypto, ...
+ * A droite :
 
-En bas, une console de logs (avec déjà un easter egg !) et les différentes sections du programme et leurs infos.
+Des informations sur la ligne en cours d'inspection. Pas très utile pour le moment.
 
-Et au milieu, les différents outils d'analyse.
+ * En haut :
+
+Un apercu de la structure du programme. Code, données, schémas reconnaissables pour de la crypto, ...
+
+ * En bas :
+
+Une console de logs (avec déjà un easter egg !) et les différentes sections du programme et leurs infos.
+
+ * Au milieu :
+
+L'outil d'analyse en cours d'utilisation.
 
 Ici, le dashboard nous indique fièrement : Ouiiii, alors j'ai un peu cherchéééé, et tu voisss, j'ai trouvé que ta cible là, eh bien c'est un ELF, en 32 bits, initialement codé en C, sans stack canary, sans protection cryptographique, sa stack est NX, le PIC est désactivé. Il n'est pas strippé, et il est compilé en statique ! :D
 
@@ -82,9 +92,9 @@ En bref, que contrôlons-nous (inputs), et que voulons-nous atteindre (fonctions
 
 Ici, on veut faire un buffer overflow. On cherche donc des fonctions vulnérables, et des entrées...
 
-Sources : admin name, room name, temperature
+ * Sources : admin name, room name, temperature
 
-Sinks : scanf... scanf ? scanf !
+ * Sinks : scanf... scanf ? scanf !
 
 scanf correspond à "room name". On fait un ou deux essais quand même pour être sûr de contrôler le point de crash :
 
@@ -198,14 +208,14 @@ Sauf que... Sauf que non.
 
 En lisant un article comme ca, ca n'a pas l'air si complexe que ca, un peu fouilli à la rigueur. Sauf que pour chaque exploit, à moins d'être vraiment un monstre (coucou Geluchat, Blackndoor, Pixis, Klaoude, Antoxyde, Ethnical, ...), c'est des heures, des jours (enfin, nuits, on se comprend ;) ) qui y passent. Mais s'acharner pendant longtemps pour finalement y arriver, quelle satisfaction !
 
-Si vous aussi vous souhaitez vous lancer, je vous conseille l'excellente suite d'exercice Protostar : https://exploit-exercises.com/protostar/
+Si vous aussi vous souhaitez vous lancer, je vous conseille l'excellente suite d'exercice [Protostar](https://exploit-exercises.com/protostar/).
 
-Ainsi que le classique root-me que j'affectionne particulièrement : https://www.root-me.org/
+Ainsi que le classique [root-me](https://www.root-me.org/) que j'affectionne particulièrement. Faites quand même attention, ce site dévorera vos nuits... =]
 
 Mais bien que j'adore ce site, je ne le trouve pas très approprié pour découvrir l'exploit binaire. Mais pour toutes les autres catégories de hacking "classique", foncez, c'est du pain béni ! ;)
 
 C'est ainsi que se conclu cette introduction au pwn, j'espère qu'elle vous a plu et que vous y avez appris des choses (au moins un peu ? :D ).
 
-Vos nombreux retours me font très très plaisir, merci ! ^.^
+Vos nombreux retours me font très très plaisir ! ^.^
 
-En vous souhaitant un pwn heureux,
+En vous souhaitant un pwn heureux et fructueux,

@@ -6,18 +6,14 @@ date: 2018-05-08
 description: "Introcution au Return to libc (ret2libc) et exemple pratique."
 ---
 
-Kewaaa ? Deux articles dans la même semaine ?
-
-Eh bien... On dirait bien que oui ! ^.^
-
-Bienvenue pour ce 2/4 ème article consacré au pwn / à l'exploit d'exécutables linux !
+Bienvenue pour ce 2ème article consacré au pwn d'exécutables linux !
 
 Au programme, le ret2libc, ou retour à la lib C. Toujours dans la famille des exploits type buffer overflow, et toujours avec les sources du collègue : https://cyrilbresch.fr/
 
-Je ne repasse pas par la liste des définitions, celle-ci ayant été bien dégrossie dans le premier article...
+Je ne repasse pas par la liste des définitions, celle-ci ayant été bien dégrossie dans le premier article.
 
-1. Le ret2libc... Pourquoi ?
-Dans le premier article, nous avons injecté un shellcode dans la stack, et nous avons utilisé le buffer overflow pour rediriger le flot d'exécution sur notre shellcode, ceci nous permettant de spawn un shell. C'était bien, c'était un peu tricky, mais c'était... C'est... Plus réalisable de nos jours. Triste n'est-il pas ?
+## Le ret2libc... Pourquoi ?
+Dans le premier article, nous avons injecté un shellcode dans la stack, et nous avons utilisé le buffer overflow pour rediriger le flot d'exécution sur notre shellcode, ceci nous permettant de spawn un shell. C'était bien, c'était un peu tricky, mais c'était... C'est... Plus aussi facilement réalisable de nos jours. Triste n'est-il pas ?
 
 En effet, à chaque faille de sécurité, de nouvelles protections sont élaborées et ajoutées aux systèmes. L'une des protections trouvée contre cette attaque est l'usage d'un flag NX placé sur la pile. Cela rend la stack non exécutable. Ou, pour être un plus précis, cela rend la stack inscriptible XOR exécutable. Si vous écrivez à un endroit, il ne sera pas exécutable, si vous exécutez du code à un endroit, il n'est plus possible d'y écrire... Damnit !
 
@@ -25,10 +21,11 @@ En effet, à chaque faille de sécurité, de nouvelles protections sont élabor�
 
 Heureusement pour nous, des barbus (ou imberbes, qui suis-je pour juger ?) ont trouvé des solutions pour pouvoir quand même s'amuser. L'une d'entre elles, le ret2libc !
 
-2. Le ret2libc... Wut ?
+## Le ret2libc... Wut ?
 Un programme en C ne sait pas faire grand-chose, très peu en fait. Nous faisons dans un programme appel à des fonctions qui "font de la magie", et ce sans trop réfléchir à ce qu'il y a dessous.
 
-Par exemple, la fonction printf qui nous permet d'afficher du texte. La fonction getc qui nous permet de lire un caractère saisi par l'utilisateur. Ou encore... La fonction system, qui nous permet d'exécuter un programme externe au notre. Toutes ces fonctions sont accessibles dans notre programme, nous les utilisons sans jamais avoir eu la curiosité (ni même l'envie ? ) de regarder leur contenu ou de les recoder. Tant mieux, elles sont déjà faites, et placées dans la... *roulement de tambours* ...libc !
+Par exemple, la fonction printf qui nous permet d'afficher du texte. La fonction getc qui nous permet de lire un caractère saisi par l'utilisateur. Ou encore... La fonction system, qui nous permet d'exécuter un programme externe au notre. Toutes ces fonctions sont accessibles dans notre programme, nous les utilisons sans jamais avoir eu la curiosité (ni même l'envie ? ) de regarder leur contenu ou de les recoder. Tant mieux, elles sont déjà faites, et placées dans la... \
+*roulement de tambours...* **libc** !
 
 Petite ref au man : http://man7.org/linux/man-pages/man7/libc.7.html
 
@@ -38,7 +35,7 @@ En bref, c'est la librairie standard C, l'endroit où sont stockées toutes les 
 
 Un programme utilisant la libc en dynamique se verra, à son lancement, donné un accès à la libc via son offset (comprendre "là où il peut trouver la trouver" / sa position, en nb de byte, dans la stack).
 
-La manière dont il trouve les différentes fonctions dans la libc est assez complexe, je n'en parlerai donc pas dans cet article, mais pour les plus curieux / courageux : https://www.segmentationfault.fr/linux/role-plt-got-ld-so/
+La manière dont il trouve les différentes fonctions dans la libc est assez complexe, je n'en parlerai donc pas dans cet article, mais pour les plus curieux / courageux : [plt_got_ld_so](https://www.segmentationfault.fr/linux/role-plt-got-ld-so/)
 
 L'idée générale est la suivante :
 
@@ -50,7 +47,7 @@ Remarque :
 
 Un programme compilé en statique (gcc : option -static) n'est pas exploitable de cette manière, car les fonctions utilisées de la libc auront été incorporées au programme, elle ne sera donc pas attachée au lancement. Il n'aura donc pas accès à la fonction system. Mais heureusement pour vous... Article 3 ? è_é
 
-3. Le ret2libc... Comment ?
+## Le ret2libc... Comment ?
 Les bases sont posées, maintenant, walkthrough !
 
 Le binaire étudié est téléchargable [ici](/hacking/pwn_2of4_ret2libc/vuln) !
@@ -61,9 +58,9 @@ On commence par comprendre comment le programme fonctionne (ou ne fonctionne pas
 
 Remarque :
 
- - $( pouet ) : permet de faire exécuter en priorité la commande "pouet".
+ - `$(commande)` : permet de faire exécuter en priorité la commande "pouet".
 
- - python -c : permet d'exécuter du python via bash. Donc afficher facilement plein de caractères.
+ - `python -c "commande"` : permet d'exécuter du python via bash. Donc afficher facilement plein de caractères.
 
 On crash. Bien ca, excellent ! Maintenant, l'offset, avec le tool pattern dans gdb :
 
@@ -90,20 +87,21 @@ Maintenant, la partie ret2libc :
 
 Un payload simple aura la structure suivante :
 
--> "A" * offset
-
--> Là où on veut sauter (system)
-
--> Là où le programme retournera après la fonction
-
+-> "A" * offset\
+-> Là où on veut sauter (system)\
+-> Là où le programme retournera après la fonction\
 -> Argument(s) de la fonction utilisée
 
 Il nous manque donc l'adresse de system, et de notre paramètre.
 
 Il y a plein de manière permettant de récupérer ces informations, je vais vous en donner deux.
 
-Attention, on travaille ici sans l'ASLR, une fois de plus pour rendre l'exploit plus compréhensible. Pour le désactiver, en root : echo "0" > /proc/sys/kernel/randomize_va_space
+Attention, on travaille ici sans l'ASLR, une fois de plus pour rendre l'exploit plus compréhensible. Pour le désactiver :
 
+```shell
+$ # En tant que root :
+$ echo 0 > /proc/sys/kernel/randomize_va_space
+```
 La première, plus simple mais aussi pas toujours fiable, via gdb / peda (gdb désactive par défaut l'ASLR lors du débuggage) :
 
 <img class="img_full" src="/hacking/pwn_2of4_ret2libc/break_main.png" alt="break_main" >
@@ -117,13 +115,21 @@ Deuxième solution, un peu moins simple mais tellement plus fiable / évolutive 
 
 Je vais vous la détailler, car ces outils sont puissants mais pas forcément faciles à utiliser quand on les découvre.
 
-Etape 1 : ldd affiche les dépendances partagées d'un programme. Ici, (entre autre), la libc et son offset. En statique il ne bouge pas, en dynamique, il changera à chaque commande.
+ * Etape 1 :
 
-Etape 2 : readelf, qui nous permet d'analyser le contenu de la libc, qui est un ELF, mais aussi une librairie partagée. Option -a pour lire tout le contenu, et mettre à l'aide d'un pipe " | " toute les lignes analysées dans grep, qui va rechercher les lignes contenant le mot system. On récupère celle qui nous intéresse : 0x0003c7d0, donc l'offset de system dans la libc.
+ ldd affiche les dépendances partagées d'un programme. Ici, (entre autre), la libc et son offset. En statique il ne bouge pas, en dynamique, il changera à chaque commande.
 
-Etape 3 : On cherche "/bin/sh" dans la libc. -b pour avoir l'offset en byte, -o pour n'avoir que le mot recherché et non la ligne, et -a pour activer l'analyse en mode binaire. On obtient donc en décimal l'offset de "/bin/sh" dans la libc.
+ * Etape 2 :
 
-Etape 4 : Un coup de python pour avoir la somme de l'offset de la libc et de ce qui nous intéresse, et BIM, on a tout. Un peu plus long, mais pour des exploits plus compliqués, cette manière de faire est à privilégier, croyez-moi ! :')
+ readelf, qui nous permet d'analyser le contenu de la libc, qui est un ELF, mais aussi une librairie partagée. Option -a pour lire tout le contenu, et mettre à l'aide d'un pipe " | " toute les lignes analysées dans grep, qui va rechercher les lignes contenant le mot system. On récupère celle qui nous intéresse : 0x0003c7d0, donc l'offset de system dans la libc.
+
+ * Etape 3 :
+
+ On cherche "/bin/sh" dans la libc. -b pour avoir l'offset en byte, -o pour n'avoir que le mot recherché et non la ligne, et -a pour activer l'analyse en mode binaire. On obtient donc en décimal l'offset de "/bin/sh" dans la libc.
+
+ * Etape 4 :
+
+ Un coup de python pour avoir la somme de l'offset de la libc et de ce qui nous intéresse, et BIM, on a tout. Un peu plus long, mais pour des exploits plus compliqués, cette manière de faire est à privilégier, croyez-moi ! :')
 
 <img class="img_med" src="/hacking/pwn_2of4_ret2libc/mind_blown.gif" alt="mind_blown" >
 
@@ -160,11 +166,11 @@ Et BIM, on pop notre shell via un ret2libc bien basique !
 
 <img class="img_med" src="/hacking/pwn_2of4_ret2libc/like_a_boss.jpg" alt="like_a_boss" >
 
-BONUS : Cartographie de la mémoire !
+## Bonus : Cartographie de la mémoire !
 
 A supposer que l'ASLR soit activé, cette solution est quand même exploitable sous une condition : Arriver à trouver la libc. Il existe de nombreuses techniques pour arriver à faire fuiter l'endroit où elle a été placée, mais une fois que vous l'avez (une fois le programme lancé, car rappelez-vous, elle change à chaque fois), il n'y a qu'à ajouter l'offset pour avoir votre exploit.
 
-Mais coup de chance, dans votre système, il y a un endroit magique, lisible par tous l'utilisateur qui a lancé le programme (merci Geluchat pour la réctification, site du poto ici : https://www.dailysecurity.fr/), qui vous indique où sont placés les différents objets liés à son exécution : /proc/self/maps !
+Mais coup de chance, dans votre système, il y a un endroit magique, lisible par tous l'utilisateur qui a lancé le programme (merci Geluchat pour la réctification, site du poto ici : https://www.dailysecurity.fr/), qui vous indique où sont placés les différents objets liés à son exécution : `/proc/self/maps` !
 
 <img class="img_full" src="/hacking/pwn_2of4_ret2libc/maps.png" alt="maps" >
 
@@ -172,10 +178,7 @@ Un petit tour par ici, ou par /proc/PID/maps (le PID étant l'identifiant du pro
 
 Je m'arrête ici pour cette brève introduction au ret2libc. Sachez tout de même que c'est un exemple de base, qu'il est courant de "chaîner" les ret2libc afin de faire appel à plusieurs fonctions au sein d'un unique exploit. Prochain article, le ROP !
 
-A bientôt pour le troisième article et merci pour vos nombreux retours ! ^_^
+A bientôt pour le troisième article et merci pour vos nombreux retours ! `^_^`
 
-Et pour ceux de ma promo qui me lisent...
-
+Et pour ceux de ma promo qui me lisent...\
 Bonne suite de révisions pour les rattrapajjjj !
-
--Laluka
