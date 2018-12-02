@@ -11,8 +11,7 @@ disqusShortname = "thinkloveshare"
 ## Site Settings
 [params]
     author = "Laluka"
-    title = "ThinkLoveShare"
-    description = "Infosec, Coding, \nThoughts & Feels"
+    description = "Infosec, Coding, Thoughts & Feels"
     authorimage = "/img/laluka.png"
     dateformat = "Jan 2, 2006"
     highlightjs = true
@@ -31,55 +30,45 @@ disqusShortname = "thinkloveshare"
   [Languages.en]
     ## Main Menu
     [[Languages.en.menu.main]]
-        name = "Coding"
-        weight = 1
-        identifier = "coding"
-        url = "/en/coding/"
-    [[Languages.en.menu.main]]
         name = "Hacking"
-        weight = 2
         identifier = "hacking"
+        weight = 1
         url = "/en/hacking/"
     [[Languages.en.menu.main]]
         name = "Write-Ups"
         identifier = "writeups"
-        weight = 3
+        weight = 2
         url = "/en/writeups/"
     [[Languages.en.menu.main]]
         name = "The rest"
         identifier = "the_rest"
-        weight = 4
+        weight = 3
         url = "/en/the_rest/"
     [[Languages.en.menu.main]]
         name = "About"
         identifier = "about"
-        weight = 5
+        weight = 4
         url = "/en/about/"
 
   [Languages.fr]
     ## Main Menu
     [[Languages.fr.menu.main]]
-        name = "Coding"
-        weight = 1
-        identifier = "coding"
-        url = "/fr/coding/"
-    [[Languages.fr.menu.main]]
         name = "Hacking"
-        weight = 2
         identifier = "hacking"
+        weight = 1
         url = "/fr/hacking/"
     [[Languages.fr.menu.main]]
         name = "Write-Ups"
         identifier = "writeups"
-        weight = 3
+        weight = 2
         url = "/fr/writeups/"
     [[Languages.fr.menu.main]]
         name = "Le reste"
         identifier = "the_rest"
-        weight = 4
+        weight = 3
         url = "/fr/the_rest/"
     [[Languages.fr.menu.main]]
         name = "À propos"
         identifier = "about"
-        weight = 5
+        weight = 4
         url = "/fr/about/"

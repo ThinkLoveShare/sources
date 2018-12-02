@@ -1,6 +1,7 @@
 ---
 author: "Laluka"
-title: "Placeholder "
-slug: "placeholder_the_rest"
-date: 2018-11-21
+title: "A Poppy Story"
+slug: "a_poppy_story"
+date: 2017-03-30
+description: "Writing exercise with a friend, aiming to be fresh and cute, about a poppy woman."
 ---

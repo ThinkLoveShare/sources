@@ -1,8 +1,9 @@
 ---
 author: "Laluka"
 title: "PWN 2/4 : Retour case libc, piochez un shell ! "
+slug: "pwn_2of4_ret2libc"
 date: 2018-05-08
-description: "Introcution au Return to LibC (ret2libc) et exemple pratique."
+description: "Introcution au Return to libc (ret2libc) et exemple pratique."
 ---
 
 Kewaaa ? Deux articles dans la même semaine ?
