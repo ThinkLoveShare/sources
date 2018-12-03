@@ -5,9 +5,12 @@ slug: "pwn_2of4_ret2libc"
 date: 2018-05-08
 description: "Introcution au Return to libc (ret2libc) et exemple pratique."
 ---
-> Petit mot avant de commencer : Ces quatres articles ont donné lieu à une conférence d'introduction au pwn à la HitchHack 2018. La vidéo est disponible (francais uniquement) ici :
 
-[![1, 2, 3, PWNED !](http://img.youtube.com/vi/hmt8M9YLwTg/0.jpg)](https://www.youtube.com/watch?v=hmt8M9YLwTg)
+ > Petit ajout après la publication des articles :
+
+ > Ces quatres articles ont donné lieu à une conférence d'introduction au pwn à la HitchHack 2018. Elle résume les 3 premiers articles mais rentre moins dans le détail. Si ce format vous convient mieux, les slides sont téléchargables [ici](/hacking/pwn_1of4_buffer_overflow/slides_conf_123_pwned.pdf) et la vidéo (francais uniquement) ici :
+
+ [![1, 2, 3, PWNED !](http://img.youtube.com/vi/hmt8M9YLwTg/0.jpg)](https://www.youtube.com/watch?v=hmt8M9YLwTg)
 
 Bienvenue pour ce 2ème article consacré au pwn d'exécutables linux !
 
