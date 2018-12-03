@@ -6,6 +6,10 @@ date: 2018-05-10
 description: "Les bases de l'exploitation binaires sont normalement acquises, c'est parti pour une exploitation pratique d'un stack pivot !"
 ---
 
+> Petit mot avant de commencer : Ces quatres articles ont donné lieu à une conférence d'introduction au pwn à la HitchHack 2018. La vidéo est disponible (francais uniquement) ici :
+
+[![1, 2, 3, PWNED !](http://img.youtube.com/vi/hmt8M9YLwTg/0.jpg)](https://www.youtube.com/watch?v=hmt8M9YLwTg)
+
 ## Route du pwn, dernier article d'introduction !
 
 Je vous avais promis du lourd pour le final, chose dite, chose due !

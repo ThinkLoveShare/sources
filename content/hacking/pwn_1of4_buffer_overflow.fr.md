@@ -6,6 +6,10 @@ date: 2018-05-03
 description: "Introcution à l'exploitation binaire, aux format ELF et à l'écriture de shellcode. "
 ---
 
+ > Petit mot avant de commencer : Ces quatres articles ont donné lieu à une conférence d'introduction au pwn à la HitchHack 2018. La vidéo est disponible (francais uniquement) ici :
+
+ [![1, 2, 3, PWNED !](http://img.youtube.com/vi/hmt8M9YLwTg/0.jpg)](https://www.youtube.com/watch?v=hmt8M9YLwTg)
+
 ## printf("Mme, Mr %s, bonjour. ", lecteur);
 
 Aujourd'hui, je vous propose un article plus hardu, un article plus poilu, un article plus barbu, en bref, un article qui pète des culs !

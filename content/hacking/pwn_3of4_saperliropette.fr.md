@@ -6,6 +6,10 @@ date: 2018-05-09
 description: "Introcution au Return Oriented Programming (ROP) et exemple pratique."
 ---
 
+> Petit mot avant de commencer : Ces quatres articles ont donné lieu à une conférence d'introduction au pwn à la HitchHack 2018. La vidéo est disponible (francais uniquement) ici :
+
+[![1, 2, 3, PWNED !](http://img.youtube.com/vi/hmt8M9YLwTg/0.jpg)](https://www.youtube.com/watch?v=hmt8M9YLwTg)
+
 ## Route du pwn, troisième  escale, bienvenue à bord !
 
 Hier, le simple buffer overflow et le ret2libc, aujourd'hui, le ROP, ou Return Oriented Programming, et demain... Demain la conquête du monde !!!
