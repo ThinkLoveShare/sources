@@ -2,11 +2,11 @@
 author: "Laluka"
 title: "Excess ess 1"
 slug: "excess_ess_1"
-date: 2018-11-16
+date: 2018-06-04
 description: "Un challnge web sur a sur une XSS, résolu pendant le SecurityFest CTF 2018. Il s'agit de trouver un bypass pour exécuter la fonction alert après qu'elle ait été supprimée."
 ---
 
-Ce défi intitulé "Excess Ess 1" est un jeu de mot (phonétique) pour désigner XSS,. C'est une attaque qui consiste à forcer le navigateur de notre victime à exécuter du code (la plupart du temps du javascript) sans son consentement. Ce défi a été proposé par l'édition 2018 du SecurityFest CTF.
+Ce défi intitulé "Excess Ess 1" est un jeu de mot (phonétique) pour désigner XSS. C'est une attaque qui consiste à forcer le navigateur de notre victime à exécuter du code (la plupart du temps du javascript) sans son consentement. Ce défi a été proposé par l'édition 2018 du SecurityFest CTF.
 
 ## L'objectif
 La plupart du temps, pour prouver qu'une XSS est possible, le hacker utilise une payload qui appelle la fonction alert. C'est ici exactement ce qu'on nous demande de faire. Nous commençons donc par introduire un simple texte pour voir s'il est reflété dans la page Web. On réalise vite que le mot-clé est reflété comme une variable dans du javascript, utilisé dans notre page.

@@ -33,7 +33,7 @@ Pour finir, le grand cercle bleuté est ce que l'on va considérer comme la norm
 
 <img class="img_big" src="/the_rest/standards/before.png" alt="before">
 
-On va prendre deux petits membres (fléchés), au pif, vous et un/e proche. Vous êtes bien, 'normaux', acceptés par la majorité mais pas partout car on est tous un peu unique / différents. Gardez vos positions en tête pour la suite.
+On va prendre deux membres du groupe (fléchés), au hasard, vous et un/e proche. Vous êtes bien, 'normaux', acceptés par la majorité mais pas partout car on est tous un peu unique / différents. Gardez vos positions en tête pour la suite.
 
 On voit également que malgré une norme assez large, assez tolérante, il reste des individus qui sont suffisamment excentrés pour être en dehors du cercle, ici, noir et jaune en haut, jaune et orange à gauche ou encore noir à droite.
 
@@ -47,7 +47,7 @@ Nous voilà désormais entre gens normaux. On est biennn ! Non ?
 
 Pertinent...
 
-En reprenant le même schéma et retirant les individus anormaux, la moyenne va être recalculée, et par conséquent la norme aussi (valant ici toujours de deux fois la moyenne). Ces modifications nous donnent le schéma suivant :
+En retirant les individus anormaux, la moyenne va être recalculée, et par conséquent la norme aussi (valant ici toujours de deux fois la moyenne). Ces modifications nous donnent le schéma suivant :
 
 <img class="img_big" src="/the_rest/standards/after.png" alt="after">
 
@@ -59,8 +59,11 @@ Bon, ce n'est pas si dramatique, après tout, des personnes avaient ce rôle ava
 
 "Bon, c'est bien beau tes histoires de hippie là, mais nous ca nous concerne pas, on fait chier personne, on veut juste être tranquille et que personne nous fasse chier !"
 
-Bah oui patate, si tu lis cet article, c'est que tu es déjà assez ouvert d'esprit (du moins j'espère...) pour ne point chercher noise à autrui sans raison.
+Déjà tu te calme Ok ?! Merci =]
+
+Oui, en effet, si tu lis cet article, c'est que tu es déjà (je l'espère) assez ouvert d'esprit pour ne point chercher noise à autrui sans raison.
 
 Mais le point que je voulais soulever ici est un peu plus nuancé que ca. Ce que je veux tenter d'exprimer, c'est que vous êtes (nous sommes) les derniers remparts à cette dérive. Que votre tolérance, votre respect et vos agissements sont les seules choses qui permettent de conserver une norme flexible, une grande diversité de pensée, de culture et de loisirs dans notre société.
 
-"Accepter d'être une minorité, c'est se mobiliser pour conserver une population diversifiée, et protéger les individus les plus fragiles ou influençables en les gardant au chaud du grand cercle bleu. "
+ > Accepter d'être une minorité, c'est lutter  pour conserver une population diversifiée, et protéger les individus les plus fragiles ou influençables en les gardant au chaud dans grand cercle bleu. \
+ Prenez soin de vous et vos proches & luv ❤
