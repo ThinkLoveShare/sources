@@ -31,7 +31,7 @@ So.. We don't have it anymore ? How to use it then ?
 ## The bypass
 I saw few months ago a video from LiveOverflow. It was about the reverse-engineering of a pop-under javascript module that helps f*ckers to pop annoying ads under your current window, so it takes you more time to realize it and close it.
 
-Many of the functions they wanted to use to pop / place the window under were blacklisted, to they created an iframe (Long story short, a new frame / window in the current window). The creation of the iframe offers a brand new context, rebinds all the main functions to be sure that the site that'll be loaded in the new iframe will be functional. But doing so, we also regain the alert function. We can then either reassign our alert function, or just call it from the iframe ! Isn't it great ? =D
+Many of the functions they wanted to use to pop / place the window under were blacklisted, so they created an iframe (Long story short, a new frame / window in the current window). The creation of the iframe offers a brand new context, rebinds all the main functions to be sure that the site that'll be loaded in the new iframe will be functional. But doing so, we also regain the alert function. We can then either reassign our alert function, or just call it from the iframe ! Isn't it great ? =D
 
 ## The solution
 ```html
@@ -53,11 +53,11 @@ http://xss1.alieni.se:2999/?xss=';i=document.createElement("iframe");i.onload=fu
 <img class="img_full" src="/writeups/security_fest/alert.png" alt="alert" >
 
 ## Conclusion
-Using a blacklist system is never a good solution, mainly with javascipt / python / SQL / ... because there are so many ways to bypass blocked keywords, edit or recreate objects and functions easily, that this kind of sandboxing / protection is definitely not effective enough.
+Using a blacklist system is (most of the time) a bad idea, especially with javascipt / python / SQL / ... because there are so many ways to bypass blocked keywords, edit or recreate objects and functions easily, that this kind of sandboxing / protection is definitely not effective enough.
 
 Even if this trick isn't new to me, I never had to use it before, so it was quite cool to try it by my own and realize that it's a really easy and fun trick to use !
 
 Later during this CTF, a second version of this challenge has been released, "Excess Ess 2". I've spent few hours on it. We were controlling fields in a meta tag, but not the content part. If you're aware of a way to exploit an XSS in a meta tag, without the content field, without <> to create a new entity, or a way to overwrite the content attribute, please tell me, I'll be glad to know !
 
-I hope you liked this write-up,
+I hope you liked this write-up,\
 Have a great day ! ^.^
