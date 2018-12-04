@@ -27,11 +27,11 @@ Elle finit par prendre racine dans un champ encore vierge de toute culture. Une 
 
 <img class="img_big" src="/the_rest/coquelicot/coquelicot_field.jpg" alt="coquelicot_field">
 
-Les choses les plus belles nécessitent des années pour se construire, se façonner, se raffiner. Il en fut de même pour elle. Toujours là, année après année. La seule nuance étant son cardinal. En effet, à chaque saison, elle voyait sa compagnie s'étoffer. De plus en plus de roses, tulipes, jonquilles, pâquerettes et autres créatures florales vinrent la rejoindre...
+Les choses les plus belles nécessitent des années pour se construire, se façonner, se raffiner. Il en fut de même pour elle. Toujours là, année après année. La seule nuance étant son cardinal. En effet, à chaque saison, elle voyait sa compagnie s'étoffer. De plus en plus de roses, tulipes, jonquilles, pâquerettes et autres créatures florales vinrent la rejoindre.
 
 Toutes avaient fait ce même choix, ce choix d'exil, de silence, de calme.
 
-Un beau jour, un vieillard vint se promener dans ce champ. Il marchait, lentement, paisiblement, s'émerveillait devant tant de diversité et de beauté. Il ferma les yeux, huma l'air, lentement. Une légère effluve vint réveiller ses sens. Cette senteur, douce et pourtant si prenante... Elle lui évoqua d'abord un manque, puis un regret, un mal être, une douleur cuisante.\
+Un beau jour, un vieillard vint se promener dans ce champ. Il marchait, lentement, paisiblement, s'émerveillait devant tant de diversité et de beauté. Il ferma les yeux, huma l'air, pris une grande respiration. Une légère effluve vint réveiller ses sens. Cette senteur, douce et pourtant si prenante... Elle lui évoqua d'abord un manque, puis un regret, un mal être, une douleur cuisante.\
 Il avait, un jour, connu l'une de ses roses.
 
 J'espère que vous avez pris autant de plaisir à lire ce texte que j'en ai eu à l'écrire.\
