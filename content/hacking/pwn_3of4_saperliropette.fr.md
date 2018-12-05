@@ -23,22 +23,24 @@ Je vous ai laissé hier sur le ret2libc, qui, vu de loin, consiste à piocher da
 Ca ressemble de plus en plus au jeu du chat et de la souris, so...\
 Follow the leader cat !
 
-## Précisions ASLR et PIC :
+## Précisions ASLR et PIC
+
 Avant de commencer, un petit retour sur ces protections parfois floues.
 
 La configuration de l'ASLR est présente dans `/proc/sys/kernel/randomize_va_space`. Elle peut être à 0=désactivée, 1=activée (stack et heap), 2=activée (1 + data). La valeur 2 étant la nouvelle norme en cours d'adoption par les différents systèmes, déjà effective pour la plupart.
 
-L'ASLR laisse donc toute une surface d'attaque non randomisée. Arriva donc ce qu'il devait arriver : des attaques utilisant les sections .data, .got, .plt, ...
+L'ASLR laisse donc toute une surface d'attaque non randomisée. Arriva donc ce qu'il devait arriver : des attaques utilisant les sections .text, .data, .got, .plt, ...
 
 Plus d'informations sur les différentes sections et la structure d'un ELF ici : [ELF_format](https://www.cs.stevens.edu/~jschauma/631A/elf.html)
 
-L'ASLR ne suffisant pas, de nouvelles protections ont été mises en place : PIC / PIE (Position Indépendant Code / Exécutable). N'ayant pas encore suffisamment étudié son fonctionnement, je ne vais pas la présenter en détail. Mais l'idée est simple... Et si on randomisait.... TOUT ?!?!?!
+L'ASLR ne suffisant pas, de nouvelles protections ont été mises en place : PIC / PIE (Position Indépendant Code / Exécutable). L'idée est simple... Et si on randomisait... TOUT ?!
 
 Le ROP fonctionne avec un ASLR partiel ou total, mais est contré par cette dernière mesure...
 
 Suite à la prochaine contre contre-mesure ! è.é
 
-## Présentation de la technique :
+## Présentation de la technique
+
 Return... Oriented... Programming...
 
 Hum hum... Programmer... Avec des... Return ? °^°'
@@ -57,15 +59,15 @@ Ils doivent tous répondre à un critère majeur : Se terminer par une instructi
 
 C'est ce critère qui rend l'attaque possible. En effet, lorsque l'on va contrôler le pointer d'instructions, on va faire en sorte que le programme exécute un premier gadget, que l'instruction ret finale indique la fin de l'exécution du premier gadget, et fasse revenir sur notre point de départ (la stack, qu'on vient d'overflow), mais une adresse plus loin. Cette adresse sera celle du second gadget et ainsi de suite.
 
-Méfiance tout de même, si votre gadget se termine par un ret, mais contient des instructions qui modifient le flot d'exécution du programme, il risque de casser votre exploit. Donc pas de call, pas de leave, pas de "double ret", pas de bras, et surtout : pas de chocolat.
+Méfiance tout de même, si votre gadget se termine par un ret, mais contient des instructions qui modifient le flot d'exécution du programme, il risque de casser votre exploit. Donc pas de `call`, pas de `leave`, pas de `double ret`, pas de bras, et surtout : pas de chocolat.
 
 De nombreux outils permettent de lister les gadgets d'un exécutable, comme ROPgadget, Ropper, XRop, ...
 
-## Elaboration de l'exploit :
+## Elaboration de l'exploit
 
-Le binaire étudié est téléchargable [ici](/hacking/pwn_3of4_saperliropette/vuln) !
+Le binaire étudié est téléchargable [ici](/hacking/pwn_3of4_saperliropette/vuln)
 
-Avant toute chose, on regarde un peu à quoi on s'attaque : x64, compilé en statique, full ASLR. Ok !
+Avant toute chose, on regarde un peu à quoi on s'attaque : x86-64, compilé en statique, full ASLR. Ok !
 
 <img class="img_full" src="/hacking/pwn_3of4_saperliropette/readelf.png" alt="readelf" >
 
@@ -142,9 +144,9 @@ On va maintenant l'exploiter :
 
 TADA, one more shell ! :D
 
-Petit détail qui tue, on voit ici que $0 (le nom du programme exécuté) vaut "bash", alors que dans notre ropchain, on avait /bin//sh (qui est compris comme /bin/sh). Mais c'est normal, car sur ma machine, /bin/sh est un lien symbolique qui pointe vers bash ! Mon vrai sh est /usr/bin/sh.
+Petit détail qui tue, on voit ici que $0 (le nom du programme exécuté) vaut `bash`, alors que dans notre ropchain, on avait `/bin//sh` (qui est compris comme `/bin/sh`). Mais c'est normal, car sur ma machine, `/bin/sh` est un lien symbolique qui pointe vers bash ! Mon vrai sh est `/usr/bin/sh`.
 
-> Mais... Ca ne concorde pas avec les exploits précédents ?!
+ > Mais... Ca ne concorde pas avec les exploits précédents ?!
 
 Wouah ! Un qui suit ! Oui, en effet...\
 Plus d'informations sur cette étrangeté sur l'article de coupaing Pixis : [sh_vs_bash](https://beta.hackndo.com/sh-vs-bash/)
@@ -157,4 +159,4 @@ Tout faire péterrrrr ! `\o/`
 
 <img class="img_med" src="/hacking/pwn_3of4_saperliropette/like_a_boss.gif" alt="like_a_boss" >
 
-A très vite pour plus de pwn !
+A très vite pour encore plus de pwn !
