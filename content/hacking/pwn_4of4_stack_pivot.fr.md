@@ -22,7 +22,8 @@ Vous qui avez tenu les 3 articles précédents, j'espère que vous êtes toujour
 
 <img class="img_med" src="/hacking/pwn_4of4_stack_pivot/lets_go.jpg" alt="lets_go" >
 
- * ## Reconnaissance :  !
+
+## Reconnaissance
 
 Le binaire étudié est téléchargable [ici](/hacking/pwn_4of4_stack_pivot/vuln) !
 
@@ -36,7 +37,7 @@ On sort le premier tool : Radare2 !
 
 J'ai hésité entre le présenter en ligne de commande, ou via son interface graphique. Mais il y a tellement de développement et d'efforts faits sur leur GUI que je vais présenter cette version.
 
-Je vous présente donc Cutter, basé sur radare2, qui est un outil de reverse engineering très pointu. Pour la petite histoire, radare2 est voulu le plus standalone (indépendant) possible, c'est à dire que vous pouvez l'utiliser sur un device / une architecture particulière, même si celle ci n'a pas le moindre outil / paquet installé. Il vous suffit de le recompiler in situ. En prime, plein de tools d'admin-sys classiques y sont intégrés ! Le paradis pour du embded device, du remote sur un tel / une montre, ou que sais-je encore.
+Je vous présente donc Cutter, basé sur radare2, qui est un outil de reverse engineering très pointu. Pour la petite histoire, radare2 est voulu le plus standalone (indépendant) possible, c'est à dire que vous pouvez l'utiliser sur un device / une architecture particulière, même si celle ci n'a pas le moindre outil / paquet préinstallé. Il vous suffit de le recompiler in situ ou le cross-compiler. En 'prime', plein de tools d'admin-sys classiques y sont intégrés ! Le paradis pour du embded device, du remote sur un tel / une montre, ou que sais-je encore.
 
 Il est open source, et son développement très actif, préférez donc une installation via leur git... :)
 
@@ -44,7 +45,7 @@ Site officiel ici : https://rada.re/r/
 
 Il est bourré d'easter eggs, si vous avez du temps à perdre, enjoy ! ;)
 
-Je sais que le screen est difficilement lisible en taille normal, mais j'ai mis la résolution source, et j'ai check sur tel et pc, en zoomant c'est pixel-perfect !
+Je sais que le screenshot est difficilement lisible en taille normal, mais j'ai mis la résolution source, et j'ai check sur tel et pc, en zoomant c'est pixel-perfect !
 
 Deso / Pas deso, il faut voir plus gros ! `¯\_(ツ)_/¯`
 
@@ -54,7 +55,7 @@ Présentation brève de l'interface :
 
  * A gauche :
 
-Les différentes fonctions du programme. On a de la chance, le programme n'a pas été "strip", il contient donc encore le nom des fonctions. Sinon, nous n'aurions eu que des noms génériques inutilisables.
+Les différentes fonctions du programme. On a de la chance, le programme n'a pas été "strip", il contient donc encore le nom des fonctions. Sinon, nous n'aurions eu que des noms génériques peu agréables à utiliser.
 
  * A droite :
 
@@ -76,7 +77,7 @@ Ici, le dashboard nous indique fièrement : Ouiiii, alors j'ai un peu cherchéé
 
 Si ce n'est pas classe toutes ces infos d'un claquement de doigt !
 
-Mais là... Vous auriez déjà du tilter... :x
+Du coup... Vous l'aver ? °^°
 
 <img class="img_med" src="/hacking/pwn_4of4_stack_pivot/ffs.jpg" alt="ffs" >
 
@@ -92,11 +93,11 @@ On voit tout de suite que la décompilation est partielle, on voit plein de chos
 
 Il y a de la matière, il est donc temps d'apprendre une manière de voir les choses très efficace pour le hacking en général : Sources and Sinks !
 
-Petite ref à une chaîne (Live Overflow) d'un mec en OR, tout ce qu'il fait (hacking, pwn, web, reverse, random, ...) est d'une qualité incroyable, et il a justement parlé de la méthode SoSi, donc have a look : https://www.youtube.com/watch?v=ZaOtY4i5w_U
+Petite ref à la chaine youtube de [LiveOverflow]( https://www.youtube.com/watch?v=ZaOtY4i5w_U), contenu de qualiteyyyy ! Tout ce qu'il fait (hacking, pwn, web, reverse, random, ...) est d'une qualité incroyable, et il a justement parlé de la méthode SoSi, donc faites y un tour !
 
 En bref, que contrôlons-nous (inputs), et que voulons-nous atteindre (fonctions dangereuses).
 
-Ici, on veut faire un buffer overflow. On cherche donc des fonctions vulnérables, et des entrées...
+Ici, on veut faire un buffer overflow. On cherche donc des fonctions vulnérables et des entrées.
 
  * Sources : admin name, room name, temperature
 
@@ -108,15 +109,16 @@ scanf correspond à "room name". On fait un ou deux essais quand même pour êtr
 
 Point de crash confirmé !
 
-Avant de chercher l'offset, il y a une chose supplémentaire à repérer, qui nous servira >PEUT ÊTREEEEE< par la suite... Je dis ca je dis rien... Pour les chercheurs, c'est dans le premier screenshot de code, pour les autres, la lecture continue :
+Avant de chercher l'offset, il y a une chose supplémentaire à repérer, qui nous servira **PEUT ÊTREEEEE** par la suite... Je dis ca je dis rien... Pour les chercheurs, c'est dans le premier screenshot de code, pour les autres, la lecture continue :
 
--[ SPOIL ]-
+*-[ SPOIL ]-*
 
 On lit le code suivant :
 
+```
 push 0x3ff // taille : 1023
-
 push obj.username // adresse : 0x80eb2c0 char * fgets(...) // saisie utilisateur
+```
 
 Autrement dit, le programme va toujours mettre au même endroit (0x80eb2c0) jusqu'à 1023 bytes saisis par l'utilisateur... Ca peut se justifier... Mais ca peut être utile non ? Who knows ! :)
 
@@ -130,9 +132,9 @@ On crash sur un ret : Habituel, classique, cool.
 
 On a ESP, bien. Wait... What ? On a ESP... + 4 ?
 
-Eh oui, le fameux pattern est suffisamment bien pensé pour être détecté même si il a été altéré !
+Eh oui, le fameux pattern est suffisamment bien pensé pour être détecté même si il a été altéré (un peu) !
 
-Cela signifie qu'entre le moment où on overflow, et le moment où on exécute l'instruction ret, la pile (enfin, notre ESP dans la pile) a été altéré...
+Cela signifie qu'entre le moment où on overflow, et le moment où on exécute l'instruction ret, la pile (enfin, notre ESP dans la pile) a été altéré.
 
 Mais... On a ESP + 4 ? Oui. On sait faire une addition ? Oui.
 
@@ -220,7 +222,7 @@ Ainsi que le classique [root-me](https://www.root-me.org/) que j'affectionne par
 
 Mais bien que j'adore ce site, je ne le trouve pas très approprié pour découvrir l'exploit binaire. Mais pour toutes les autres catégories de hacking "classique", foncez, c'est du pain béni ! ;)
 
-C'est ainsi que se conclu cette introduction au pwn, j'espère qu'elle vous a plu et que vous y avez appris des choses (au moins un peu ? :D ).
+C'est ainsi que se conclu cette introduction au pwn, j'espère qu'elle vous a plu et que vous y avez appris des choses (au moins un peu ? :D )
 
 Vos nombreux retours me font très très plaisir ! ^.^
 
