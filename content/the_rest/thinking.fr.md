@@ -6,7 +6,7 @@ date: 2017-03-07
 description: "Raisonner n'est pas simple et mène souvent à se prendre la tête ou à stresser. Voici donc quelques méthodes personnelles et conseils qui vous permettront je l'espère de mieux vivre ces phases de recherche. "
 ---
 
-Alors aujourd'hui, je vous propose une petite prise de recul sur la manière d'aborder un problème, une recherche, ou encore... La vie de manière générale ?
+Aujourd'hui, je vous propose une petite prise de recul sur la manière d'aborder un problème, une recherche, ou encore... La vie de manière générale ?
 
 
 ## Prologue
@@ -35,7 +35,7 @@ Cette étape consiste à noter chaque tentative, succintement, pour savoir ce qu
 
 #### Descendre d'un niveau d'abstraction, comprendre, remonter
 
-> Oui ! Wait... What ?
+ > Oui ! Wait... What ?
 
 Celle-ci est un peu confuse, peut être expliquée, mais on la comprend bien mieux avec un exemple.
 
@@ -52,13 +52,14 @@ x^2*x^3 = ?
 ```
 
 "Mais justement, je veux savoir comment ça marche moi, pas échouer au tableau...\
--Mais... Tu le sais déjà, comment ça marche, crois-moi ! x^2, c'est quoi ?\
+-Mais... Tu le sais déjà, comment ça marche, crois-moi ! x^2, c'*est* quoi ?\
 -x*x\
--Oui, et x^3, c'est quoi ?\
+-Oui, et x^3, c'*est* quoi ?\
 -x*x*x\
 -Très bien, maintenant, et si tu remplaçais ce que tu ne connais pas par ce que tu connais ? "\
 
 Apparait alors au tableau :
+
 ```
 x*x*x*x*x
 ```
@@ -76,26 +77,26 @@ Sa seule faiblesse, c'est les dépendances circulaires, où quand la définition
 
 #### Faire des schémas
 
-> Les schémas, ça sauve des vies.
+ > Les schémas, ça sauve des vies. Toujours.
 
 Chaque jour, chaque heure, chaque minute de votre vie que vous passez à ne pas faire un schéma, des extrémistes (religieux comme athées tkt...) tuent des chatons pour vous faire comprendre à quel point c'est mal.
 
 Faire des schémas, c'est se donner une chance de visualiser ce qu'il se passe, repérer facilement une erreur de raisonnement, mesure, logique, ...
 
-Un petit tour sur la chaine youtube ThreeBlueOneBrown vous permettra de voir que c'est beau, utile, et souvent nécessaire à une bonne compréhension (surtout en math, physique, info, ...)
+Un petit tour sur la chaine youtube [https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw](ThreeBlueOneBrown) vous permettra de voir que c'est beau, utile, et souvent nécessaire à une bonne compréhension (surtout en math, physique, info, ...)
 
 
 #### On ne peut pas tout connaître, mais on peut tout chercher
 
-Eh oui, on vit dans un monde ou une multitude de gens cherchent (et trouvent) dans tous les sens depuis déjà très longtemps. Donc partir du principe que l'on peut tout savoir, tout trouver, c'est irréaliste, prétentieux même. Donc pour chaque projet, chaque nouveau défi, la phase de recherche d'informations, de ce qui a été fait, de ce qui est faisable ou non est crucial.
+Eh oui, on vit dans un monde ou une multitude de gens cherchent (et trouvent) dans tous les sens depuis déjà très longtemps. Donc partir du principe que l'on peut tout savoir, tout trouver, c'est irréaliste, prétentieux même. Donc pour chaque projet, chaque nouveau défi, une période de documentation est nécessaire pour savoir ce qui a été fait, ce qui est possible ou non. Cette phase est crucial.
 
 Petite citation d'OWASP (free and open security community) :
 
-"The first phase in security assessment is focused on collecting as much information as possible about a target application. Information Gathering is the most critical step of an application security test. The security test should endeavour to test as much of the code base as possible. Thus mapping all possible paths through the code to facilitate thorough testing is paramount."
+ > La première phase de l'évaluation de la sécurité est axée sur la collecte d'autant d'informations que possible sur une application cible. La collecte d'informations est l'étape la plus critique d'un test de sécurité d'application. Le test de sécurité doit s'efforcer de tester le plus possible de surface. Il est donc primordial de cartographier tous les chemins possibles pour faciliter des tests approfondis.
 
-#### Back-check et auto feedback
+#### Relecture et auto-contrôle
 
-Back-check : Vérifier que le résultat obtenu est cohérent, suivant les cas, cela peut être :
+Relecture : Vérifier que le résultat obtenu est cohérent, suivant les cas, cela peut être :
 
 "Est-ce que mon résultat est bien l'objectif de départ ? "
 
@@ -105,7 +106,7 @@ Ceci permettra aux étudiants de faire une petite conclusion annonçant fièreme
 
 Et aux autres de revoir leur démarche avant de se lancer dans la suite des opérations avec un départ bancal, donc gain de temps, énergie, etc etc...
 
-Auto feedback : Une fois le raisonnement arrivé à son terme, prendre des notes sur ce qu'on a pu bien ou mal faire, les petits détails qui nous ont échappé pour y porter plus attention au prochain coup.
+Auto-contrôle : Une fois le raisonnement arrivé à son terme, prendre des notes sur ce qu'on a pu bien ou mal faire, les petits détails qui nous ont échappé pour y porter plus attention au prochain coup.
 
 Exemple : Durant un CTF, lorsqu'un challenge me fait télécharger des fichiers à analyser / exploiter, j'ai tendance à foncer sur le contenu du fichier, et j'ai déjà perdu des jours et des jours dans une fausse piste alors que l'indice était tout bêtement dans le nom, ou la date de création du fichier. Je me suis fait avoir deux fois sur ce point avant de me dire "Oops, l'auto feedback... :x "
 
@@ -125,11 +126,11 @@ Eh oui, parfois, même avec toutes ces bonnes pratiques, quand ça veut pas, ça
 
 **MUST NOT** :
 
-- "Sa march pa, de tt fason je compren pa. "
-- "Tu peux me donner la réponse ? "
-- "Tu peux le faire pour moi ? "
-- "J'ai tout tenté, donc c'est que c'est l'exo qui est faux" -> Du vécu... Oops partiel de Java... :<
-- Spammer quelqu'un en attente d'aide, il faut savoir se raisonner, bloquer un moment avant de demander... (Coucou Cyril, once again, sorry... :> )
+ - "Sa march pa, de tt fason je compren pa. "
+ - "Tu peux me donner la réponse ? "
+ - "Tu peux le faire pour moi ? "
+ - "J'ai tout tenté, donc c'est que c'est l'exo qui est faux" -> Du vécu... Oops partiel de Java... :<
+ - Spammer quelqu'un en attente d'aide, il faut savoir se raisonner, bloquer un moment avant de demander... (Coucou Cyril, once again, sorry... :> )
 
 ### Epilogue
 
