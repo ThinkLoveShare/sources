@@ -3,6 +3,7 @@ author: "Laluka"
 title: "Hello there !"
 slug: "about"
 date: 2018-11-14
+status: "original"
 ---
 
 ## ThinkLoveShare

@@ -3,6 +3,7 @@ author: "Laluka"
 title: "Une question de norme ? "
 slug: "une_question_de_norme"
 date: 2017-04-01
+status: "original"
 description: "Réflexion sur le thème de la tolérance, les normes de notre société et ce qu'elles impliquent. "
 ---
 

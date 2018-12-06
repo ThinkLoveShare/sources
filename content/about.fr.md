@@ -3,6 +3,7 @@ auteur : "Laluka"
 titre : "Bonjour vous !"
 slug : "about"
 date : 2018-11-14
+status: "original"
 ---
 
 ## ThinkLoveShare

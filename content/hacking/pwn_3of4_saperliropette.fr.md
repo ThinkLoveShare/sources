@@ -3,6 +3,7 @@ author: "Laluka"
 title: "PWN 3/4 : SaperliROPette !"
 slug: "pwn_3of4_saperliropette"
 date: 2018-05-09
+status: "original"
 description: "Introcution au Return Oriented Programming (ROP) et exemple pratique."
 ---
 

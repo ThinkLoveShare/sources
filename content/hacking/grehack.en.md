@@ -3,6 +3,7 @@ author: "Laluka"
 title: "GreHack 2018"
 slug: "grehack_2018"
 date: 2018-11-16
+status: "original"
 description: "GreHack 2018 is an hacking event (conferences and CTF) that takes place each year at Grenoble in France. Last year was the first time I went to an event like that, this year, I bring you in !"
 ---
 

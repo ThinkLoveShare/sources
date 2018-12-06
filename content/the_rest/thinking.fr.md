@@ -3,6 +3,7 @@ author: "Laluka"
 title: "Raisonner sans prise de tête "
 slug: "raisonner_sans_prise_de_tete"
 date: 2017-03-07
+status: "original"
 description: "Raisonner n'est pas simple et mène souvent à se prendre la tête ou à stresser. Voici donc quelques méthodes personnelles et conseils qui vous permettront je l'espère de mieux vivre ces phases de recherche. "
 ---
 

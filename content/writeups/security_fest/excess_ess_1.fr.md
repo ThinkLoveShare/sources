@@ -3,6 +3,7 @@ author: "Laluka"
 title: "Excess ess 1"
 slug: "excess_ess_1"
 date: 2018-06-04
+status: "traduit"
 description: "Un challnge web sur a sur une XSS, résolu pendant le SecurityFest CTF 2018. Il s'agit de trouver un bypass pour exécuter la fonction alert après qu'elle ait été supprimée."
 ---
 

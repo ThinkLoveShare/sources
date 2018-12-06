@@ -3,6 +3,7 @@ author: "Laluka"
 title: "Reasoning without headache"
 slug: "reasoning_without_headache"
 date: 2017-03-07
+status: "translated"
 description: "Reasoning is not simple and often leads to a headache or even stress. Here are some personal methods and advices that will hopefully allow you to better experience these research phases. "
 ---
 
@@ -138,4 +139,4 @@ The idea is not to apply them strictly, but to have them as a 'guide-line' and t
 
 I am not saying that this is the only approach to use, because there are many cases where it cannot or should not apply, but it has served me so much that I can only advise you to keep it in mind for the right time. I'm sure that some day it will prevent you from drowning in a difficult task.
 
-Wishing you a good unstuck reflexion, 
+Wishing you a good unstuck reflexion,

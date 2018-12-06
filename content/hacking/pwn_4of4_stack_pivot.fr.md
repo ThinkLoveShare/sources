@@ -3,6 +3,7 @@ author: "Laluka"
 title: "PWN 4/4 : Stack Pivot ToZeMoon !"
 slug: "pwn_4of4_stak_pivot_to_ze_moon"
 date: 2018-05-10
+status: "original"
 description: "Les bases de l'exploitation binaires sont normalement acquises, c'est parti pour une exploitation pratique d'un stack pivot !"
 ---
 

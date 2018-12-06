@@ -3,6 +3,7 @@ author: "Laluka"
 title: "Une histoire de coquelicot"
 slug: "une_histoire_de_coquelicot"
 date: 2017-03-30
+status: "original"
 description: "Exercice d'écriture partagé avec une amie, voulu frais et mignon, à propos d'une femme-coquelicot"
 ---
 
