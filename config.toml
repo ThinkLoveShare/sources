@@ -1,6 +1,7 @@
 ## Basic Configuration
 baseurl = "https://thinkloveshare.github.io/"
 title = "Think\nLove\nShare"
+
 pluralizelisttitles = "false"
 DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
