@@ -35,19 +35,24 @@ disqusShortname = "thinkloveshare"
         weight = 1
         url = "/en/hacking/"
     [[Languages.en.menu.main]]
+        name = "Coding"
+        identifier = "coding"
+        weight = 2
+        url = "/en/coding/"
+    [[Languages.en.menu.main]]
         name = "Write-Ups"
         identifier = "writeups"
-        weight = 2
+        weight = 3
         url = "/en/writeups/"
     [[Languages.en.menu.main]]
         name = "The rest"
         identifier = "the_rest"
-        weight = 3
+        weight = 4
         url = "/en/the_rest/"
     [[Languages.en.menu.main]]
         name = "About"
         identifier = "about"
-        weight = 4
+        weight = 5
         url = "/en/about/"
 
   [Languages.fr]
@@ -58,17 +63,22 @@ disqusShortname = "thinkloveshare"
         weight = 1
         url = "/fr/hacking/"
     [[Languages.fr.menu.main]]
+        name = "Coding"
+        identifier = "coding"
+        weight = 2
+        url = "/fr/coding/"
+    [[Languages.fr.menu.main]]
         name = "Write-Ups"
         identifier = "writeups"
-        weight = 2
+        weight = 3
         url = "/fr/writeups/"
     [[Languages.fr.menu.main]]
         name = "Le reste"
         identifier = "the_rest"
-        weight = 3
+        weight = 4
         url = "/fr/the_rest/"
     [[Languages.fr.menu.main]]
         name = "À propos"
         identifier = "about"
-        weight = 4
+        weight = 5
         url = "/fr/about/"
