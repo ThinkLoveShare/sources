@@ -2,7 +2,7 @@
 author: "Laluka"
 title: "ThinkLoveShare's migration"
 slug: "website_migration"
-date: 2018-12-08
+date: 2018-12-09
 status: "original"
 description: "Short introduction to the technologies used to build and maintain this website and a few words on why I changed. "
 ---
