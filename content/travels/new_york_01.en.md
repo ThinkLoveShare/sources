@@ -1,7 +1,7 @@
 ---
 author: "Laluka"
-title: "New York, Datadog and me - Week 1"
-slug: "new_york_datadog_and_me_week_1"
+title: "New York, Datadog and I - Week 1"
+slug: "new_york_datadog_and_i_week_1"
 date: 2019-02-01
 status: "original"
 description: "First article about my trip to New-York, why, where, when, with whom... What surprised me, how it went, and pics!"
