@@ -84,7 +84,7 @@ Funny thing: There's also free vending machines (giving machines?) for IT applia
 
 <img class="img_big" src="/travels/new_york_01/vending.jpg" alt="vending">
 
-We also had tome to visit the place and meet our buddy (someone that isn't in the same team as us, to enhance communication in the company, and also have a friendly face roaming around). Here's my buddy, Piotr, from France too. He's quite awesome, which is nice! We already planed to go on a parachute jump together!
+We also had time to visit the place and meet our buddy (someone that isn't in the same team as us, to enhance communication in the company, and also have a friendly face roaming around). Here's my buddy, Piotr, from France too. He's quite awesome, which is nice! We already planed to go on a parachute jump together!
 
 <img class="img_big" src="/travels/new_york_01/buddy.jpg" alt="buddy">
 
@@ -103,7 +103,7 @@ Getting familiar with the place, and setting tons of softwares and accounts up. 
 
 # Random thoughts
 
-New-York avenues are so huge, and so wide, that even when they are crowded, of full of cars, they're still way less oppressing or stressful as Paris ones. It's quite pleasant to walk in there, the buildings are __really__ high, but still not an issuf as we have much sunlight from the wide avenues. I really like this place ! =]
+New-York avenues are so huge, and so wide, that even when they are crowded, of full of cars, they're still way less oppressing or stressful as Paris ones. It's quite pleasant to walk in there, the buildings are __really__ high, but still not an issue as we have much sunlight from the wide avenues. I really like this place ! =]
 
 <img class="img_big" src="/travels/new_york_01/avenue.jpg" alt="avenue">
 
