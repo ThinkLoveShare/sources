@@ -50,9 +50,14 @@ disqusShortname = "thinkloveshare"
         weight = 4
         url = "/en/the_rest/"
     [[Languages.en.menu.main]]
+        name = "Travels"
+        identifier = "travels"
+        weight = 5
+        url = "/en/travels/"
+    [[Languages.en.menu.main]]
         name = "About"
         identifier = "about"
-        weight = 5
+        weight = 6
         url = "/en/about/"
 
   [Languages.fr]
@@ -78,7 +83,12 @@ disqusShortname = "thinkloveshare"
         weight = 4
         url = "/fr/the_rest/"
     [[Languages.fr.menu.main]]
+        name = "Voyages"
+        identifier = "voyages"
+        weight = 5
+        url = "/fr/travels/"
+    [[Languages.fr.menu.main]]
         name = "À propos"
         identifier = "about"
-        weight = 5
+        weight = 6
         url = "/fr/about/"

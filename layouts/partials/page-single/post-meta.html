@@ -16,7 +16,12 @@
     {{ end }}
     <br/>
     <i class="fas fa-clock"></i> {{ .ReadingTime }} min read
-    <br/>
-    <i class="fas fa-globe"></i> {{ .Params.status }}
+    <i class="fas fa-globe"></i>{{ .Params.status }}<br/>
+    <i class="fas fa-heart"></i>
+    {{ if eq .Lang "en" }}
+    Any typos? Any idea to suggest? Feedback appreciated! =]
+    {{ else if eq .Lang "fr" }}
+    Une faute ? Une idée à suggérer ? Feedback apprécié ! =]
+    {{ end }}<i class="fas fa-heart"></i><br/>
 </div>
 {{ end }}
