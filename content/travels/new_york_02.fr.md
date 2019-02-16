@@ -10,9 +10,9 @@ description: "Deuxième article sur mon voyage à New-York. Trouver une maison, 
 
 # Auriez vous vu passer ma maison ?
 
-Pendant la première semaine, j'ai vécu avec Tatiana et Mateo dans un appartement juste en dessous de Central Park, l'appartement lui-même était vraiment sympa, mais il y avait un problème majeur : la stricte politique du bâtiment en matière d'invités nocturnes. Il est interdit de sous-louer une chambre à cause de la nouvelle réglementation de New-York sur l'hébergement (principalement à cause des hosts RBNB et... de l'ARGENT bien sûr !). Chaque soir, il était facile de retourner à l'immeuble, mais l'accès à l'appartement lui était tendu. Je devqis soit convaincre le portier de me laisser entrer (un différent chaque jour), soit me faufiler à l'intérieur. C'était vraiment stressant de ne pas être sûr d'avoir un lieu ou dormir la nuit. Le propriétaire risquait une amende de 10 000$ pour des invités non inscrits, alors dès que j'en ai entendu parler, je suis parti au plus vite.
+Pendant la première semaine, j'ai vécu avec Tatiana et Mateo dans un appartement juste en dessous de Central Park, l'appartement lui-même était vraiment sympa, mais il y avait un problème majeur : la stricte politique du bâtiment en matière d'invités nocturnes. Il est interdit de sous-louer une chambre à cause de la nouvelle réglementation de New-York sur l'hébergement (principalement à cause des hosts RBNB et... de l'ARGENT bien sûr !). Chaque soir, il était facile de retourner à l'immeuble, mais l'accès à l'appartement lui était tendu. Je devais soit convaincre le portier de me laisser entrer (un différent chaque jour), soit me faufiler à l'intérieur. C'était vraiment stressant de ne pas être sûr d'avoir un lieu ou dormir la nuit. Le propriétaire risquait une amende de 10 000$ pour des invités non inscrits, alors dès que j'en ai entendu parler, je suis parti au plus vite.
 
-Un journ, un homme sage m'a dit :
+Un jour, un homme sage m'a dit :
 
 > I just want home to be a peaceful place.\
 > Je veux juste que ma maison soit un lieux paisible
