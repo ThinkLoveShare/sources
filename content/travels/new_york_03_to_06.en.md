@@ -4,7 +4,7 @@ title: "New York, Datadog and I - Week 3 to 6"
 slug: "new_york_datadog_and_i_week_3_to_6"
 date: 2019-03-16
 status: "original"
-description: "Third article about my trip to New-York. Datadog parties, cool rooftop, visiting with Marine, vagrant and ansible, finding a home AGAIN... And pics!"
+description: "Third article about my trip to New-York. Datadog parties, cool rooftop, visiting with Marine, api endpoints sanitization, vagrant and ansible, finding a home AGAIN... And pics!"
 ---
 
 
@@ -58,8 +58,8 @@ We went to times square, and also to the Top Of The Rock (mid-high building in f
 
 While going to the One World Trade Center (building constructed after the fall of the twin towers), we saw this gigantic monster, which is a shops + metro station place. Its looks crazy, it's huge outside, and even bigger inside!
 
-<img class="img_big" src="/travels/new_york_03_to_06/monster_in.jpg", alt="monster_in">
 <img class="img_big" src="/travels/new_york_03_to_06/monster_out.jpg", alt="monster_out">
+<img class="img_big" src="/travels/new_york_03_to_06/monster_in.jpg", alt="monster_in">
 
 Then we took a break to go to a Korean SPA. We were a bit sick because of the weather, so the warmth was more than welcome. The view we had on New-York while in the extra hot swimming pool was super nice, but we were really shocked to realize that most of the folks in here were only posing and taking pictures. I mean, we took a bunch of pics for the memories, but some stayed for hours just taking the same picture over and over of themselves in the same pose, they seemed to not even care about the pool / sight, just the social-media fame, and it was... Strange...
 
@@ -76,7 +76,7 @@ Last but not least, here's an extra-classy picture of New-York she took the firs
 <img class="img_big" src="/travels/new_york_03_to_06/black_white_nyc.jpg", alt="black_white_nyc">
 
 
-# Vagrant, Ansible and Continuous Integration
+# Work related
 
 Weeeeell, life's cool, but work matters too... Right?
 I've been working on two main things:
