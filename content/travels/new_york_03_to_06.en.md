@@ -11,7 +11,7 @@ description: "Third article about my trip to New-York. Datadog parties, cool roo
 # Datadog parties
 
 A few times a month, parties are organized either at work, or in cool places nearby by the company.
-So fare, I joined three times. Once to taste some whiskey, once to build our own terrarium and eat hand-made sushis, and once to go to a big-games bar. And every event was a huge success! :D
+So far, I joined three times. Once to taste some whiskey, once to build our own terrarium and eat hand-made sushis, and once to go to a big-games bar. And every event was a huge success! :D
 
 <img class="img_big" src="/travels/new_york_03_to_06/sushi.jpg", alt="sushi">
 <img class="img_big" src="/travels/new_york_03_to_06/plant.jpg", alt="plant">
