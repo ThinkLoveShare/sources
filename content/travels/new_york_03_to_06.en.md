@@ -61,7 +61,7 @@ While going to the One World Trade Center (building constructed after the fall o
 <img class="img_big" src="/travels/new_york_03_to_06/monster_out.jpg", alt="monster_out">
 <img class="img_big" src="/travels/new_york_03_to_06/monster_in.jpg", alt="monster_in">
 
-Then we took a break to go to a Korean SPA. We were a bit sick because of the weather, so the warmth was more than welcome. The view we had on New-York while in the extra hot swimming pool was super nice, but we were really shocked to realize that most of the folks in here were only posing and taking pictures. I mean, we took a bunch of pics for the memories, but some stayed for hours just taking the same picture over and over of themselves in the same pose, they seemed to not even care about the pool / sight, just the social-media fame, and it was... Strange...
+Then we took a break to go to a Korean SPA. We were (well, mainly I was) a bit sick because of the weather, so the warmth was more than welcome. The view we had on New-York while in the extra hot swimming pool was super nice, but we were really shocked to realize that most of the folks in here were only posing and taking pictures. I mean, we took a bunch of pics for the memories, but some stayed for hours just taking the same picture over and over of themselves in the same pose, they seemed to not even care about the pool / sight, just the social-media fame, and it was... Strange...
 
 <img class="img_big" src="/travels/new_york_03_to_06/spa_her.jpg", alt="spa_her">
 <img class="img_big" src="/travels/new_york_03_to_06/spa_him.jpg", alt="spa_him">
@@ -71,7 +71,7 @@ A friend of mine joined us to visit the Natural Museum of History. We were a bit
 <img class="img_big" src="/travels/new_york_03_to_06/carayol.jpg", alt="carayol">
 <img class="img_big" src="/travels/new_york_03_to_06/badass_tree.jpg", alt="badass_tree">
 
-Last but not least, here's an extra-classy picture of New-York she took the first day:
+Last but not least, here's an extra-classy picture of New-York that Marine took the first day:
 
 <img class="img_big" src="/travels/new_york_03_to_06/black_white_nyc.jpg", alt="black_white_nyc">
 
@@ -92,14 +92,16 @@ def validate_email(email):
     return isinstance(email, str) and "@" in str
 ```
 
-I really felt like "WTF, this isn't enough AT ALL" and tried to create a pull request to improve that, but while digging in this github repository, I saw a closed issue on this topic, and this is what I found: A mind-blowing 5mn read! Have fun, it's gold-certified material.
+I really felt like "WTF, this isn't enough AT ALL" and tried to create a pull request to improve that, but while digging in this github repository, I saw a closed issue on this topic, and this is what I found: A mind-blowing 5mn read!
+
+Have fun, it's gold-certified material.
 
 https://hackernoon.com/the-100-correct-way-to-validate-email-addresses-7c4818f24643
 
 
 ### Automated deployment of a vulnerable web-application
 
-The work done here implies many pre-existing private repositories used in Datadog, so I can't explain everything, but it basically implies terraform scripts that will setup AWS accounts for us. The part I worked on was mainly using Ansible and Vagrant for cookbooks and local testing.
+The work done here implies many pre-existing private repositories used in Datadog, so I can't explain everything, but it basically implies terraform scripts that will setup AWS accounts for us. The part I worked on was mainly using Ansible (cookbooks) and Vagrant for local testing (replace amazon EC2 instances).
 
 Vagrant is a virtualization software that one can use for many things:
 
@@ -124,16 +126,16 @@ Here are some useful / interesting resources about them:
 
 My roommate boss had money. A lot of it, but it seems that he lost most of it in stock exchanges. So he `had` money. Thus his private pilot, cook and probably others employee has been fired. Adrian seems to be OK with that as he really likes nature, and New-York definitely isn't a great place for him, so he's on the road again, soon traveling around the world!
 
-But this means for me that I have to either find a new roommate as soon as possible or leave the apartment by 1st of April. This sucks, I want to keep this place, so... If you know anyone looking for a peaceful and beautiful place to say near New-York... Let them know... M'okay?
+But this means for me that I have to either find a new roommate as soon as possible or leave the apartment by 1st of May. This sucks, I want to keep this place, so... If you know anyone looking for a peaceful and beautiful place to say near New-York... Let them know... M'okay?
 
 
 # Random thoughts
 
-Wherever you are, visio-conferences can and will fail at some point. It's super funny to have 30 engineers trying to fix a TV all together with live tips and laughs from remote workers!
+Wherever you are, whoever you are, visio-conferences can and will fail at some point. It's super funny to have 30 engineers trying to fix a TV all together with live tips and laughs from remote workers!
 
 <img class="img_big" src="/travels/new_york_03_to_06/video_conf.jpg", alt="video_conf">
 
-While traveling to White plaines, I missed my train stop and arrived right to Valhalla. It felt really strange to miss a stop and reach valkyries paradise just like that in 5 minutes!
+While traveling to White plaines, I missed my train stop and arrived right to Valhalla. It felt really strange to reach valkyries paradise just like that in 5 minutes, just like that, by missing a single stop...
 
 <img class="img_big" src="/travels/new_york_03_to_06/valhalla.jpg", alt="valhalla">
 
@@ -146,4 +148,4 @@ I hope that you had a great day / week / month, and if you did not, remember tha
 
 <img class="img_big" src="/travels/new_york_03_to_06/one_in_a_melon.jpg", alt="one_in_a_melon">
 
-See you soon and take care! ;)
+See you (more or less) soon, take care! ;)
