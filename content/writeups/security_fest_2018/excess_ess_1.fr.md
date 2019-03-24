@@ -1,10 +1,10 @@
 ---
 author: "Laluka"
-title: "Excess ess 1"
+title: "Security Fest - Excess ess 1"
 slug: "excess_ess_1"
 date: 2018-06-04
 status: "traduit"
-description: "Un challenge web sur une XSS, résolu pendant le SecurityFest CTF 2018. Il s'agit de trouver un bypass pour exécuter la fonction alert après qu'elle ait été supprimée."
+description: "Challenge web à propos d'une XSS et le comportement des navigateurs. Il s'agit de trouver un bypass pour exécuter une fonction javascript après que ses références aient été supprimées. "
 ---
 
 Ce défi intitulé "Excess Ess 1" est un jeu de mot (phonétique) pour désigner XSS. C'est une attaque qui consiste à forcer le navigateur de notre victime à exécuter du code (la plupart du temps du javascript) sans son consentement. Ce défi a été proposé par l'édition 2018 du SecurityFest CTF.
@@ -12,20 +12,20 @@ Ce défi intitulé "Excess Ess 1" est un jeu de mot (phonétique) pour désigner
 ## L'objectif
 La plupart du temps, pour prouver qu'une XSS est possible, le hacker utilise une payload qui appelle la fonction alert. C'est ici exactement ce qu'on nous demande de faire. Nous commençons donc par introduire un simple texte pour voir s'il est reflété dans la page Web. On réalise vite que le mot-clé est reflété comme une variable dans du javascript, utilisé dans notre page.
 
-<img class="img_full" src="/writeups/security_fest/recon.png" alt="recon" >
+<img class="img_full" src="/writeups/security_fest_2018/recon.png" alt="recon" >
 
 L'étape suivante est de forcer la page à exécuter notre code. On essaye dans un premier temps avec la fonction console.log après avoir fermé la première affectation de variable, et en commentant ce qui vient après. On essaye (cf l'URL), et PAF ! Le navigateur log 3, donc nous pouvons exécuter du javascript !
 
-<img class="img_full" src="/writeups/security_fest/inject.png" alt="inject" >
+<img class="img_full" src="/writeups/security_fest_2018/inject.png" alt="inject" >
 
 ## La protection
 Ensuite, nous essayons d'utiliser la payload alert(1) pour valider le défi, mais... Oopsy !
 
-<img class="img_full" src="/writeups/security_fest/prompt.png" alt="prompt" >
+<img class="img_full" src="/writeups/security_fest_2018/prompt.png" alt="prompt" >
 
 Tout ce qu'on a en retour, c'est un prompt. La raison de ce comportement est qu'un script est chargé et exécuté avant notre payload. En récupérerant son contenu on comprend que la fonction alert a été remplacée par la fonction prompt.....
 
-<img class="img_full" src="/writeups/security_fest/ascii_art.png" alt="ascii_art" >
+<img class="img_full" src="/writeups/security_fest_2018/ascii_art.png" alt="ascii_art" >
 
 Donc... Nous ne l'avons plus ? Comment l'utiliser en ce cas ?
 
@@ -52,7 +52,7 @@ La payload finale à envoyer est donc :
 http://xss1.alieni.se:2999/?xss=';i=document.createElement("iframe");i.onload=function(){i.contentWindow.alert(1);};document.getElementsByClassName('container')[0].appendChild(i);//
 ```
 
-<img class="img_full" src="/writeups/security_fest/alert.png" alt="alert" >
+<img class="img_full" src="/writeups/security_fest_2018/alert.png" alt="alert" >
 
 ## Conclusion
 Utiliser un système de blacklist est (la plupart du temps) une mauvaise idée, en particulier avec javascript / python / SQL / .... parce qu'il y a tellement de façons de contourner les mots-clés bloqués, éditer ou recréer des objets et fonctions facilement, que ce type de sandboxing / protection n'est pas assez efficace.
