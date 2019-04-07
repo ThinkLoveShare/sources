@@ -9,7 +9,7 @@ description: "Introduction to Return to libc (ret2libc) and practical example."
 
 > Small edit after the initial publication of the articles:
 
-> These four articles lead me to give an "pwn introductory" conference at the HitchHack 2018. It summarizes the first 3 articles but goes less into detail. If this format suits you better, the slides are downloadable[here] (/hacking/pwn_1of4_buffer_overflow/slides_conf_123_pwned.pdf) and the video (French only) here :
+> These four articles lead me to give an "pwn introductory" conference at the HitchHack 2018. It summarizes the first 3 articles but goes less into detail. If this format suits you better, the slides are downloadable [here](/hacking/pwn_1of4_buffer_overflow/slides_conf_123_pwned.pdf) and the video (French only) here :
 
 {{< youtube hmt8M9YLwTg >}}
 
@@ -64,7 +64,7 @@ A program compiled in static (gcc: option -static) is not exploitable this way, 
 
 The basics are in place, now,  the walkthrough!
 
-The studied binary is downloadable[here](/hacking/pwn_2of4_ret2libc/vuln)
+The studied binary is downloadable [here](/hacking/pwn_2of4_ret2libc/vuln)
 
 We start by understanding how the program works (or does not work...), find the crash :
 

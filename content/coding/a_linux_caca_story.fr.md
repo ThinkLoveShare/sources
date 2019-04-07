@@ -86,7 +86,7 @@ eog /DRIVE/perso/2015/arthur/caca_papillon.jpg
 
 <img class="img_big" src="/coding/a_linux_caca_story/caca_papillon.jpg" alt="caca_papillon">
 
-C'est l'un de mes précédent colocataires, clairemnt pas un caca. Il était très fatigué après une fête, alors j'ai profité de la situation pour me moquer un peu de lui ! `è.é`
+C'est l'un de mes précédent colocataires, clairement pas un caca. Il était très fatigué après une fête, alors j'ai profité de la situation pour me moquer un peu de lui ! `è.é`
 
 
 ## Autres trouvailles
@@ -156,7 +156,7 @@ J'ai été un peu trop flemmard pour créer un gif mais croyez-moi, c'est animé
 
 ### cacaplay & cacaserver
 
-Le premier outil peut être utilisé pour lire des fichiers .caca. Je ne l'utiliserai ici mais n'hésitez pas à parcourir le web et à m'envoyer votre meilleur .caca!\
+Le premier outil peut être utilisé pour lire des fichiers .caca. Je ne l'utiliserai pas ici mais n'hésitez pas à parcourir le web et à m'envoyer vos meilleurs .caca!\
 S'il vous plaît, pas de photos de caca. Vraiment, non.
 
 Le second est destiné à servir des animations de caca. Différents clients peuvent s'y connecter à l'aide de `telnet` ou `netcat` et profiter de ces animations sans avoir ce logiciel !

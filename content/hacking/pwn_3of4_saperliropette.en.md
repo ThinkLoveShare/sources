@@ -9,7 +9,7 @@ description: "Introduction to Return Oriented Programming (ROP) and practical ex
 
 > Small edit after the initial publication of the articles:
 
-> These four articles lead me to give an "pwn introductory" conference at the HitchHack 2018. It summarizes the first 3 articles but goes less into detail. If this format suits you better, the slides are downloadable[here] (/hacking/pwn_1of4_buffer_overflow/slides_conf_123_pwned.pdf) and the video (French only) here :
+> These four articles lead me to give an "pwn introductory" conference at the HitchHack 2018. It summarizes the first 3 articles but goes less into detail. If this format suits you better, the slides are downloadable [here](/hacking/pwn_1of4_buffer_overflow/slides_conf_123_pwned.pdf) and the video (French only) here :
 
 {{< youtube hmt8M9YLwTg >}}
 
@@ -66,7 +66,7 @@ Many tools are available to list the gadgets of an executable, such as ROPgadget
 
 ## Elaboration of the exploit
 
-The studied binary is downloadable[here](/hacking/pwn_3of4_saperliropette/vuln)
+The studied binary is downloadable [here](/hacking/pwn_3of4_saperliropette/vuln)
 
 First of all, we look at what we're dealing with: x86-64, compiled in static, full ASLR. Okay!
 

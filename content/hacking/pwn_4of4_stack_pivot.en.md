@@ -9,7 +9,7 @@ description: "The basics of binary operation are normally acquired, let's go for
 
 > Small edit after the initial publication of the articles:
 
-> These four articles lead me to give an "pwn introductory" conference at the HitchHack 2018. It summarizes the first 3 articles but goes less into detail. If this format suits you better, the slides are downloadable[here] (/hacking/pwn_1of4_buffer_overflow/slides_conf_123_pwned.pdf) and the video (French only) here :
+> These four articles lead me to give an "pwn introductory" conference at the HitchHack 2018. It summarizes the first 3 articles but goes less into detail. If this format suits you better, the slides are downloadable [here](/hacking/pwn_1of4_buffer_overflow/slides_conf_123_pwned.pdf) and the video (French only) here :
 
 {{< youtube hmt8M9YLwTg >}}
 
@@ -26,7 +26,7 @@ You who stood strong during the previous 3 articles, I hope you are still ready!
 
 ## Recon
 
-The studied binary is downloadable[here](/hacking/pwn_4of4_stack_pivot/vuln) !
+The studied binary is downloadable [here](/hacking/pwn_4of4_stack_pivot/vuln) !
 
 Hello little program, what do you do for a living?
 
