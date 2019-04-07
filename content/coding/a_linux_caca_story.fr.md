@@ -106,10 +106,7 @@ Nous avons des jouets (binaires), il est donc temps de faire joujou !
 
 ### cacafire
 
-<video  class="img_big" controls>
-  <source src="/coding/a_linux_caca_story/cacafire.mp4" type="video/mp4">
-Désolé, votre navigateur ne supporte pas la balise vidéo... Peut-être est-il temps de passer à une nouvelle version ? Chrome / Firefox / ...
-</video>
+{{< youtube SKroUpqeJ_0 >}}
 
 <img class="img_big" src="/coding/a_linux_caca_story/edna_mode.gif" alt="edna_mode">
 
@@ -167,10 +164,7 @@ Le second est destiné à servir des animations de caca. Différents clients peu
 
 Le dernier mais pas des moindres, le programme démo pour les meilleures animations .caca !
 
-<video  class="img_big" controls>
-  <source src="/coding/a_linux_caca_story/cacademo.mp4" type="video/mp4">
-Désolé, votre navigateur ne supporte pas la balise vidéo... Peut-être est-il temps de passer à une nouvelle version ? Chrome / Firefox / ...
-</video>
+{{< youtube F6t0vFPxwBE >}}
 
 
 ## La licence

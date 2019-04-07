@@ -11,7 +11,8 @@ description: "Introduction to binary exploitation, ELF format and shellcode writ
 
 > These four articles lead me to give an "pwn introductory" conference at the HitchHack 2018. It summarizes the first 3 articles but goes less into detail. If this format suits you better, the slides are downloadable[here] (/hacking/pwn_1of4_buffer_overflow/slides_conf_123_pwned.pdf) and the video (French only) here :
 
-[![1, 2, 3, PWNED !](http://img.youtube.com/vi/hmt8M9YLwTg/0.jpg)](https://www.youtube.com/watch?v=hmt8M9YLwTg)
+{{< youtube hmt8M9YLwTg >}}
+
 
 ## printf("Mr, Ms %s, bonjour. ", lecteur);
 

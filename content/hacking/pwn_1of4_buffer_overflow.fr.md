@@ -11,7 +11,8 @@ description: "Introcution à l'exploitation binaire, aux format ELF et à l'écr
 
  > Ces quatres articles ont donné lieu à une conférence d'introduction au pwn à la HitchHack 2018. Elle résume les 3 premiers articles mais rentre moins dans le détail. Si ce format vous convient mieux, les slides sont téléchargables [ici](/hacking/pwn_1of4_buffer_overflow/slides_conf_123_pwned.pdf) et la vidéo (francais uniquement) ici :
 
- [![1, 2, 3, PWNED !](http://img.youtube.com/vi/hmt8M9YLwTg/0.jpg)](https://www.youtube.com/watch?v=hmt8M9YLwTg)
+ {{< youtube hmt8M9YLwTg >}}
+
 
 ## printf("Dear %s, welcome. ", reader);
 
