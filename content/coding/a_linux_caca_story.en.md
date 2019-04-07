@@ -101,12 +101,10 @@ So this is one of my previous roommate, definitely not some poop. He was extreme
 
 We have toys (binaries), so let's have fun!
 
+
 ### cacafire
 
-<video  class="img_big" controls>
-  <source src="/coding/a_linux_caca_story/cacafire.mp4" type="video/mp4">
-Sorry, yur browser does not support the video tag... Maybe it's time to upgrade to a new one? Chrome / Firefox / ...
-</video>
+{{< youtube SKroUpqeJ_0 >}}
 
 <img class="img_big" src="/coding/a_linux_caca_story/edna_mode.gif" alt="edna_mode">
 
@@ -164,10 +162,7 @@ The second one is meant to serve some caca animations. Differents clients can co
 
 Last but not least, the demo for the best caca animations!
 
-<video  class="img_big" controls>
-  <source src="/coding/a_linux_caca_story/cacademo.mp4" type="video/mp4">
-Sorry, yur browser does not support the video tag... Maybe it's time to upgrade to a new one? Chrome / Firefox / ...
-</video>
+{{< youtube F6t0vFPxwBE >}}
 
 
 ## The license
