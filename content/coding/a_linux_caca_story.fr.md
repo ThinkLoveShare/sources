@@ -10,8 +10,6 @@ description: "Il y a quelques jours, j'ai réalisé qu'un fichier 'libcaca.so' �
 
 ## La cause initiale
 
-Here's the thing, I was doing some cleaning in my computer's home directory after solving some hacking challenge. To see what kind of files where still present I ran the command `ta`, which is aliased (in my system) to the following function.
-
 Voilà l'idée, je faisais un peu de nettoyage dans le répertoire home de mon ordinateur après avoir résolu un challenge de hacking. Pour voir quels types de fichiers étaient encore présents, j'ai utilisé la commande `ta`, qui est aliasée (dans mon système) à la fonction suivante.
 
 
@@ -102,7 +100,11 @@ C'est l'un de mes précédent colocataires, clairemnt pas un caca. Il était tr�
 
 ## Exploitation de notre mine d'or
 
-Nous avons des jouets (binaires), il est donc temps de faire joujou !
+Nous avons des jouets (binaires), il est donc temps de faire joujou !\
+Description tirée du site internet des développeurs de [libcaca](http://caca.zoy.org/wiki/libcaca):
+
+> libcaca is a graphics library that outputs text instead of pixels, so that it can work on older video cards or text terminals.
+
 
 ### cacafire
 

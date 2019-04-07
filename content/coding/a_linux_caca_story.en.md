@@ -99,7 +99,10 @@ So this is one of my previous roommate, definitely not some poop. He was extreme
 
 ## Goldmine exploitation
 
-We have toys (binaries), so let's have fun!
+We have toys (binaries), so let's have fun!\
+Description from the libcaca dev's [website](http://caca.zoy.org/wiki/libcaca):
+
+> libcaca is a graphics library that outputs text instead of pixels, so that it can work on older video cards or text terminals.
 
 
 ### cacafire
