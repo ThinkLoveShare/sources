@@ -10,11 +10,13 @@ status: "original"
 
 Vous trouverez ici toutes sortes d'informations, principalement sur la sécurité informatique et le développement, mais pas seulement. J'aime également partager des pensées, des réflexions, des outils, des chansons, écrits, voyages, ...
 
-## Laluka
+## Whoami
 
 Bonjour toi ! Je m'appelle Louka Jacques-Chevallier, aussi connu sous le pseudo Laluka. J'adore apprendre, enseigner, et donner des conseils utiles. J'ai longtemps vécu près de cet endroit que j'affectionne particulièrement, profitez un peu de cette vue ! =]
 
 ![landscape](/about/landscape.jpg)
+
+CV au format PDF [ici](/about/CV_Louka_JC_FR.pdf)
 
 Voici un bref résumé de ma vie :
 
@@ -25,13 +27,13 @@ Voici un bref résumé de ma vie :
 -   18 à 22 - Mourir à l'école, apprendre tout ce que je peux : python, rubis, C, C++, ...
 -   22 à 23 - Mais, le hack c'est fun ! Pentest, box pwning, exploitation binaire, reverse, web, prog, crypto, stéganographie, etc. C'est aussi cette année que j'ai définitivement abandonné Windows au profit de Linux.
 
-Si jamais tu te demandes d'où vient mon pseudo, voici la réponse:\\
+Si jamais tu te demandes d'où vient mon pseudo, voici la réponse:\
 En français, pour la forme plurielle, les mots changent souvent de cette façon : "un cheval" devient "chevaux".
 Mais le fait est que beaucoup de mots ne suivent pas cette règle (français ❤ exceptions).
-Alors notre groupe a pris cette stupide habitude de changer tous les [o] en [al], et...\\
+Alors notre groupe a pris cette stupide habitude de changer tous les [o] en [al], et...\
 Me voici ! Louka -> Laluka !
 
-## Copains
+## Les potes
 
 ##### Membres de Apéri'Kube
 
