@@ -12,11 +12,11 @@ Vous trouverez ici toutes sortes d'informations, principalement sur la sécurit�
 
 ## Whoami
 
+CV au format PDF [ici](/about/CV_Louka_JC_FR.pdf)
+
 Bonjour toi ! Je m'appelle Louka Jacques-Chevallier, aussi connu sous le pseudo Laluka. J'adore apprendre, enseigner, et donner des conseils utiles. J'ai longtemps vécu près de cet endroit que j'affectionne particulièrement, profitez un peu de cette vue ! =]
 
 ![landscape](/about/landscape.jpg)
-
-CV au format PDF [ici](/about/CV_Louka_JC_FR.pdf)
 
 Voici un bref résumé de ma vie :
 
