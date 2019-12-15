@@ -8,9 +8,9 @@ description: "Short introduction to the technologies used to build and maintain 
 ---
 
 
-## Why changing ?
+## Why change ?
 
-I used to write from time to time on [thinkloveshare.blogspot.com](https://thinkloveshare.blogspot.com) which will soon be retired, replaced by [thinkloveshare.com](https://thinkloveshare.com). I decided to change for quite a few reasons, here's the story:
+I used to write from time to time on thinkloveshare.blogspot.com which will soon be retired, replaced by [thinkloveshare.com](https://thinkloveshare.com). I decided to change for quite a few reasons, here's the story:
 
  * Code format
 

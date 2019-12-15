@@ -10,7 +10,7 @@ description: "Brève introduction aux technologies utilisées pour créer et mai
 
 ## Pourquoi changer ?
 
-J'écrivais de temps en temps sur [thinkloveshare.blogspot.com](https://thinkloveshare.blogspot.com) qui sera bientôt mis hors ligne, remplacé par [thinkloveshare.com](https://thinkloveshare.com). J'ai décidé de changer pour plusieurs raisons, en voici l'histoire :
+J'écrivais de temps en temps sur thinkloveshare.blogspot.com qui sera bientôt mis hors ligne, remplacé par [thinkloveshare.com](https://thinkloveshare.com). J'ai décidé de changer pour plusieurs raisons, en voici l'histoire :
 
  * Format du code
 

@@ -20,6 +20,7 @@ disqusShortname = "thinkloveshare"
 ## Social Accounts
 [params.social]
     github = "TheLaluka"
+    gitlab = "TheLaluka"
     linkedin = "louka-jacques-chevallier-6b2460125"
     twitter = "thelaluka"
     email = "loukajc@gmail.com"
