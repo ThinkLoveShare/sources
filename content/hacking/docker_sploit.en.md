@@ -23,16 +23,34 @@ Today, I’ll teach you how to use docker, metasploit, ngrok and aliases in orde
 
 ## Step 1 : Install and setup docker
 
-The install procedure is specified in the official doc, but... Gotta go faaaast (and self contained)!
-First, update the repos and install the docker.io package and create a symbolic link. 
+UPDATE : Let's give a big shout out to [@Creased_](https://twitter.com/Creased_) that [tweeted me](https://twitter.com/Creased_/status/1206556812541091840) about the new / current docker install process, the one I initially published was deprecated. Oopsy Daisy.. `:x`
 
+The install procedure is specified in the official doc, but... Gotta go faaaast (and self contained)!
 
 ```bash
-sudo apt update && sudo apt install -y docker.io
-sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+# If previously installed, clean up 
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+# Update and install
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) stable # Hardcode disco if you're on ubuntu 19.XX
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo docker run hello-world
+
+# OR
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
 ```
 
-Start the docker service, and be sure that it’s working fine with _status_ before _enabling_ it to start at every boot. 
+You can always _start_, _stop_, or _enable_ the docker services using systemctl. 
+Just check it's working as intended using the _status_ command, and eventually _enable_ it at reboot. 
 
 ```bash
 sudo systemctl start docker
@@ -40,7 +58,7 @@ sudo systemctl status docker
 sudo systemctl enable docker
 ```
 
-If you’re not familiar AT ALL with docker, maybe reading Richard’s introduction might be a good idea at this point : https://teuze.github.io/posts/docker/
+If you’re not familiar AT ALL with docker, reading Richard’s introduction might be a good starting point : https://teuze.github.io/posts/docker/
 
 
 ## Step 2 : Install and setup ngrok
