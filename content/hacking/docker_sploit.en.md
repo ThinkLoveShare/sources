@@ -108,6 +108,10 @@ source ~/.zshrc
 EOF
 ```
 
+> Update one week later : \
+> Adding the flag `--network=host` allows you to run many dockers without specifying the published ports, without port (bind) conflicts, and that's one less ip to be confused with so that's what I use now ! =]
+
+
 Let’s spend some time explaining metasploit8888 alias. 
 
 - `sudo` # we need to be root to interact with the docker socket
