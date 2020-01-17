@@ -184,4 +184,4 @@ As always, I hope that you had fun reading this article. Personally I'm always a
 
 Next time you'll find something odd, something bizarre, consider giving it some time, who knows what you could end up finding! ツ
 
-> I came here looking for this, but unfortunately I only found gold! - Laluka 2019
+> I came here looking for shit, but unfortunately I only found gold! - Laluka 2019
