@@ -10,7 +10,7 @@ description: "Are your servers and bounces alone? Do you know what they do late 
 
 ## The root cause
 
-While casually chatting with a colleague, he told me about the sshrc feature of sshd. He explained me that he was using telegram's API to get ssh login notifications on his phone. My first thought was "Yeah, sure, but it's just a `.rc` file (custom settings), it's usually quite easy to bypass with the right option...
+While casually chatting with a colleague, he told me about the sshrc feature of sshd. He explained to me that he was using telegram's API to get ssh login notifications on his phone. My first thought was "Yeah, sure, but it's just a `.rc` file (custom settings), it's usually quite easy to bypass with the right option...
 
 While saying that, I had in mind the trick with `bash --noprofile --norc` that can allow a new bash process to be spawned without using any configuration file. I had to use that two years ago when I... F*cked up my own .bashrc and couldn't use bash anymore, at that time I wasn't aware of the real `sh` or other alternative shells. 
 
@@ -24,7 +24,7 @@ After some reading, I found out that :
 
 ### Man sshd
 
--  Ce fichier peut être utilisé pour spécifier globalement des initialisations pour la connexion spécifiques à une machine. Ce fichier ne doit être accesible en écriture qu'à root et lisible par tous.
+-  Similar to $HOME/.ssh/rc. This can be used to specify machine-specific login-time initializations globally. This file should be writable only by root, and should be world-readable.
 
 
 ### Random stackexchange user `#SoItMustBeTrue`
