@@ -8,7 +8,7 @@ description: "Introduction to Wordpress Subpath Auditor, a homemade tool that ca
 ---
 
 
-About one month ago, I had to audit a wordpress website. As it was one of my first real-life pentest, I was really hyped and ready to try extra-super-hard to compromise this target. But after a few hours, I realised that : 
+About a month ago, I had to audit a wordpress website. As it was one of my first real-life pentest, I was really hyped and ready to try extra-super-hard to compromise this target. But after a few hours, I realised that : 
 
 - Wordpress is up to date
 - Every plugin or theme is up to date
@@ -102,7 +102,7 @@ The current performances are litteraly `the worst`. This is due to two things :
 - Even if the webserver is multithreaded and can be fast, the logger uses only one file. I had to enforce that to prevent multiple threads to write in the log file at the same time and thus wrecking the logs. 
 - Too much sh*t is being logged, and IOs are known to be a bottleneck. Some cache should be implemented to prevent logging function code every time it's hit. Maybe.. for a V2? 
 
-The covered surface is pretty damn small, and highly dependent on the crawler / fuzzer efficiency. This is true, but this is part of the design. Every dynamic approach of a problem is leaving apart a huge part of the code, it's a trade off. This is why `this tool will never replace a throgough code audit`. 
+The covered surface is pretty damn small, and highly dependent on the crawler / fuzzer efficiency. This is true, but this is part of the design. Every dynamic approach of a problem is leaving apart a huge part of the code, it's a trade off. This is why `this tool will never replace a thorough code audit`. 
 
 
 ## Demo video
