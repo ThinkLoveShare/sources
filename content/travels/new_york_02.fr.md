@@ -3,7 +3,7 @@ author: "Laluka"
 title: "New York, Datadog et moi - Semaine 2"
 slug: "new_york_datadog_et_moi_semaine_2"
 date: 2019-02-16
-status: "traduit"
+status: "translated"
 description: "Deuxième article sur mon voyage à New-York. Trouver une maison, personne ne cuisine, free Wi-Fi, le taff, clavier, st Valentin... Et photos !"
 ---
 

@@ -3,7 +3,7 @@ author: "Laluka"
 title: "Une histoire de linux et de caca"
 slug: "a_linux_caca_story"
 date: 2019-04-06
-status: "traduit"
+status: "translated"
 description: "Il y a quelques jours, j'ai réalisé qu'un fichier 'libcaca.so' était présent dans mon système de fichiers linux. Comme je suis resté un gamin dans ma tête, j'ai voulu enquêter. Ce que j'ai trouvé, est... Magnifique. "
 ---
 

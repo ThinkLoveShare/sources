@@ -3,7 +3,7 @@ author: "Laluka"
 title: "Migration de ThinkLoveShare"
 slug: "website_migration"
 date: 2018-12-09
-status: "traduit"
+status: "translated"
 description: "Brève introduction aux technologies utilisées pour créer et maintenir ce site web et quelques mots sur les raisons pour lesquelles j'ai changé. "
 ---
 

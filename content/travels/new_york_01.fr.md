@@ -3,7 +3,7 @@ author: "Laluka"
 title: "New York, Datadog et moi - Semaine 1"
 slug: "new_york_datadog_et_moi_semaine_1"
 date: 2019-02-09
-status: "traduit"
+status: "translated"
 description: "Premier article sur mon voyage à New-York. Pourquoi, où, quand, avec qui, ce qui m'a surpris, comment ca se passe... Et photos !"
 ---
 

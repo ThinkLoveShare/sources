@@ -3,7 +3,7 @@ author: "Laluka"
 title: "CSAW - Short Circuit"
 slug: "short_circuit"
 date: 2018-09-16
-status: "traduit"
+status: "translated"
 description: "Challenge hardware sur papier ! Cette épreuve consiste à récupérer l'état interne d'un (simple) cirtuit imprimé (dessiné), bit par bit, puis d'encoder le résultat en ascii. "
 ---
 

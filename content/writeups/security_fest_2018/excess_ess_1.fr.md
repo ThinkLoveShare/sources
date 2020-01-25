@@ -3,7 +3,7 @@ author: "Laluka"
 title: "Security Fest - Excess ess 1"
 slug: "excess_ess_1"
 date: 2018-06-04
-status: "traduit"
+status: "translated"
 description: "Challenge web à propos d'une XSS et le comportement des navigateurs. Il s'agit de trouver un bypass pour exécuter une fonction javascript après que ses références aient été supprimées. "
 ---
 
