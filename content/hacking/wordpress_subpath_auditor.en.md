@@ -12,7 +12,7 @@ About a month ago, I had to audit a wordpress website. As it was one of my first
 
 - Wordpress is up to date
 - Every plugin or theme is up to date
-- There is no custom code (At least, I found none using gobusted and big wordlists)
+- There is no custom code (At least, I found none using gobuster and big wordlists)
 - There is no weak credentials (Same, I found none doesn't mean there's none.. :] )
 
 So my only hope was to find a zero day. Nothing less. Thus I started working on a tool to audit php components. \
