@@ -40,6 +40,13 @@ rm -rf resources; hugo serve
 # Reach http://localhost:1313/
 ```
 
+# Expose local webserver to the world
+```bash
+sed -i "s/.*GatewayPorts.*/GatewayPorts yes/g" /etc/ssh/sshd_config
+ssh -R 0.0.0.0:1313:127.0.0.1:1313 USER@RHOST
+hugo serve --baseURL=http://RHOST/
+```
+
 # How to deploy
 ```bash
 # In sources :
