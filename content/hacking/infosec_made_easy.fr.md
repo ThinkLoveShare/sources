@@ -117,7 +117,7 @@ A, B, C, D, Echo system($_GET(‘cmd’));, F, G, ...
 ## Local File Inclusion (LFI)
 
 - Je suis safe làààà !
-- Tu peux me donné la clé stp ?
+- Tu peux me donner la clé stp ?
 - Dac, mais je suis toujours safe si je le fais hein ?!
 - Ouaissss ouais...
 
@@ -140,17 +140,17 @@ Not exactly...
 
 ## Remote Code Execution (RCE)
 
-Ce pourquoi nous luttons tous, crainte de certains, idolatrée par d’autres, le saint grale des pentesteus. C’est l’exécution de code, le moment ou tout est terminé pour l’équipe de protection... Enfin, sauf quand t’es sansboxé / dans une VM / dans un container ‘bien protégé’, ..., ..
+Ce pourquoi nous luttons tous, crainte de certains, idolatrée par d’autres, le saint graal des pentesteurs. C’est l’exécution de code, le moment ou tout est terminé pour l’équipe de protection... Enfin, sauf quand t’es sansboxé / dans une VM / dans un container ‘bien protégé’, ..., ..
 
 <img class="img_med" src="/hacking/infosec_made_easy/holy_rce.jpg" alt="holy_rce" >
 
 
 ## En bref
 
-Vous l'aurez compris, malgré des tonnes d'acronymes et de définitions parfois complexes, la sécurité, dans le fond, c'est toujours la même choses. C'est des gens qui veulent vous piquer votre ordinateur pour : 
+Vous l'aurez compris, malgré des tonnes d'acronymes et de définitions parfois complexes, la sécurité, dans le fond, c'est toujours la même chose. C'est des gens qui veulent vous piquer votre ordinateur pour : 
 
 | Faire quoi | Qui |
 |---|---|
 | Le fun / le challenge | LeChapeauGrissss \o/ |
-| Faire des sous (arnaque / batard) | LeChapeauNoireee :[ |
+| Faire des sous (arnaque / batard) | LeChapeauNoirrrr :[ |
 | Faire des sous (recherche / audit) | LeChapeauBlanccc <3 |
