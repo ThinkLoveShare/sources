@@ -72,19 +72,19 @@ Très similaire aux épisodes de McGiver. Vous avez 3 bâtons, une ficelle, une 
 
 ## Privilege Escalation
 
-Quand tu n’as pas le droit de faire une action, mais que si tu demandes à la bonne personne ou au bon programme ayant les bons droits (soucis de configuratoins <3), iel le fait pour toi donc c'est okeyyyyyy, tranquilleeee =]
+Quand tu n’as pas le droit de faire une action, mais que si tu demandes à la bonne personne ou au bon programme ayant les bons droits (soucis de configurations <3), iel le fait pour toi donc c'est okeyyyyyy, tranquilleeee =]
 
 
 ## Deserialization
 
-Tu fais ta valise, t’es tranquille, tu prends l’avion. A l’arrivée, tu te trompe de valise, tu l’ouvres, et BAM elle explose. 
+Tu fais ta valise, t’es tranquille, tu prends l’avion. A l’arrivée, tu te trompes de valise, tu l’ouvres, et BAM elle explose. 
 
 <img class="img_med" src="/hacking/infosec_made_easy/wasted.gif" alt="wasted" >
 
 
 ## File upload
 
-Je vais “juste changer ma photo de profile”. Oopsy, j’ai juste pris le contrôle (web shell) de cette machine... Désolé hein... :(
+Je vais “juste changer ma photo de profil”. Oopsy, j’ai juste pris le contrôle (web shell) de cette machine... Désolé hein... :(
 
 
 ## Directory listing
@@ -105,7 +105,7 @@ Parfois, tu donnes ton mot de passe à un site, tu penses que c’est le bon sit
 
 ## Open Redirect
 
-Cliquer sur un lien en pensant que c'est une vidéo de chat, se retrouver sur youp*rn, sr rendre compte que c'est une vidéo de chatte, voilà voilà... (Non, en vrai, ca aide pas mal pour le phishing en faisant croire que c'est "le bon site" pour que tu donnes tes mots de passe à... Nous :} ) 
+Cliquer sur un lien en pensant que c'est une vidéo de chat, se retrouver sur youp*rn, se rendre compte que c'est une vidéo de chatte, voilà voilà... (Non, en vrai, ca aide pas mal pour le phishing en faisant croire que c'est "le bon site" pour que tu donnes tes mots de passe à... Nous :} ) 
 
 
 ## Server Side Template Injection (SSTI)
