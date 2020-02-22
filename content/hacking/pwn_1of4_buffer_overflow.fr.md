@@ -187,7 +187,7 @@ On sait maintenant à peu près où on va injecter. Ce qu'il nous faut maintenan
 
 Petit tour sur [shellstorm](http://shell-storm.org/shellcode/) ou [exploit-db](https://www.exploit-db.com/), choisir la bonne architecture, ...
 
-Pour ma part il est fait maison, ou plutôt refait maison, car l'idée générale reste la mêm : Placer les bons paramètres dans les registres, puis déclencher un syscall pour que le kernel exécute ce que l'on veut, ici un shell.
+Pour ma part il est fait maison, ou plutôt refait maison, car l'idée générale reste la même : Placer les bons paramètres dans les registres, puis déclencher un syscall pour que le kernel exécute ce que l'on veut, ici un shell.
 
 Shellcode :
 
