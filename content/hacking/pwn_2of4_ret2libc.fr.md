@@ -36,7 +36,7 @@ Heureusement pour nous, des barbus (ou imberbes, qui suis-je pour juger ?) ont t
 Un programme en C ne sait pas faire grand-chose, très peu en fait. Nous faisons dans un programme appel à des fonctions qui "font de la magie", et ce sans trop réfléchir à ce qu'il y a dessous.
 
 Par exemple, la fonction printf qui nous permet d'afficher du texte. La fonction getc qui nous permet de lire un caractère saisi par l'utilisateur. Ou encore... La fonction system, qui nous permet d'exécuter un programme externe au notre. Toutes ces fonctions sont accessibles dans notre programme, nous les utilisons sans jamais avoir eu la curiosité (ni même l'envie ? ) de regarder leur contenu ou de les recoder. Tant mieux, elles sont déjà faites, et placées dans la... \
-*roulement de tambours... \ **libc** !
+*roulement de tambours... **libc** !
 
 Petite ref au man : http://man7.org/linux/man-pages/man7/libc.7.html
 
