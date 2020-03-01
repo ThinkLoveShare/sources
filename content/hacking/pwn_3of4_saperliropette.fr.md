@@ -32,7 +32,7 @@ La configuration de l'ASLR est présente dans `/proc/sys/kernel/randomize_va_spa
 
 L'ASLR laisse donc toute une surface d'attaque non randomisée. Arriva donc ce qu'il devait arriver : des attaques utilisant les sections .text, .data, .got, .plt, ...
 
-Plus d'informations sur les différentes sections et la structure d'un ELF ici : [ELF_format](https://www.cs.stevens.edu/~jschauma/631A/elf.html)
+Plus d'informations sur les différentes sections et la structure d'un ELF ici : [ELF_format](://fr.wikipedia.org/wiki/Executable_and_Linkable_Format)
 
 L'ASLR ne suffisant pas, de nouvelles protections ont été mises en place : PIC / PIE (Position Indépendant Code / Exécutable). L'idée est simple... Et si on randomisait... TOUT ?!
 

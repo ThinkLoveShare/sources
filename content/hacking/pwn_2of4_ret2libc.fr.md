@@ -168,7 +168,7 @@ r.interactive()
 
 Remarque :
 
-Ici, j'ai mis 0x42424242 car la valeur ne nous importe peu, où se rend le programme en sortant de la fonction attaquée, ici ca n'a pas d'importance. Mais si vous voulez éviter que le programme crash une dois que vous fermez votre shell, il est possible de mettre à cet emplacement l'adresse de la fonction exit, qui fermera proprement le programme, ne laissant ainsi pas de trace dans les logs... ;)
+Ici, j'ai mis 0x42424242 car la valeur ne nous importe peu, où se rend le programme en sortant de la fonction attaquée, ici ca n'a pas d'importance. Mais si vous voulez éviter que le programme crash une fois que vous fermez votre shell, il est possible de mettre à cet emplacement l'adresse de la fonction exit, qui fermera proprement le programme, ne laissant ainsi pas de trace dans les logs... ;)
 
 Ici, une fois le shell fermé, le programme sautera à l'adresse 0x4242424 et mourra d'un douloureux segfault... Sauvez des vies, placez des exit... Ou pas.
 

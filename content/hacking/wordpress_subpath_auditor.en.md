@@ -119,9 +119,5 @@ You can get it here: https://github.com/TheLaluka/wordpress_subpath_auditor
 
 ---
 
-## What comes next ?
-
-Next article will tell you a story. The story of the first bug found with this tool, and my first steps in the bug bounty world! \o/
-
 > I'll end this article with a quote from someone I like, \
 > "Quick, find something, break something!"
