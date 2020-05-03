@@ -8,7 +8,7 @@ description: "Help a friend to troupleshoot issues on their server isn't always 
 ---
 
 
-From time to time, I help friends to troubleshoot issues. Coding, system administration, hacking, pretty much anything as it's a good opportunity to learn from what they are doing, and teach cool tricks at the same time. One big issue though is that I really _rarely_ have a decent connection. Thus, using common tools such as teamviewer, anydesk, RDP, on anything else isn't really working well, crashing, extra slow, ... 
+From time to time, I help friends to troubleshoot issues. Coding, system administration, hacking, pretty much anything as it's a good opportunity to learn from what they are doing, and teach cool tricks at the same time. One big issue though is that I really _rarely_ have a decent connection. Thus, using common tools such as [TeamViewer](https://www.teamviewer.com/), [Anydesk](https://anydesk.com/), RDP, on anything else isn't really working well, crashing, extra slow, ... 
 So.. How can I help? Be helped? 
 Especially when both of us are on local networks that do not have a public IP with open ports setup? 
 Even worse, when the helped one do not have root access on their machine, and thus can't install tools? 
@@ -22,21 +22,21 @@ The solutions I'll describe already made their proofs (at least they worked for 
 
 There are many ways to achieve that, but they all have their own pros and cons. 
 
-1. VPS + ssh + socat + tmux
+1. [VPS](https://www.digitalocean.com/) + ssh + socat + tmux
    - Pros
       - You own and control everything you use
       - No need for any tool nor privilege
    - Cons
       - It's quite complex
       - You give an access (even sandboxed / with low privileges) to your server
-1. gotty + ngrok
+1. [gotty](https://github.com/yudai/gotty) + [ngrok](https://ngrok.com/)
    - Pros
       - The helper don't need anything but a browser
    - Cons
       - Not everything is easy in a browser, but damn it's fast!
       - Ctrl^W in shell deletes the last typed word. But closes the current tab in a browser. FUUUUUU
       - Relying on ngrok (account needed, only one connection for free)
-1. tmate
+1. [tmate](https://tmate.io/)
    - Pros
       - Easy As Fuck to use
    - Cons
@@ -70,7 +70,7 @@ Share a common shell with tmux so Helpee can watch Helper fix stuff and learn at
 
 ### Step 1 : Get our static tools and host them
 
-We'll use minos-static which is a neat utility designed to offer statically built tools. We can use it to have premade recipes to build specific tools, or just download them. This means that these tools won't rely on any library once executed, they're standalones. The downside of this is that they are more sizy, more biggy, more barbecue cheesy, but who cares, right? 
+We'll use [minos-static](https://github.com/minos-org/minos-static) which is a neat utility designed to offer statically built tools. We can use it to have premade recipes to build specific tools, or just download them. This means that these tools won't rely on any library once executed, they're standalones. The downside of this is that they are more sizy, more biggy, more barbecue cheesy, but who cares, right? 
 
 The first tool is socat (man - Multipurpose relay (SOcket CAT)). It is very powerful helps a lot with port forwarding, protocol translation, exposing weird files, stream redirections etc. 
 The second tool is tmux (man -  terminal multiplexer). It has a lot of cool features such as display sharing, session management, window splitting and tabs, the ability to keep your session open (and thus won't stop your long running tasks) when you disconnect from it (whether you mean it or your connection crashes). 
@@ -102,7 +102,7 @@ One last thing we need to do on the server is to setup ssh so it allows our serv
 
 ### Step 2 : Setup listeners on Helpee's side
 
-Here, Helpee is a virtual machine (VirtualBox) running Ubuntu 20. \
+Here, Helpee is a virtual machine ([VirtualBox](https://www.virtualbox.org/)) running [Ubuntu 20](https://releases.ubuntu.com/20.04/). \
 Helpee will use curl or wget to download tmux and socat from Helper's server. 
 
 <img class="img_big" src="/hacking/a_helping_hand/download_static_elfs.png" alt="download_static_elfs">
@@ -128,7 +128,7 @@ We use socat but this time as a connector (and not a listener). We then ask Help
 
 In order to have a common shell or display, many tricks could work, using default tools such as tee, tail, bash redirections, or even the live filesystem /proc/<pid>/fd/{0,1,2} to have a transcript of Helper's interactions with Helpee's system. \
 But what I think is the most elegant solution is to use the static tmux we already downloaded. So helper will create a tmux session, and Helpee will attach their current shell to Helper's session. It's preferable that both use the same binary (thus same version) to avoid compatibility issues. \
-More information in tmux in its man, or in one of its cheatsheet : https://tmuxcheatsheet.com/
+More information in tmux in its man, or in one of its cheatsheets : https://tmuxcheatsheet.com/
 
 <img class="img_big" src="/hacking/a_helping_hand/screen_sharing_01.png" alt="screen_sharing_01">
 <img class="img_big" src="/hacking/a_helping_hand/screen_sharing_02.png" alt="screen_sharing_02">
@@ -145,14 +145,14 @@ Annnnd that's it! We're done with this first solution, Helper and Helpee now sha
 # Solution 2 : ngrok and gotty
 
 An introduction to ngrok is already available here : https://thinkloveshare.com/en/hacking/ngrok_your_dockersploit/ \
-Long story short, use ngrok to connect to ngrok's servers to redirect on of their subdomain:port to Helpee's loopback interface. The binary is also statically compiled, but as this is a service it requires a (free) account. 
+Long story short, use ngrok to connect to ngrok's servers and redirect one of their subdomain:port to Helpee's loopback interface. The binary is also statically compiled, but as this is a service it requires a (free) account. 
 
 Gotty is another neat tool written in go, dynamically linked but which can still be executed without installing anything as all its dependencies are really common and present in pretty much every linux distributions. This tool allows its user to expose a shell over HTTP. 
 
 
 ### Step 1 : Setup gotty
 
-Download and extract its binary from github. Most of the go softwares do have pre built binaries on the release section in github, don't waste time compiling if it's already done! We'll then use openssl to generate a strong rsa key and a TLS certificate. We don't care much about the information it will contain as it's for our personal use only. Once all the assets are in place, we can then use gotty to expose a shell running the same command as in the first tolution : su $USER. 
+Download and extract its binary from github. Most of the go softwares do have pre built binaries on the release section in github, don't waste time compiling if it's already done! We'll then use openssl to generate a strong rsa key and a TLS certificate. We don't care much about the information it will contain as it's for our personal use only. Once all the assets are in place, we can then use gotty to expose a shell running the same command as in the first solution : su $USER. 
 This enforces the use of a password, we don't want to offer a shell on our box to the world, don't we?
 
 <img class="img_big" src="/hacking/a_helping_hand/gotty_setup.png" alt="gotty_setup">
@@ -179,7 +179,7 @@ The shell is once again fully interactive, and the terminal can again be shared 
 
 # Solution 3 : tmate
 
-The last solution is definitely the easiest one, but it's a really good thing to understand how something works before using quick cheats that make the whole thing opaque. The only thing Helpee needs to do, is to install tmate, and run "tmate". That's it. Many links will be displayed, allowing Helper to join from from a browser or shell, and to have a full or read only access. The shell is already shared, fully interactive, etc... PLEASANT, RIGHT?!
+The last solution is definitely the easiest one, but it's a really good thing to understand how something works before using quick cheats that make the whole thing opaque. The only thing Helpee needs to do, is to install tmate, and run "tmate". That's it. Many links will be displayed, allowing Helper to join from a browser or shell, and to have a full or read only access. The shell is already shared, fully interactive, etc... PLEASANT, RIGHT?!
 
 It only requires the user running tmate to have an ssh key. So if you don't have one, generate it! 
 
@@ -222,8 +222,8 @@ One last thing before I leave you... \
 If. You. Break. Something. That. Isn't. Yours. \
 You. Are. Responsible. 
 
-So next beers are on you! ;)
+So next [beers](https://twitter.com/petite_biere) are on you! ;)
 
 
 Big shout out to [0nemask](https://twitter.com/0nemask) for proofreading me. \
-He spend a lot of time writing cool [HackTheBox writeups](https://onemask.me/posts/) lately. Thus I strongly advice his blog as your next readings! `^.^`
+He spent a lot of time writing cool [HackTheBox writeups](https://onemask.me/posts/) lately. Thus I strongly advice his blog as your next readings! `^.^`
