@@ -58,3 +58,4 @@ Me voici ! Louka -> Laluka !
 -   [Swissky](https://twitter.com/pentest_swissky) \| [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) | Probablement le github le plus utile au monde.
 -   [Switch](https://twitter.com/swuitch) \| [0xswitch.fr](https://0xswitch.fr) | Blog d'infosec classique et complet
 -   [Ethnical](https://twitter.com/EthnicalInfo) \| [YouTube](https://www.youtube.com/user/EthnicalNightamre) | Il est timbré, fou, et aussi bruyant que brillant. Je suis dans le hack aujourd'hui grâce à lui et je ne le remercierai probablement jamais assez
+-   [0nemask](https://twitter.com/0nemask) \| [onemask.me](https://onemask.me/posts/) | Calme, toujours souriant, pété de classe, et... Pourfendeur de Windows !
