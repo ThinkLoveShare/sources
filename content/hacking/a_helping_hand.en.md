@@ -126,7 +126,7 @@ We use socat but this time as a connector (and not a listener). We then ask Help
 
 <img class="img_big" src="/hacking/a_helping_hand/socat_helper.png" alt="socat_helper">
 
-In order to have a common shell or display, many tricks could work, using default tools such as tee, tail, bash redirections, or even the live filesystem /proc/<pid>/fd/{0,1,2} to have a transcript of Helper's interactions with Helpee's system. \
+In order to have a common shell or display, many tricks could work, using default tools such as `tee`, `tail`, `bash` redirections, or even the live filesystem `/proc/<pid>/fd/{0,1,2}` to have a transcript of Helper's interactions with Helpee's system. \
 But what I think is the most elegant solution is to use the static tmux we already downloaded. So helper will create a tmux session, and Helpee will attach their current shell to Helper's session. It's preferable that both use the same binary (thus same version) to avoid compatibility issues. \
 More information in tmux in its man, or in one of its cheatsheets : https://tmuxcheatsheet.com/
 
