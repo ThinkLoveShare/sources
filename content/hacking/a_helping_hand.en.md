@@ -15,9 +15,10 @@ Even worse, when the helped one do not have root access on their machine, and th
 Well, I'll tell you, everything you need is a good a decent an internet connection, and your favourite ssh client!
 
 The solutions I'll describe already made their proofs (at least they worked for me) with the following usecases: 
-Patching security breaches in a website. He knew the app design, I had more insights on the logs, we jumped on it all together and got that SQL injection patched in no time. 
-Installing ffmpeg on a really old centos box, behind a quite strict reverse proxy. She had access to this box and I had more experience with centos and bad dependencies handling (broken .so files, misplaces links, missing packages and the lack of repositories to install from). 
-Solving CTF challenges with friends, from binary exploitation to windows pwning, passing by regular web audits! That was muuuch fun, and so many laughs!
+
+- Patching security breaches in a website. He knew the app design, I had more insights on the logs, we jumped on it all together and got that SQL injection patched in no time. 
+- Installing ffmpeg on a really old centos box, behind a quite strict reverse proxy. She had access to this box and I had more experience with centos and bad dependencies handling (broken .so files, misplaces links, missing packages and the lack of repositories to install from). 
+- Solving CTF challenges with friends, from binary exploitation to windows pwning, passing by regular web audits! That was muuuch fun, and so many laughs!
 
 There are many ways to achieve that, but they all have their own pros and cons. 
 
@@ -60,10 +61,11 @@ Alright, let's start!
 This first way to support Helpee is probably the most complex, but in the meantime, it allows us to achieve this without installing anything on Helpee's machine. Moreover, it allows us to keep everything under our control. We only assume Helpee already has an ssh client installed. 
 
 Here are the steps we'll follow: 
-Prepare handy static tools hosted on Helper's server so Helpee can download and run them. 
-Get Helpee to establish a connection to Helper's server and redirect a remote port (from server) on their local machine (loopback). 
-Get Helpee to setup a listener offering an interactive pty (password protected please!) on their loopback address. This technique is known as a bind shell, aka a shell binded to a local socket. 
-Helper will then connect to their server and be redirected to Helpee's machine (and thus pty)
+
+- Prepare handy static tools hosted on Helper's server so Helpee can download and run them. 
+- Get Helpee to establish a connection to Helper's server and redirect a remote port (from server) on their local machine (loopback). 
+- Get Helpee to setup a listener offering an interactive pty (password protected please!) on their loopback address. This technique is known as a bind shell, aka a shell binded to a local socket. 
+- Helper will then connect to their server and be redirected to Helpee's machine (and thus pty)
 Share a common shell with tmux so Helpee can watch Helper fix stuff and learn at the same time :)
 
 ### Step 1 : Get our static tools and host them
@@ -71,7 +73,7 @@ Share a common shell with tmux so Helpee can watch Helper fix stuff and learn at
 We'll use minos-static which is a neat utility designed to offer statically built tools. We can use it to have premade recipes to build specific tools, or just download them. This means that these tools won't rely on any library once executed, they're standalones. The downside of this is that they are more sizy, more biggy, more barbecue cheesy, but who cares, right? 
 
 The first tool is socat (man - Multipurpose relay (SOcket CAT)). It is very powerful helps a lot with port forwarding, protocol translation, exposing weird files, stream redirections etc. 
-The second tool is tmux (man -  terminal multiplexer). It has a lot of cool features such as display sharing, session management, window and tabs splitting, the ability to keep your session open (and thus won't stop your long running tasks) when you disconnect from it (whether you mean it or your connection crashes). 
+The second tool is tmux (man -  terminal multiplexer). It has a lot of cool features such as display sharing, session management, window splitting and tabs, the ability to keep your session open (and thus won't stop your long running tasks) when you disconnect from it (whether you mean it or your connection crashes). 
 
 ```bash
 # Use git clone (alias gcl) to clone minos-static and move it to /opt where custom programs belong
