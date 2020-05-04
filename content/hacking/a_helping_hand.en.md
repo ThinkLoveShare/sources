@@ -225,5 +225,5 @@ You. Are. Responsible.
 So next [beers](https://twitter.com/petite_biere) are on you! ;)
 
 
-Big shout out to [0nemask](https://twitter.com/0nemask) for proofreading me. \
-He spent a lot of time writing cool [HackTheBox writeups](https://onemask.me/posts/) lately. Thus I strongly advice his blog as your next readings! `^.^`
+Big shout out to [0nemask](https://twitter.com/0nemask) and [Drastdevix](https://twitter.com/Drastdevix) for proofreading me. \
+0nemask spent a lot of time writing cool [HackTheBox writeups](https://onemask.me/posts/) lately. Thus I strongly advice his blog as your next readings! `^.^`
