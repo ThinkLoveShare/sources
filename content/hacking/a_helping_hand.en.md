@@ -8,10 +8,10 @@ description: "Help a friend to troupleshoot issues on their server isn't always 
 ---
 
 
-From time to time, I help friends to troubleshoot issues. Coding, system administration, hacking, pretty much anything as it's a good opportunity to learn from what they are doing, and teach cool tricks at the same time. One big issue though is that I really _rarely_ have a decent connection. Thus, using common tools such as [TeamViewer](https://www.teamviewer.com/), [Anydesk](https://anydesk.com/), RDP, on anything else isn't really working well, crashing, extra slow, ... 
-So.. How can I help? Be helped? 
-Especially when both of us are on local networks that do not have a public IP with open ports setup? 
-Even worse, when the helped one do not have root access on their machine, and thus can't install tools? 
+From time to time, I help friends to troubleshoot issues. Coding, system administration, hacking, pretty much anything as it's a good opportunity to learn from what they are doing, and teach cool tricks at the same time. One big issue though is that I really _rarely_ have a decent connection. Thus, using common tools such as [TeamViewer](https://www.teamviewer.com/), [Anydesk](https://anydesk.com/), RDP, on anything else isn't really working well, crashing, extra slow, ... \
+So.. How can I help? Be helped? \
+Especially when both of us are on local networks that do not have a public IP with open ports setup? \
+Even worse, when the helped one do not have root access on their machine, and thus can't install tools? \
 Well, I'll tell you, everything you need is a good a decent an internet connection, and your favourite ssh client!
 
 The solutions I'll describe already made their proofs (at least they worked for me) with the following usecases: 
