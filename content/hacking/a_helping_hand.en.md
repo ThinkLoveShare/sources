@@ -12,13 +12,13 @@ From time to time, I help friends to troubleshoot issues. Coding, system adminis
 So.. How can I help? Be helped? \
 Especially when both of us are on local networks that do not have a public IP with open ports setup? \
 Even worse, when the helped one do not have root access on their machine, and thus can't install tools? \
-Well, I'll tell you, everything you need is a good a decent an internet connection, and your favourite ssh client!
+Well, I'll tell you, everything you need is <s>a good</s> <s>a decent</s> an internet connection, and your favourite ssh client!
 
 The solutions I'll describe already made their proofs (at least they worked for me) with the following usecases: 
 
 - Patching security breaches in a website. He knew the app design, I had more insights on the logs, we jumped on it all together and got that SQL injection patched in no time. 
 - Installing ffmpeg on a really old centos box, behind a quite strict reverse proxy. She had access to this box and I had more experience with centos and bad dependencies handling (broken .so files, misplaces links, missing packages and the lack of repositories to install from). 
-- Solving CTF challenges with friends, from binary exploitation to windows pwning, passing by regular web audits! That was muuuch fun, and so many laughs!
+- Solving CTF challenges with friends, from binary exploitation to windows pwning, not forgetting regular web audits! That was muuuch fun, and so many laughs!
 
 There are many ways to achieve that, but they all have their own pros and cons. 
 
@@ -31,7 +31,7 @@ There are many ways to achieve that, but they all have their own pros and cons.
       - You give an access (even sandboxed / with low privileges) to your server
 1. [gotty](https://github.com/yudai/gotty) + [ngrok](https://ngrok.com/)
    - Pros
-      - The helper don't need anything but a browser
+      - The helper doesn't need anything but a browser
    - Cons
       - Not everything is easy in a browser, but damn it's fast!
       - Ctrl^W in shell deletes the last typed word. But closes the current tab in a browser. FUUUUUU
@@ -48,7 +48,7 @@ A few words before we dive in:
 
 - For this article, I will call our dear friend we want to help "Helpee" and ourselves "Helper"
 - The port forwarding stage introduced with SSH can be exchanged with ngrok (thus no VPS needed)
-- A DNS is already setup and resolved vps.thinkloveshare.com to my server's IP, this is not mandatory if you hardcode all IPs instead of using a domain name. 
+- A DNS is already setup and resolves vps.thinkloveshare.com to my server's IP, this is not mandatory if you hardcode all IPs instead of using a domain name. 
 - There are always many ways to achieve one thing, I'll just demonstrate a few ways to achieve this, but it's just a start. Try different things, experiment new tools, learn cool stuff! 
 - I do pretty much everything as root on this vps as I use it and then throw it afterward, do not do that nor run programs as root on a production box, especially if it's network related... =]
 
@@ -64,7 +64,7 @@ Here are the steps we'll follow:
 
 - Prepare handy static tools hosted on Helper's server so Helpee can download and run them. 
 - Get Helpee to establish a connection to Helper's server and redirect a remote port (from server) on their local machine (loopback). 
-- Get Helpee to setup a listener offering an interactive pty (password protected please!) on their loopback address. This technique is known as a bind shell, aka a shell binded to a local socket. 
+- Get Helpee to setup a listener offering an interactive pty (password protected please!) on their loopback address. This technique is known as a bind shell, aka a shell bound to a local socket. 
 - Helper will then connect to their server and be redirected to Helpee's machine (and thus pty)
 Share a common shell with tmux so Helpee can watch Helper fix stuff and learn at the same time :)
 
