@@ -83,7 +83,7 @@ Its only weakness is circular dependencies, when the definition of A sends to B,
 
  Making diagrams is giving yourself a chance to visualize what is happening, easily identify errors in your reasoning, measurement, logic, etc.
 
- A short tour on the youtube channel [https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw](ThreeBlueOneBrown) will allow you to see that diagrams are beautiful, useful, and often necessary for a good understanding (especially in math, physics, info, ...)
+ A short tour on the youtube channel [ThreeBlueOneBrown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw will allow you to see that diagrams are beautiful, useful, and often necessary for a good understanding (especially in math, physics, info, ...)
 
 #### One can't know everything, but can search about everything
 

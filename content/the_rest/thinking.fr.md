@@ -84,7 +84,7 @@ Chaque jour, chaque heure, chaque minute de votre vie que vous passez à ne pas 
 
 Faire des schémas, c'est se donner une chance de visualiser ce qu'il se passe, repérer facilement une erreur de raisonnement, mesure, logique, ...
 
-Un petit tour sur la chaine youtube [https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw](ThreeBlueOneBrown) vous permettra de voir que c'est beau, utile, et souvent nécessaire à une bonne compréhension (surtout en math, physique, info, ...)
+Un petit tour sur la chaine youtube [ThreeBlueOneBrown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw vous permettra de voir que c'est beau, utile, et souvent nécessaire à une bonne compréhension (surtout en math, physique, info, ...)
 
 
 #### On ne peut pas tout connaître, mais on peut tout chercher
