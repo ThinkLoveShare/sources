@@ -29,8 +29,8 @@ https://www.root-me.org/en/breve/Data-theft-password-reuse
 
 A few weeks ago, I was trying to make my web-audit processes more efficient, and I stood upon two problems:
 
-- I tried many crawlers, none gave me the results I expected (false negatives)\
-- Auditing parameters one by one is way too slow, and not exhaustive
+- I tried many crawlers ([Photon](https://github.com/s0md3v/Photon), [Hakrawler](https://github.com/hakluke/hakrawler), [BurpSuite](https://portswigger.net/burp)), none gave me the results I expected (false negatives, no js parsing, output format, custom properties, ...)\
+- Auditing parameter's security one by one is way too slow, and not exhaustive
 
 So I began coding two tools on my free time: "Crawlz" and "Sulfateuse". They attempt to solve both of these issues. They are still under heavy development (basically every night since three weeks) and might be open sourced at some point (not anytime soon, no ask, no cry, keep on reading!). 
 
@@ -45,9 +45,9 @@ You know what?
 # Setup the environment
 
 First things first, in order to test spip, I... Needed Spip? \
-I tried to find a docker image, or docker compose to have a pre-packaged test environment but found nothing up-to-date, so I made one. A dirty one. We're security-team, not prod-team, right?
+I tried to find a docker image, or docker compose to have a pre-packaged test environment but found nothing up-to-date, so I made one. A dirty one. We're not in prod, right?
 
-In order to reproduce my setup, you can clone Spip sources, git or svn (their recommended way) into the spip directory. Then run `docker-compose -f compose-spip.yml up` and voila! The only thing left to do is to visit http://lokal/ecrire, create a new account, a dummy category, page, author, etc in order to have some data, and thus be as exhaustive as possible while auditing Spip. 
+In order to reproduce my setup, you can clone Spip sources, git or svn (see [their recommended way](https://www.spip.net/fr_article2670.html)) into the spip directory. Then run `docker-compose -f compose-spip.yml up` and voila! The only thing left to do is to visit http://lokal/ecrire, create a new account, a dummy category, page, author, etc in order to have some data, and thus be as exhaustive as possible with a populated environment and databases. 
 
 Side note here, localhost requests are often made in a way that bypasses proxies. I wanted to log and inspect the traffic, so I added the line `127.0.0.1 lokal` in `/etc/hosts` in order to resolve lokal to my loopback address without localhost bypasses in the way. 
 
@@ -85,7 +85,7 @@ services:
 Even though "a magician never reveals his secrets", here are the core steps of my process:
 
 1. Start the env, launch burp, chromium (with foxy proxy)
-1. Navigate on Spip, click on buttons, submit stuff, access pages, ...
+1. Navigate on Spip, click on buttons, submit forms, access pages, ...
 1. From burp, extract every visited url with their parameters
 1. Run Crawlz, be as exhaustive as possible (catch even false positives and broken urls)
 1. Triage the urls, remove the odd ones
@@ -93,9 +93,9 @@ Even though "a magician never reveals his secrets", here are the core steps of m
 1. Run Sulfateuse, (a bit like a custom burp intruder)
 1. Triage all the results !
 
-One more side note! I used a previous project [Wordpress Subpath Auditor](https://thinkloveshare.com/en/hacking/wordpress_subpath_auditor/) to get more insights on Spip and check if some quick-wins were already reachable. I found an eval with partially controlled input, but the sanitization in place (alphanum regex whitelisting) was too restrictive. More on that later!
+One more side note! I used a previous project [Wordpress Subpath Auditor](https://thinkloveshare.com/en/hacking/wordpress_subpath_auditor/) to get more insights on Spip and check if some quick-wins were already reachable. I found an eval (powerful primitive for code execution) with partially controlled input, but the sanitization in place (alphanum regex whitelisting) was too restrictive. More on that later!
 
-I still noticed one huge lack for this tool: As it patches the php code in order to analyze it, dynamically generated files are not instrumented as they are only present after the tool is started. This definitely induces false negatives. Instrumenting php itself would have been more efficient... One day maybe?
+I still noticed one huge limitation for WoSuAu: As it patches the php code in order to analyze it, dynamically generated files are not instrumented as they are only present after the tool is started. This definitely induces false negatives. Instrumenting php itself would have been more efficient... One day maybe?
 
 
 # Triage the findings
@@ -105,7 +105,7 @@ As Sulfateuse tries to be as exhaustive as possible, there are a lot of false po
 
 ## XSS
 
-TL;DR(XSS): Inject javascript code in a link (reflected) or in a website stored), in a way that once visited, the script is executed on the victim’s browser context, and thus can take actions on their behalf. A common combo can be to generate a link that, once clicked by an admin, will upload a webshell to get code execution, or add a new admin-user on the targetted website with credentials known by the attacker. 
+TL;DR(XSS): Inject javascript code in a link (reflected) or in a website stored), in a way that once visited, the script is executed on the victim’s browser context, and thus can take actions on their behalf. A common combo can be to generate a link that, once clicked by an admin, will upload a webshell to get code execution (see [xss2shell](https://github.com/Prochainezo/xss2shell)), or add a new admin-user on the targetted website with credentials known by the attacker. 
 
 A few xss were trivial to find and exploit. Simple or double url-encoded parameters were allowed, thus adding angle brackets was enough to trigger the XSS. Some more complex ones were sanitizing angle brackets, and single or double quotes. Hopefully, breaking an attribute context is often enough to get a working payload!
 
@@ -148,7 +148,8 @@ http://lokal/ecrire/?exec=article&id_article=1&sinon=%3Ca%20href=err%20onfocus=a
 
 ### XSS on null
 
-This one had more restrictions on the angle brackets, so a style trick and woosh! 
+This one had more restrictions on the angle brackets, so a style trick and woosh!\
+The idea here is to have a style to cover the full screen, and execute an action on hover. As soon as the mouse enters the page, it's a win!
 
 ```html
 http://lokal/ecrire/?exec=plan&null=lalu' onmouseover=alert(domain) style='width:9999999px;height:9999999px;' foo=
@@ -174,7 +175,7 @@ http://lokal/spip.php?action=converser&redirect=data%253Aimage/svg+xml,content
 ```
 <img class="img_big" src="/hacking/reflected_file_download.jpg" alt="reflected_file_download">
 
-
+alert;throw/**/document.domain;//'
 ### Open redirect
 
 TL;DR(OR): This kind of link permits to redirect a browser to another website or protocol. This can be used to bypass forbidden protocols in SSRF, and is also really efficient for phishing attacks. By redirecting the user from a whitelisted domain to a rogue version of the intended website, an attacker can steal the victim’s credentials. 
@@ -187,7 +188,9 @@ https://www.root-me.org/spip.php?action=converser&redirect=https%253A//thinklove
 
 ## SQL injections
 
-TL;DR(SQLi): Exploit a lack of input sanitization to modify the semantic of an SQL request. This can be exploited to leak the whole database, insert custom data, or even execute code. The technologies vary a lot, so it really depends on the language, software, version, os, context, and the character restriction on this specific injection point. 
+TL;DR(SQLi): Exploit a lack of input sanitization to modify the semantic of an SQL request, or execute another one. This can be exploited to leak the whole database, insert custom data, or even execute code. The technologies vary a lot, so it really depends on the language, software, version, os, context, and the character restriction on this specific injection point. 
+
+Here, I tried really hard to exploit an INSERT statement but couldn't find one, only SELECT. I also tried to write to files (webshell) to the filesystem, but MySQL now has a safe by default behavior that kept me from doing so. 
 
 Sulfateuse was testing for bad chars, and bad chars include single and double quotes. 
 Error logging was enabled, quotes were injected, SQL errors were raised. Amen. 
@@ -225,20 +228,24 @@ http://lokal/ecrire/?exec=article_edit&lier_trad=1+AND+1%3D2%20union%20all%20sel
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/sqli_lier_trad_poc.jpg" alt="sqli_lier_trad_poc">
 
 
-Both of these SQL injections can be reached as a webmaster, an administrator, or even an author. Only the visitor role is restricted from accessing the /ecrire panel). This implies that an author can leak password hashes from every admin and webmaster, crack them offline, and takeover highly privileged accounts. 
+Both of these SQL injections can be reached as a webmaster, an administrator, or even an author. Only the visitor role is restricted from accessing the /ecrire panel). This implies that an author can leak password hashes from every user, including admin and webmaster, crack them offline, and takeover highly privileged accounts, and thus either get code execution, or affect other user's. 
 
 
 ## Remote Code Execution
 
 TL;DR(RCE): Gain code execution on the targeted machine. Aka "your computer is now mine". Once this initial foothold is in place, the privilege escalation game begins! Exploit the way up, from "a low privileged user" to the highest privileges on the machine. 
 
-During the third Spip audit, two new XSS were found. 
+During the third run on Spip (improving Sulfateuse day after day), two new XSS were found. 
 The first one is internet-explorer specific as it doesn’t url-encode bad chars by default. Yuck. 
 
+You can check how various characters are encoded here: [https://www.worldtimzone.com/res/encode/](https://www.worldtimzone.com/res/encode/)
 
-### XSS on var_profile
-http://lokal/ecrire/?exec=admin_plugin&id_paquet=2&verrouille=non&var_profile=pouet'onhover=alert(domain);a='
 
+### XSS on var_profile (ie-specific)
+
+```html
+http://lokal/ecrire/?exec=admin_plugin&var_profile=pouet'/><script>alert(document.domain)</script>
+```
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/xss_var_profile_ie.jpg" alt="xss_var_profile_ie">
 
 
@@ -252,7 +259,7 @@ https://www.root-me.org/ecrire/?exec=article&id_article=1&_oups=pouet%27/%3E%3Ca
 ```
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/xss_oups.jpg" alt="xss_oups">
 
-As I spent two weeks trying to get code execution via file inclusion, token leaking via the SQLi, attempts to insert serialized objects in the database, and so on. I eventually gave up, assuming that only XSS and SQLi were present. But the very next day, [g0uZ](https://www.root-me.org/g0uZ) (admin in root-me, dev in Spip, what a small world! ) came back to me, explaining that "the last XSS you found is a Remote Code Execution". I was a bit pissed, like "Come on, I already spent too many nights, I’m done here". But I was not!\
+As I spent two weeks trying to get code execution via local file inclusion, token leaking via the SQLi, attempts to insert serialized objects in the database, and so on. I eventually gave up, assuming that only XSS and SQLi were present. But the very next day, [g0uZ](https://www.root-me.org/g0uZ) (admin at root-me, dev at Spip, what a small world! ) came back to me, explaining that "the last XSS you found is a Remote Code Execution". I was a bit pissed, like "Come on, I already spent too many nights, I’m done here". But I was not!\
 He teased me enough to open burp, start the env, put on my hoodie and inject code!\
 A few `debug_print_backtrace();` and `echo "lalu_debug_01";die();` later, I had a (post-auth) Remote Code Execution. 
 
@@ -319,7 +326,7 @@ https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_
 
 ## XSS wise
 
-The `parano` is was enabled, which reduces the attack surface for XSS. Only a few were working on root-me. 
+The `parano` is was enabled, which reduces the attack surface for XSS and escapes pretty much everything. Only a few were working on root-me. 
 More information about this mode here: https://www.spip.net/en_article4948.html 
 
 ```html
