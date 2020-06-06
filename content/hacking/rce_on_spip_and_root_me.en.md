@@ -366,4 +366,4 @@ Another security feature has been added and enforced for admins: GPG
 1. Code stuff, build tools, moaaarrrr tools
 1. Have fun, "waste" nights, everything’s gonna be alright. 
 
-One again, thanks goes to [0nemask](https://twitter.com/0nemask) and [Drastdevix](https://twitter.com/Drastdevix) for proofreading me. 
+Once again, thanks goes to [0nemask](https://twitter.com/0nemask), [Sicarius](https://twitter.com/AMTraaaxX), [m_101](https://twitter.com/w_levin), [Hugow](https://twitter.com/hugow_vincent), and [Drastdevix](https://twitter.com/Drastdevix) for proofreading this article, and for bearing with me spamming with random findings at 4am. `(҂⌣̀_⌣́)`

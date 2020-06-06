@@ -120,7 +120,7 @@ cacaview /DRIVE/perso/2018/Louka/avatar_square.png
 
 <img class="img_big" src="/coding/a_linux_caca_story/cacaview.png" alt="cacaview">
 
-One again, a huge thank you to _Simon Martineau_ who drew my avatar! `^_^`
+Once again, a huge thank you to _Simon Martineau_ who drew my avatar! `^_^`
 
 
 ### caca-config
