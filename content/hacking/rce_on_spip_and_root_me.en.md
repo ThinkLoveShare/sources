@@ -319,8 +319,8 @@ https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_
 1. Profit?!
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/cmd_uname.jpg" alt="cmd_uname">
 
-
-
+> Honestly, I never thought I would one day pwn root-me, but hey, here we are, and I'm so frikkin' happy! :D
+<img class="img_small" src="/hacking/rce_on_spip_and_root_me/happy_owl.jpg" alt="happy_owl">
 
 # Is root-me more secure than spip itself?
 
@@ -366,3 +366,4 @@ Another security feature has been added and enforced for admins: GPG
 1. Code stuff, build tools, moaaarrrr tools
 1. Have fun, "waste" nights, everything’s gonna be alright. 
 
+One again, thanks goes to [0nemask](https://twitter.com/0nemask) and [Drastdevix](https://twitter.com/Drastdevix) for proofreading me. 
