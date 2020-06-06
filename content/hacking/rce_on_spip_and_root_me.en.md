@@ -173,9 +173,9 @@ TL;DR(RFD): You click that link, and a file has been downloaded to your desktop.
 ```html
 http://lokal/spip.php?action=converser&redirect=data%253Aimage/svg+xml,content 
 ```
-<img class="img_big" src="/hacking/reflected_file_download.jpg" alt="reflected_file_download">
+<img class="img_big" src="/hacking/rce_on_spip_and_root_me/reflected_file_download.jpg" alt="reflected_file_download">
 
-alert;throw/**/document.domain;//'
+
 ### Open redirect
 
 TL;DR(OR): This kind of link permits to redirect a browser to another website or protocol. This can be used to bypass forbidden protocols in SSRF, and is also really efficient for phishing attacks. By redirecting the user from a whitelisted domain to a rogue version of the intended website, an attacker can steal the victim’s credentials. 
