@@ -19,8 +19,7 @@ Welcome. To. Php.
 ## Quick disclaimer before we start: 
 
 > In May the 23rd 2020, someone took over an admin account on root-me by password reuse and threatened to leak solutions and flags. There is no beauty in this act, no technical skill required, nor good purpose. This is just part of the "be an asshole" mindset. More information about this here: \
-https://www.root-me.org/en/breve/Data-theft-password-reuse 
-
+https://www.root-me.org/en/breve/Data-theft-password-reuse \
 > This article and research has no link with this incident __whatsoever__. 
 
 > This vulnerability research was done locally, and tested only once on root-me.org to have a valid proof of concept before reporting it to the admins. No full dump of the database (solutions, emails, password hashes, ...) has been done, only my personal information and one other user’s entry (he agreed beforehand). Admins and devs from both Spip and root-me were alerted as soon as bugs were found, and reacted with a quick patch process. Every issue has since been patched, and this article is released with their approval.  
@@ -164,6 +163,10 @@ http://lokal/ecrire/?exec=plan&null=lalu%27%20onmouseover=alert(domain)%20style=
 http://localhost:8000/ecrire/?exec=messages&typem=tout&quoi='/>ie_specific_xss<script>alert(domain)</script>'
 ```
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/xss_quoi_ie.jpg" alt="xss_quoi_ie">
+
+> Sometimes, it's more efficient to steal admin's session in order to browse the website while in our own browser. This might not be trivial to achieve as nowadays, session cookies, authentication tokens and such are protected by mitigations like the flags `secure` and `httpOnly` (and tons of others, but that not today's story!). Here, one quick win was to realize that Spip exposes `by default` an access to `phpinfo()` for webmasters. So our xss can, if visited by a webmaster, make that juicy request and get the whole phpinfo output. The best thing here is that it contains information on the system, the current php installation, but also the user's session variables! So any xss found on an install where phpinfo isn't disabled can lead to a direct webmaster session takeover by stealing session cookies and applying them in out own browser. Click'n'Woosh!
+
+<img class="img_big" src="/hacking/rce_on_spip_and_root_me/phpinfo_session.jpg" alt="phpinfo_session">
 
 
 ### Reflected file download
