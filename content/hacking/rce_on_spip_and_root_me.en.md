@@ -164,7 +164,9 @@ http://localhost:8000/ecrire/?exec=messages&typem=tout&quoi='/>ie_specific_xss<s
 ```
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/xss_quoi_ie.jpg" alt="xss_quoi_ie">
 
-> Sometimes, it's more efficient to steal admin's session in order to browse the website while in our own browser. This might not be trivial to achieve as nowadays, session cookies, authentication tokens and such are protected by mitigations like the flags `secure` and `httpOnly` (and tons of others, but that not today's story!). Here, one quick win was to realize that Spip exposes `by default` an access to `phpinfo()` for webmasters. So our xss can, if visited by a webmaster, make that juicy request and get the whole phpinfo output. The best thing here is that it contains information on the system, the current php installation, but also the user's session variables! So any xss found on an install where phpinfo isn't disabled can lead to a direct webmaster session takeover by stealing session cookies and applying them in out own browser. Click'n'Woosh!
+Sometimes, it's more efficient to steal admin's session in order to browse the website while in our own browser. This might not be trivial to achieve as nowadays, session cookies, authentication tokens and such are protected by mitigations like the flags `secure` and `httpOnly` (and tons of others, but that not today's story!). \
+Here, the quick win was to realize that Spip exposes `by default` an access to `phpinfo()` for webmasters. So our xss can, if visited by a webmaster, make that juicy request and get the whole phpinfo output. The best thing here is that it contains information on the system, the current php installation, but also the user's session variables! So any xss found on an install where phpinfo isn't disabled can lead to a direct webmaster session takeover by stealing session cookies and applying them in out own browser. \
+Click'n'Woosh!
 
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/phpinfo_session.jpg" alt="phpinfo_session">
 
