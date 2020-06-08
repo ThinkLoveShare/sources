@@ -6,7 +6,6 @@ DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
 googleAnalytics = "UA-128985075-1"
 enableRobotsTXT = true
-disqusShortname = "thinkloveshare"
 
 ## Site Settings
 [params]
