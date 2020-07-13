@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 clear
 /bin/rm -rf resources
