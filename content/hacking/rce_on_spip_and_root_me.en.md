@@ -364,6 +364,17 @@ docker run --rm -it -v $(pwd):/host dockit dizcza/docker-hashcat:intel-cpu hashc
 After discussing these issues with the admins, md5crypt has been removed. They were actually already using sha256, md5crypt being only forgotten legacy and is now gone! \
 Another security feature has been added and enforced for admins: GPG 
 
+# Timeline - DD/MM/YYY)
+
+- 20/03/2020: New idea in mind: what about a RCE on root-me.org?
+- 14/05/2020: Dockerized spip setup, first XSS. Getting motivated takes time, right?
+- 15/05/2020: Initial contact with Spip & Root-Me, feedback on a bulk of xss
+- 17/05/2020: Still in touch, first SQLi reported
+- XX/05/2020: Patch for many XSS ans SQLi tested and validated (spip side)
+- XX/05/2020: W00t, got a shell?! (quickly reported & patched)
+- ??/??/2020: Finaly publicly disclosed by spip, article finaly published!
+
+
 # Conclusion?
 
 1. Nothing is as safe as it seems

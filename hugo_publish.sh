@@ -1,4 +1,9 @@
-#!/bin/sh
+#!/bin/bash
+
+if [ ! -f "hugo" ]; then
+    echo "Hugo found, cloning from docker! :)"
+    ./copy_hugo_elf.sh
+fi
 
 clear
 if [ $# -ne 1 ]; then
@@ -19,7 +24,7 @@ else
 fi
 
 # Generate static files
-hugo -d ThinkLoveShare.github.io/
+./hugo -d ThinkLoveShare.github.io/
 git add .
 git status
 read -p "Still sure ?"
