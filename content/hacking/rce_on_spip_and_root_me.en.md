@@ -385,4 +385,14 @@ Another security feature has been added and enforced for admins: GPG
 1. Code stuff, build tools, moaaarrrr tools
 1. Have fun, "waste" nights, everything’s gonna be alright. 
 
+# Last words ? 
+
+The patch. I do the patch often. I really like practicing the patch. Do you?
+
+https://github.com/spip/SPIP/blob/0394b44774555ae8331b6e65e35065dfa0bb41e4/prive/formulaires/editer_liens.php#L131
+
+<img class="img_med" src="/hacking/rce_on_spip_and_root_me/the_patch.png" alt="the_patch">
+
+# Kudos
+
 Once again, thanks goes to [0nemask](https://twitter.com/0nemask), [Sicarius](https://twitter.com/AMTraaaxX), [m_101](https://twitter.com/w_levin), [Hugow](https://twitter.com/hugow_vincent), and [Drastdevix](https://twitter.com/Drastdevix) for proofreading this article, and for bearing with me spamming with random findings at 4am. `(҂⌣̀_⌣́)`
