@@ -377,6 +377,8 @@ Another security feature has been added and enforced for admins: GPG
 - 29/09/2020: Finally publicly disclosed by spip! :D
 - 29/09/2020: Article published! Yataaaa! `\o/`
 
+You can find the release note here : https://blog.spip.net/Mise-a-jour-CRITIQUE-de-securite-SPIP-3-2-8-et-SPIP-3-1-13.html
+
 
 # Conclusion?
 
