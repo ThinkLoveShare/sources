@@ -96,7 +96,7 @@ One more side note! I used a previous project [Wordpress Subpath Auditor](https:
 
 I still noticed one huge limitation for WoSuAu: As it patches the php code in order to analyze it, dynamically generated files are not instrumented as they are only present after the tool is started. This definitely induces false negatives. Instrumenting php itself would have been more efficient... One day maybe?
 
-The tests were ran with the builtin php server `php -S 0.0.0.0:80`. I was too lazy to setup multi-threading, and speed definitely isn't the main concern for Spip folks, not it is for me. Sulfateuse ran for approx 10 hours, I slept on it, and the next morning was like one of these christmas day!
+The tests were ran with the builtin php server `php -S 0.0.0.0:80`. I was too lazy to setup multi-threading, and speed definitely isn't the main concern for Spip folks, nor for me. Sulfateuse ran for approx 10 hours, I slept on it, and the next morning was like one of these christmas day!
 
 
 # Triage the findings
