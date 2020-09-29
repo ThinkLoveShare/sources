@@ -333,7 +333,7 @@ https://www.root-me.org/ecrire/?exec=article&id_article=1&ajouter=non&tri_liste_
 
 ## XSS wise
 
-The `parano` is was enabled, which reduces the attack surface for XSS and escapes pretty much everything. Only a few were working on root-me. 
+The `parano` mode was enabled, which reduces the attack surface for XSS and escapes pretty much everything. Only a few were working on root-me. 
 More information about this mode here: https://www.spip.net/en_article4948.html 
 
 ```html
