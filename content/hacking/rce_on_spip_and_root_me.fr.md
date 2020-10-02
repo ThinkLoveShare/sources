@@ -2,7 +2,7 @@
 author: "Laluka"
 title: "RCE on Spip and Root-Me"
 slug: "rce_on_spip_and_root_me"
-date: 2020-06-04
+date: 2020-09-29
 status: "not translated"
 description: "Write-up de recherche de vulnérabilité sur spip, le framework utilisé par root-me.org. Les trouvailles vont de la XSS à la RCE en passant par la SQLi!"
 ---
