@@ -366,7 +366,7 @@ docker run --rm -it -v $(pwd):/host dockit dizcza/docker-hashcat:intel-cpu hashc
 After discussing these issues with the admins, md5crypt has been removed. They were actually already using sha256, md5crypt being only forgotten legacy and is now gone! \
 Another security feature has been added and enforced for admins: GPG 
 
-# Timeline - DD/MM/YYY)
+# Timeline - DD/MM/YYY
 
 - 20/03/2020: New idea in mind: what about a RCE on root-me.org?
 - 14/05/2020: Dockerized spip setup, first XSS. Getting motivated takes time, right?
