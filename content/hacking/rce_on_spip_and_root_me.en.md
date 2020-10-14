@@ -372,7 +372,7 @@ Another security feature has been added and enforced for admins: GPG
 - 14/05/2020: Dockerized spip setup, first XSS. Getting motivated takes time, right?
 - 15/05/2020: Initial contact with Spip & Root-Me, feedback on a bulk of xss
 - 17/05/2020: Still in touch, first SQLi reported
-- XX/05/2020: Patch for many XSS ans SQLi tested and validated (spip side)
+- XX/05/2020: Patch for many XSS and SQLi tested and validated (spip side)
 - XX/05/2020: W00t, got a shell?! (quickly reported & patched)
 - 29/09/2020: Finally [publicly disclosed](https://blog.spip.net/Mise-a-jour-CRITIQUE-de-securite-SPIP-3-2-8-et-SPIP-3-1-13.html) by spip! :D
 - 29/09/2020: Article published! Yataaaa! `\o/`
