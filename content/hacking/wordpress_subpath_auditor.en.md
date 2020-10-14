@@ -35,7 +35,7 @@ If none of these quick win works, then it's time for a "real" audit ! For me, th
 1. Create a local copy of the target using [wordpress-docker-compose](https://github.com/nezhar/wordpress-docker-compose), and audit the sh*t out of it!
 
 This local copy will include the exact wordpress version, free plugins with the right version, and `legitimately acquired premium plugin code` *cough* `dirlisting` *cough* `google dorks` *cough*. What a wonderful world we live in, with all these open-source softwares and not-so-closed other projects... =] \
-Of course, out local copy won't include the custom code from our target, but usually there is either none, or a really small attack surface so that's not much of a concern. 
+Of course, our local copy won't include the custom code from our target, but usually there is either none, or a really small attack surface so that's not much of a concern. 
 
 
 ## Wordpress Subpath Auditor
