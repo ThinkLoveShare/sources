@@ -52,7 +52,7 @@ hugo serve --baseURL=http://RHOST/
 # In sources :
 git clone git@github.com:ThinkLoveShare/ThinkLoveShare.github.io.git
 /bin/rm -rf resources ThinkLoveShare.github.io/*
-hugo -d ThinkLoveShare.github.io/
+hugo -d ThinkLoveShare.github.io/ -b https://thinkloveshare.com/
 cd ThinkLoveShare.github.io/
 git add .
 git commit -a -m "I did THAT_THING on THIS_FILE"

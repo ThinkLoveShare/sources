@@ -24,7 +24,7 @@ else
 fi
 
 # Generate static files
-./hugo -d ThinkLoveShare.github.io/
+./hugo -d ThinkLoveShare.github.io/ -b https://thinkloveshare.com/
 git add .
 git status
 read -p "Still sure ?"
