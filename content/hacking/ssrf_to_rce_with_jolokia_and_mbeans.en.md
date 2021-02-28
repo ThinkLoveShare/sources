@@ -2,7 +2,7 @@
 author: "Laluka"
 title: "SSRF to RCE with Jolokia and MBeans"
 slug: "ssrf_to_rce_with_jolokia_and_mbeans"
-date: 2021-02-01
+date: 2021-02-28
 status: "original"
 description: "Exploitation writeup for a RCE a found recently, involving a path traversal, an SSRF, jolokia endpoints, and Tomcat jsp files!"
 ---

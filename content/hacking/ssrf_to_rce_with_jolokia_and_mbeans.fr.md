@@ -2,7 +2,7 @@
 author: "Laluka"
 title: "SSRF to RCE avec Jolokia et les MBeans"
 slug: "ssrf_to_rce_with_jolokia_and_mbeans"
-date: 2021-02-01
+date: 2021-02-28
 status: "not translated"
 description: "Write-Up d'une exploit-chain impliquant un path traversal, une SSRF, Jolokia, des Mbeans, le tout menant à RCE plutt chouette !"
 ---
