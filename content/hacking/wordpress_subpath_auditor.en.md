@@ -115,7 +115,7 @@ The covered surface is pretty damn small, and highly dependent on the crawler / 
 Yes, but only if you don't cry too much while reading my dirty code, I don't want you to be sad because I'm a shitty dev... Ok?
 
 This tool is open source since... Well, released with the article, so `today`, relatively speaking :) \
-You can get it here: https://github.com/TheLaluka/wordpress_subpath_auditor
+You can get it here: https://github.com/Laluka/wordpress_subpath_auditor
 
 ---
 
